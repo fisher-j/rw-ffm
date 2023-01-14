@@ -1,0 +1,20 @@
+# links to administrative stuff
+*.url
+
+# other administrative stuff
+expenses/
+
+# don't include pdfs or sqlite database
+data/**/*.pdf
+
+*.db
+
+# unecessary python stuff
+__pycache__
+*.py[ocd]
+
+# vim session
+Session.vim
+
+# These should probably be moved to bibiography
+reference/

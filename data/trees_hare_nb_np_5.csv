@@ -1,0 +1,12 @@
+﻿site,burn,treatment,plot,plot_order,tag,spp,dbh,ht,cbh,cr,clump_tags,defect_top,defect_mid,defect_low,clump_sap,notes
+hare,nb,np,5,1,3882,rw,110,,9.1,,,,,,,
+hare,nb,np,5,2,3883,to,32.5,,5.6,,,,,,"7,6","the ""6"" clump tree is laying down"
+hare,nb,np,5,3,3884,rw,25.8,,5,,"3885,3886",,,,"1,1,1,1,2,2",
+hare,nb,np,5,4,3885,rw,28.2,,2.5,,"3884,3886",,break,,"1,1,1,1,2,2",
+hare,nb,np,5,5,3886,rw,14.9,,1,,"3884,3885",,,break,"1,1,1,1,2,2",resprouting
+hare,nb,np,5,6,3887,rw,90.8,,17.7,,,,,,,
+hare,nb,np,5,7,3888,rw,89.9,,19.7,,,,,,,
+hare,nb,np,5,8,3889,df,11.2,,9.9,,,,,,,
+hare,nb,np,5,9,3890,df,13,,8.5,,,,,,,
+hare,nb,np,5,10,3891,df,10.2,,7.8,,,,,,,
+hare,nb,np,5,11,3892,to,19.8,,12.4,,,,,cav,,1/2 of tree missing

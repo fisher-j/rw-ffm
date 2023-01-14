@@ -1,0 +1,5 @@
+180 plots
+5 per replicate
+401 acres total in all replicates
+.1 acre plots
+4.5% sampling intensity

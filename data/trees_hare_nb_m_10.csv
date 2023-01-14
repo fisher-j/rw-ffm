@@ -1,0 +1,13 @@
+﻿site,burn,treatment,plot,plot_order,tag,spp,dbh,ht,cbh,cr,clump_tags,defect_top,defect_mid,defect_low,clump_sap,notes
+hare,nb,m,10,1,988,rw,116,,28.5,,,,,,,
+hare,nb,m,10,2,989,to,27.3,,1.5,,,,,,"1,1,1,1,1",
+hare,nb,m,10,3,990,rw,90.3,,25.9,,,,,,,
+hare,nb,m,10,4,992,to,11.4,,2.5,,"993,994",,,,"9,6",
+hare,nb,m,10,5,993,to,16.9,,2.5,,"992,994",,,,"9,6",
+hare,nb,m,10,6,994,to,16.9,,2.5,,"992,993",,,,"9,6",
+hare,nb,m,10,7,995,df,13.9,,11.1,,,,,,,
+hare,nb,m,10,8,996,to,16.2,,4,,,,scar,scar,"2,2,2",
+hare,nb,m,10,9,997,rw,19.8,,4.5,,,,,,5,
+hare,nb,m,10,10,998,to,12.5,,2.5,,,break,,,,
+hare,nb,m,10,11,999,to,10.8,,4.5,,,,,,,
+hare,nb,m,10,12,1000,gf,11.5,,8,,,,,,,
