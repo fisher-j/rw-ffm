@@ -1,0 +1,3 @@
+when a datasheet is saved:
+    * check database to see if the plot exists, if not, create an entry in the plot table for the plot.
+    * check database for filename, if it exists, set to unentered. if it doesn't exist, create an entry for it.
