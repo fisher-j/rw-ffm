@@ -63,6 +63,7 @@ CREATE TABLE IF NOT EXISTS fuelmetadata (
     tenhrlen INTEGER NOT NULL,
     hundhrlen INTEGER NOT NULL,
     thoushrlen INTEGER NOT NULL,
+    notes TEXT
 );
 
 CREATE TABLE IF NOT EXISTS treemetadata (
@@ -203,9 +204,6 @@ FROM collectdatasheets
 JOIN collections USING(collectid)
 JOIN plots USING(plotid)
 ;
-
-
--- TODO: create views to export to csv for the three different datatypes
 
 
 -- CREATE VIEW IF NOT EXISTS expand_transects
