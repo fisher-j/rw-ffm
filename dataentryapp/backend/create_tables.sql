@@ -1,5 +1,4 @@
 
-
 -- Add button to mark a datasheet as 'done'
 CREATE TABLE IF NOT EXISTS datasheets (
     datasheetid INTEGER PRIMARY KEY,
@@ -35,12 +34,6 @@ CREATE TABLE IF NOT EXISTS collections (
 CREATE TABLE IF NOT EXISTS collectdatasheets (
     collectid INTEGER NOT NULL,
     datasheetid INTEGER NOT NULL,
-    FOREIGN KEY (collectid) REFERENCES collections(collectid)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE,
-    FOREIGN KEY (datasheetid) REFERENCES datasheets(datasheetid)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE,
     PRIMARY KEY (collectid, datasheetid)
 );
 
@@ -68,30 +61,21 @@ CREATE TABLE IF NOT EXISTS fuelmetadata (
 
 CREATE TABLE IF NOT EXISTS treemetadata (
     collectid INTEGER PRIMARY KEY,
-    notes TEXT,
-    FOREIGN KEY (collectid) REFERENCES collections(collectid)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE
+    notes TEXT
 );
 
 CREATE TABLE IF NOT EXISTS reftrees (
     collectid INTEGER PRIMARY KEY,
     treeid INTEGER NOT NULL,
     distance REAL,
-    azimuth INTEGER,
-    FOREIGN KEY (collectid) REFERENCES collections(collectid)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE
+    azimuth INTEGER
 );
 
 CREATE TABLE IF NOT EXISTS regenmetadata (
     collectid INTEGER PRIMARY KEY,
     seedlingradius INTEGER NOT NULL,
     saplingradius INTEGER NOT NULL,
-    notes TEXT,
-    FOREIGN KEY (collectid) REFERENCES collections(collectid)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE
+    notes TEXT
 );
 
 CREATE TABLE IF NOT EXISTS trees (
@@ -105,29 +89,20 @@ CREATE TABLE IF NOT EXISTS trees (
     cr REAL,
     clumpid INTEGER,
     notes TEXT,
-    UNIQUE(collectid, treeid),
-    FOREIGN KEY (collectid) REFERENCES collections(collectid)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE
+    UNIQUE(collectid, treeid)
 );
 
 CREATE TABLE IF NOT EXISTS treedefect (
     treeobsid INTEGER NOT NULL,
     location TEXT,
     defecttype TEXT,
-    UNIQUE(location, defecttype),
-    FOREIGN KEY (treeobsid) REFERENCES trees(treeobsid)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE
+    UNIQUE(location, defecttype)
 );
 
 CREATE TABLE IF NOT EXISTS clumpsaplings (
     collectid INTEGER NOT NULL,
     clumpid INTEGER NOT NULL,
     sapdbh REAL,
-    FOREIGN KEY (collectid) REFERENCES collections(collectid)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE,
     PRIMARY KEY (collectid, clumpid)
 );
 
@@ -136,10 +111,7 @@ CREATE TABLE IF NOT EXISTS regencounts (
     spp TEXT NOT NULL,
     sizeclass TEXT NOT NULL,
     count INTEGER NOT NULL,
-    UNIQUE(collectid, spp, sizeclass),
-    FOREIGN KEY (collectid) REFERENCES collections(collectid)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE
+    UNIQUE(collectid, spp, sizeclass)
 );
 
 CREATE TABLE IF NOT EXISTS regenheights (
@@ -147,10 +119,7 @@ CREATE TABLE IF NOT EXISTS regenheights (
     spp TEXT NOT NULL,
     sizeclass TEXT NOT NULL,
     cbh REAL,
-    ht REAL,
-    FOREIGN KEY (collectid) REFERENCES collections(collectid)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE
+    ht REAL
 );
 
 CREATE TABLE IF NOT EXISTS transects (
