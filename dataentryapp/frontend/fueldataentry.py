@@ -501,7 +501,11 @@ class App(tk.Toplevel):
     def on_destroy(self, event):
         if event.widget == self:
             self.parent.update_dataview()
-
+    #
+    # def report_callback_exception(self, *args):
+    #     err = traceback.format_exception(*args)
+    #     print("i'm inside report_callback_exception in fueldataentry.")
+    #     messagebox.showerror("Exception", err)
 
 
 if __name__ == "__main__":

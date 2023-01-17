@@ -5,6 +5,7 @@ from tkinter import filedialog
 from tkinter import messagebox
 import subprocess as sp
 import platform
+import traceback
 from pathlib import Path
 from dataentryapp.backend import backend
 from dataentryapp.backend import import_from_filename
@@ -172,6 +173,16 @@ class MainMenu(tk.Tk):
         backend.export_tables()
         messagebox.showinfo("Export complete", message="Tables exported to data\\csv")
 
+    def report_callback_exception(self, *args):
+        exc, val, tb = args
+        print(exc)
+        print(val)
+        print(tb)
+
+        err = ('An uncaught exception has occurred!\n\n'
+               + '\n'.join(traceback.format_exception(*args))
+               + '\nTerminating.')
+        messagebox.showerror("Exception", err)
 
 if __name__ == "__main__":
     app = MainMenu()

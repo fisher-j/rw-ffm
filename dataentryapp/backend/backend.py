@@ -1,3 +1,5 @@
+import traceback
+from tkinter import messagebox
 import sqlite3
 from pathlib import Path
 from datetime import datetime, date
@@ -465,10 +467,7 @@ def insert_fuel_metadata(collectid, onehrlen, tenhrlen, hundhrlen, thoushrlen):
 # if there is already a date for the collection
 def insert_regen_metadata(datasheetid, plotnum, date, seedlingradius, saplingradius, notes):
     cur = conn.cursor()
-    try:
-        date = datetime.strptime(date, "%m/%d/%Y").date()
-    except:
-        print("Use date format: DD/MM/YYYY")
+    date = datetime.strptime(date, "%m/%d/%Y").date()
     cur.execute(
         """
         SELECT collectid 
@@ -577,26 +576,27 @@ def insert_crew(collectid, role, member, transectid = None):
 def insert_dates(collectid, date, only_one = False):
     try:
         date = datetime.strptime(date, "%m/%d/%Y").date()
-    except:
-        print("Use date format: DD/MM/YYYY")
-    if only_one and get_dates(collectid):
+    except ValueError:
+        messagebox.showerror("Exception", "Use date format: MM/DD/YYYY")
+    else:
+        if only_one and get_dates(collectid):
+            cur = conn.cursor()
+            cur.execute(
+                """
+                DELETE FROM collectdates WHERE collectid = ?
+                """,
+                (collectid,)
+            )
         cur = conn.cursor()
         cur.execute(
             """
-            DELETE FROM collectdates WHERE collectid = ?
+            INSERT INTO collectdates (collectid, date) VALUES(?, ?)
             """,
-            (collectid,)
+            (collectid, date),
         )
-    cur = conn.cursor()
-    cur.execute(
-        """
-        INSERT INTO collectdates (collectid, date) VALUES(?, ?)
-        """,
-        (collectid, date),
-    )
-    conn.commit()
-    cur.close()
-    return
+        conn.commit()
+        cur.close()
+        return
 
 def insert_reftrees(collectid, treeid, distance, azimuth):
     cur = conn.cursor()
@@ -1031,7 +1031,11 @@ def get_dates(collectid):
         (collectid,)
     )
     res = cur.fetchall()
-    output = [row[0].strftime("%m/%d/%Y") for row in res]
+    try:
+        output = [row[0].strftime("%m/%d/%Y") for row in res]
+    except ValueError:
+        output = None
+        messagebox.showerror("Exception", "Problem importing dates: wrong format")
     cur.close()
     return output
 
