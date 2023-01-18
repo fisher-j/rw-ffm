@@ -1327,8 +1327,9 @@ def plot_num_test(num):
     else:
         return num + " not valid plot number"
 
-def flag_bad_values(str_vals, plot_num, check_values):
-
+def flag_bad_values(collection, check_values):
+    str_vals = {k: collection[k] for k in collection if k != "plotnums"}
+    plotnums = collection["plotnums"]
     bad = [
         val + " not in " + key
         for key, val in str_vals.items()
@@ -1336,7 +1337,7 @@ def flag_bad_values(str_vals, plot_num, check_values):
     ]
 
     # check comma separated numbers in the case of regen
-    for n in plot_num:
+    for n in plotnums:
         t = plot_num_test(n)
         if t:
             bad.append(t)

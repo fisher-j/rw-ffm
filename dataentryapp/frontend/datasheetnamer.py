@@ -199,17 +199,16 @@ class PdfFrame(ttk.Frame):
             right_frame.e_type.get(),
             right_frame.e_site.get(),
             right_frame.e_treatment.get(),
-            right_frame.e_burn.get()
+            right_frame.e_burn.get(),
+            [v.strip() for v in right_frame.e_plot.get().split(",")]
         ]
         
-        plot_num = [v.strip() for v in right_frame.e_plot.get().split(",")]
-        
         # dictionary of values pass to backend functions
-        key_names = ("stage", "type", "site", "treatment", "burn")
+        key_names = ("stage", "type", "site", "treatment", "burn", "plotnums")
         collection = {n: v for n, v in zip(key_names, treatment_id)}
         
         # only allow values listed in autocomplete list
-        bad = backend.flag_bad_values(collection, plot_num, right_frame.comp_opt)
+        bad = backend.flag_bad_values(collection, right_frame.comp_opt)
 
         if bad:
             mb.showerror(
@@ -221,28 +220,24 @@ class PdfFrame(ttk.Frame):
         # Only single plot data sheets are named with their plot number
         # plot number is ommited for regen datasheets
         col = collection.copy()
-        col["plotnum"] = plot_num
         filename = backend.make_unique_filename(col)
 
         # check database if combination of stage, datatype, site, treatment, burn, plot
         # exists already.
         prior_collection = []
         prior_plotid = []
-        col = collection.copy()
-        plot_num = [int(n) for n in plot_num]
-        for p in plot_num:
+        col = {k: collection[k] for k in collection if k != "plotnums"}
+        plotnums = [int(n) for n in collection["plotnums"]]
+        for p in plotnums:
             col["plotnum"] = p
-            clct = backend.search_collectid(col)
-            prior_collection.append(clct)
+            clctid = backend.search_collectid(col)
+            prior_collection.append(clctid)
             pltid = backend.search_plotid(col)
             prior_plotid.append(pltid)
-        print("prior collections: ",  prior_collection)
-        print("prior plotids: ", prior_plotid)
 
         # Check if there is an existing corrosponding collection
         if any(prior_collection):
-            collection_exists = [p[0] for p in zip(plot_num, prior_collection) if p[1]]
-            print("collection exists: ", collection_exists)
+            collection_exists = [p[0] for p in zip(plotnums, prior_collection) if p[1]]
             if collection_exists:
                 response = mb.askquestion(
                     "Real?", 
@@ -258,17 +253,17 @@ class PdfFrame(ttk.Frame):
 
         # Iterate over plots associated with datasheet and enter corrosponding plot
         # and collection table entries.
-        for p in range(len(plot_num)):
+        for p in range(len(plotnums)):
             col = collection.copy()
             if prior_collection[p]:
                 backend.link_datasheet(prior_collection[p], datasheetid)
             elif prior_plotid[p]:
                 col["plotid"] = prior_plotid[p]
-                col["plotnum"] = plot_num[p]
+                col["plotnum"] = plotnums[p]
                 collectid = backend.insert_collectid(col)
                 backend.link_datasheet(collectid, datasheetid)
             else:
-                col["plotnum"] = plot_num[p]
+                col["plotnum"] = plotnums[p]
                 plotid = backend.insert_plot(col)
                 col["plotid"] = plotid
                 collectid = backend.insert_collectid(col)
