@@ -185,24 +185,44 @@ class FuelFrame(ttk.Frame):
             wid.delete(0, "end")
     
 class FWDFrame(FuelFrame):
-    def __init__(self, parent):
-        self.columns = (
-            "Azimuth",
-            "Crew",
-            "Transect",
-            "Slope",
-            "One hr",
-            "Ten hr",
-            "Hund hr",
-            "Duff/litter 5",
-            "% Litter 5",
-            "FBD 5",
-            "Duff/litter 10",
-            "% Litter 10",
-            "FBD 10"
-        )
-        self.button_labels2 = []
-        self.data_getter = backend.get_fwd
+    def __init__(self, parent, swap=False):
+        self.swap = swap
+        if swap:
+            self.columns = (
+                "Azimuth",
+                "Crew",
+                "Transect",
+                "Slope",
+                "One hr",
+                "Ten hr",
+                "Hund hr",
+                "Duff/litter 10",
+                "% Litter 10",
+                "FBD 10",
+                "Duff/litter 5",
+                "% Litter 5",
+                "FBD 5"
+            )
+            self.button_labels2 = []
+            self.data_getter = backend.get_fwd_swap
+        else:    
+            self.columns = (
+                "Azimuth",
+                "Crew",
+                "Transect",
+                "Slope",
+                "One hr",
+                "Ten hr",
+                "Hund hr",
+                "Duff/litter 5",
+                "% Litter 5",
+                "FBD 5",
+                "Duff/litter 10",
+                "% Litter 10",
+                "FBD 10"
+            )
+            self.button_labels2 = []
+            self.data_getter = backend.get_fwd
         super().__init__(parent)
 
     def submit(self, transectid, transectnum):
@@ -233,28 +253,52 @@ class FWDFrame(FuelFrame):
         self.parent.veg_frame.dataview.selection_set(row)
 
 class VegFrame(FuelFrame):
-    def __init__(self, parent):
-        self.columns = (
-            "#",
-            "Crew",
-            "Live wdy. 5",
-            "Dead wdy. 5",
-            "Wdy. ht. 5",
-            "Live hrb. 5",
-            "Dead hrb. 5",
-            "Hrb. ht. 5",
-            "Live wdy. 10",
-            "Dead wdy. 10",
-            "Wdy. ht. 10",
-            "Live hrb. 10",
-            "Dead hrb. 10",
-            "Hrb. ht. 10"
-        )
-        # Don't enter transect again, so there are different number of entry widgets and 
-        # dataview columns
-        self.entry_labels = self.columns[1:]
-        self.button_labels2 = []
-        self.data_getter = backend.get_veg
+    def __init__(self, parent, swap=False):
+        self.swap = swap
+        if swap:
+            self.columns = (
+                "#",
+                "Crew",
+                "Live wdy. 10",
+                "Dead wdy. 10",
+                "Wdy. ht. 10",
+                "Live hrb. 10",
+                "Dead hrb. 10",
+                "Hrb. ht. 10",
+                "Live wdy. 5",
+                "Dead wdy. 5",
+                "Wdy. ht. 5",
+                "Live hrb. 5",
+                "Dead hrb. 5",
+                "Hrb. ht. 5"
+            )
+            # Don't enter transect again, so there are different number of entry widgets and 
+            # dataview columns
+            self.entry_labels = self.columns[1:]
+            self.button_labels2 = []
+            self.data_getter = backend.get_veg_swap
+        else:
+            self.columns = (
+                "#",
+                "Crew",
+                "Live wdy. 5",
+                "Dead wdy. 5",
+                "Wdy. ht. 5",
+                "Live hrb. 5",
+                "Dead hrb. 5",
+                "Hrb. ht. 5",
+                "Live wdy. 10",
+                "Dead wdy. 10",
+                "Wdy. ht. 10",
+                "Live hrb. 10",
+                "Dead hrb. 10",
+                "Hrb. ht. 10"
+            )
+            # Don't enter transect again, so there are different number of entry widgets and 
+            # dataview columns
+            self.entry_labels = self.columns[1:]
+            self.button_labels2 = []
+            self.data_getter = backend.get_veg
         super().__init__(parent)
 
     def submit(self, transectid):
@@ -325,7 +369,7 @@ class ButtonFrame(tk.Frame):
         self.parent = parent
         self.collection = parent.collection
         options = {'padx': 3, 'pady': 3}
-        self.button_labels2 = ["Submit", "Delete transect", "Clear entries", "Close"]
+        self.button_labels2 = ["Submit", "Delete transect", "Clear entries", "Swap stations", "Close"]
         self.button_widgets2 = []
         for b in self.button_labels2:
             # command for each button is the same as the label for that button
@@ -382,6 +426,9 @@ class ButtonFrame(tk.Frame):
 
     def close(self):
         self.parent.destroy()
+
+    def swap_stations(self):
+        self.parent.swap_frame()
 
 class NotesFrame(FuelFrame):
     def __init__(self, parent, parent2=None):
@@ -487,6 +534,24 @@ class App(tk.Toplevel):
         self.metadata_frame.date_widget.focus()
 
         self.bind("<Destroy>", self.on_destroy)
+        # set initial state for widgets that can swap
+        self.swap = False
+
+    def swap_frame(self):
+        if self.swap:
+            self.swap = False
+            self.fwd_frame.destroy()
+            self.fwd_frame = FWDFrame(self)
+            self.fwd_frame.grid(column=0, row=1, sticky="ns", padx=4, pady=4)
+            self.veg_frame = VegFrame(self, swap=False)
+            self.veg_frame.grid(column=0, row=2, sticky="ns", padx=4, pady=4)
+        else:
+            self.swap = True
+            self.fwd_frame.destroy()
+            self.fwd_frame = FWDFrame(self, swap=True)
+            self.fwd_frame.grid(column=0, row=1, sticky="ns", padx=4, pady=4)
+            self.veg_frame = VegFrame(self, swap=True)
+            self.veg_frame.grid(column=0, row=2, sticky="ns", padx=4, pady=4)
 
     def update_all_dataviews(self):
         self.fwd_frame.update_dataview()

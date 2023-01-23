@@ -839,6 +839,41 @@ def get_veg(collectid):
     cur.close()
     return res
 
+def get_veg_swap(collectid):
+    cur = conn.cursor()
+    cur.execute(
+        """
+        SELECT
+        transectnum,
+        member,
+        MAX(CASE WHEN metermark = 10 THEN livewoody END)   "livewoody10",
+        MAX(CASE WHEN metermark = 10 THEN deadwoody END)   "deadwoody10",
+        MAX(CASE WHEN metermark = 10 THEN woodyheight END) "woodyheight10",
+        MAX(CASE WHEN metermark = 10 THEN liveherb END)    "liveherb10",
+        MAX(CASE WHEN metermark = 10 THEN deadherb END)    "deadherb10",
+        MAX(CASE WHEN metermark = 10 THEN herbheight END)  "herbheight10",
+        MAX(CASE WHEN metermark =  5 THEN livewoody END)   "livewoody5",
+        MAX(CASE WHEN metermark =  5 THEN deadwoody END)   "deadwoody5",
+        MAX(CASE WHEN metermark =  5 THEN woodyheight END) "woodyheight5",
+        MAX(CASE WHEN metermark =  5 THEN liveherb END)    "liveherb5",
+        MAX(CASE WHEN metermark =  5 THEN deadherb END)    "deadherb5",
+        MAX(CASE WHEN metermark =  5 THEN herbheight END)  "herbheight5"
+        FROM transects
+        LEFT JOIN (SELECT transectid, member
+                   FROM collectcrew 
+                   WHERE role = "veg") USING(transectid)
+        LEFT JOIN fwd USING(transectid)
+        LEFT JOIN station USING(transectid)
+        WHERE transects.collectid = ?
+        GROUP BY transectid
+        ORDER BY transectnum
+        """,
+        (collectid,)
+    )
+    res = cur.fetchall()
+    cur.close()
+    return res
+
 def get_transectid(collectid, transectnum):
     cur = conn.cursor()
     cur.execute(
@@ -870,6 +905,40 @@ def get_fwd(collectid):
         MAX(CASE WHEN metermark = 10 THEN depth END) "dufflitter10",
         MAX(CASE WHEN metermark = 10 THEN pctlitter END) "pctlitter10",
         MAX(CASE WHEN metermark = 10 THEN fbd END) "fbd10"
+        FROM transects
+        LEFT JOIN (SELECT transectid, member 
+                   FROM collectcrew 
+                   WHERE role = "fwd") USING(transectid)
+        LEFT JOIN fwd USING(transectid)
+        LEFT JOIN station USING(transectid)
+        WHERE transects.collectid = ?
+        GROUP BY transectid
+        ORDER BY transectnum
+        """,
+        (collectid,)
+    )
+    res = cur.fetchall()
+    cur.close()
+    return res
+
+def get_fwd_swap(collectid):
+    cur = conn.cursor()
+    cur.execute(
+        """
+        SELECT
+        azimuth,
+        member,
+        transectnum,
+        slope,
+        onehr,
+        tenhr,
+        hundhr,
+        MAX(CASE WHEN metermark = 10 THEN depth END) "dufflitter10",
+        MAX(CASE WHEN metermark = 10 THEN pctlitter END) "pctlitter10",
+        MAX(CASE WHEN metermark = 10 THEN fbd END) "fbd10",
+        MAX(CASE WHEN metermark = 5 THEN depth END) "dufflitter5",
+        MAX(CASE WHEN metermark = 5 THEN pctlitter END) "pctlitter5",
+        MAX(CASE WHEN metermark = 5 THEN fbd END) "fbd5"
         FROM transects
         LEFT JOIN (SELECT transectid, member 
                    FROM collectcrew 
