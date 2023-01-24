@@ -337,6 +337,18 @@ def delete_tree_entry(collectid, treeid):
 ################## Insert commands ###################
 ######################################################
 
+
+def insert_datasheet_status(datasheetid, status):
+    cur = conn.cursor()
+    cur.execute(
+        """
+        UPDATE datasheets SET status = ? WHERE datasheetid = ?;
+        """,
+        (status, datasheetid)
+    )
+    conn.commit()
+    cur.close()
+
 def insert_transect_notes(transectid, notes):
     cur = conn.cursor()
     cur.execute(
@@ -774,6 +786,18 @@ def link_datasheet(collectid, datasheetid):
 ###############################################################
 ################### Select get commands #######################
 ###############################################################
+
+def get_datasheet_status(datasheetid):
+    cur = conn.cursor()
+    cur.execute(
+        """
+        SELECT status FROM datasheets WHERE datasheetid = ?
+        """,
+        (datasheetid)
+    )
+    res = cur.fetchall()
+    cur.close()
+    return res
 
 def get_transect_notes(collectid):
     cur = conn.cursor()

@@ -81,7 +81,11 @@ class FuelFrame(ttk.Frame):
         self.dataview_frame.columnconfigure(0, weight=1)
 
         # Create widget
-        self.dataview = ttk.Treeview(self.dataview_frame, columns=self.columns, show="headings", takefocus=0, height=6)
+        self.dataview = ttk.Treeview(self.dataview_frame,
+                                     columns=self.columns,
+                                     show="headings",
+                                     takefocus=0,
+                                     height=6)
         for i in range(len(self.columns)):
             text = self.columns[i]
             self.dataview.heading(self.columns[i], text=text)
@@ -377,7 +381,13 @@ class ButtonFrame(tk.Frame):
         self.parent = parent
         self.collection = parent.collection
         options = {'padx': 3, 'pady': 3}
-        self.button_labels2 = ["Submit", "Delete transect", "Clear entries", "Swap stations", "Close"]
+        self.button_labels2 = [
+            "Submit",
+            "Delete transect",
+            "Clear entries",
+            "Swap stations",
+            "Mark and Close"
+        ]
         self.button_widgets2 = []
         for b in self.button_labels2:
             # command for each button is the same as the label for that button
@@ -385,6 +395,13 @@ class ButtonFrame(tk.Frame):
             func = getattr(self, b.lower().replace(" ", "_"))
             wid = tk.Button(self, text=b, command=func)
             self.button_widgets2.append(wid)
+
+        # allow to set status
+        cbvals = ["Not started", "Started", "Complete"]
+        cb = ttk.Combobox(self, state="readonly", values=cbvals)
+        self.button_widgets2.insert(4, cb)
+        status = backend.get_datasheet_status(self.parent.datasheetid)[0]
+        self.button_widgets2[4].set(status)
 
         # arrange widgets
         for idx, w in enumerate(self.button_widgets2):
@@ -432,7 +449,10 @@ class ButtonFrame(tk.Frame):
         self.parent.veg_frame.clear_entries()
         self.parent.fwd_frame.entry_widgets[1].focus()
 
-    def close(self):
+    def mark_and_close(self):
+        status = self.button_widgets2[4].get()
+        datasheetid = self.parent.datasheetid
+        backend.insert_datasheet_status(datasheetid, status)
         self.parent.destroy()
 
     def swap_stations(self):
