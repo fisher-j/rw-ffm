@@ -322,8 +322,8 @@ class CWDFrame(FuelFrame):
     def __init__(self, parent, parent2):
         self.columns = (
             "Transect",
-            "Decay class",
-            "Diameter"
+            "Diameter",
+            "Decay class"
         )
         self.button_labels2 = ["Submit", "Delete entry"]
         self.data_getter = backend.get_cwd
@@ -337,6 +337,8 @@ class CWDFrame(FuelFrame):
         backend.insert_transect(collectid, transectnum)
         transectid = backend.get_transectid(collectid, transectnum)
         cwd = [w.get() for w in self.entry_widgets[1:]]
+        cwd[0] = float(cwd[0])
+        cwd[1] = int(cwd[1])
         backend.insert_cwd(transectid, *cwd)
         self.parent.update_all_dataviews()
         for wid in self.entry_widgets:
@@ -352,6 +354,8 @@ class CWDFrame(FuelFrame):
             print("Transect doesn't exist yet.")
             return
         cwd = [w.get() for w in self.entry_widgets[1:]]
+        cwd[0] = float(cwd[0])
+        cwd[1] = int(cwd[1])
         backend.delete_cwd(transectid, *cwd)
         self.parent.update_all_dataviews()
         for wid in self.entry_widgets:
