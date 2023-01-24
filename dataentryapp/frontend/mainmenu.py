@@ -183,7 +183,8 @@ class MainMenu(tk.Tk):
         err = ('An uncaught exception has occurred!\n\n'
                + '\n'.join(traceback.format_exception(*args))
                + '\nTerminating.')
-        messagebox.showerror("Exception", err)
+        curwindow = self.dataEntryWindow if self.dataEntryWindow else None
+        messagebox.showerror("Exception", err, parent=curwindow)
 
 if __name__ == "__main__":
     app = MainMenu()
