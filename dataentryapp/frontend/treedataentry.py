@@ -85,7 +85,7 @@ class TreeListFrame(ttk.Frame):
 
 
     def open_crew_entry(self):
-        columns = ["transectnum", "Role", "Member"]
+        columns = ["Role", "Member"]
         self.newWin = template.SimpleEntry(self, columns=columns, hide=1)
         # When I close these windows, I don't want to update anything in the parent frame
         self.newWin.unbind("<Destroy>", self.newWin.bindid)
@@ -95,9 +95,14 @@ class TreeListFrame(ttk.Frame):
         )
         self.newWin.set_inserter(
             func=backend.insert_crew,
-            collectid=self.collection["collectid"]
+            collectid=self.collection["collectid"],
+            role="cuiser"
         )
-        # self.newWin.set_deleter(        )
+        self.newWin.set_deleter(
+            func=backend.delete_crew,
+            collectid=self.collection["collectid"],
+            role="cuiser"
+        )
 
     def open_dates_entry(self):
         columns = ["Date"]

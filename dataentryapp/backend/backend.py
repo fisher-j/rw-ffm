@@ -247,17 +247,17 @@ def delete_tree_notes(collectid, notes):
     cur.close()
     return
 
-def delete_crew(collectid, role, member, transectnum = None):
+def delete_crew(collectid, role, member, transectid = None):
     cur = conn.cursor()
     cur.execute(
         """
-        INSERT INTO collectcrew 
+        DELETE FROM collectcrew 
         WHERE collectid = ?
-        AND (transectnum = ? OR transectnum IS NULL)
+        AND (transectid = ? OR transectid IS NULL)
         AND role = ?
         AND member = ?
         """,
-        (collectid, transectnum, role, member),
+        (collectid, transectid, role, member),
     )
     conn.commit()
     cur.close()
