@@ -96,14 +96,13 @@ CREATE TABLE IF NOT EXISTS treedefect (
     treeobsid INTEGER NOT NULL,
     location TEXT,
     defecttype TEXT,
-    UNIQUE(location, defecttype)
+    UNIQUE(treeobsid, location, defecttype)
 );
 
 CREATE TABLE IF NOT EXISTS clumpsaplings (
     collectid INTEGER NOT NULL,
     clumpid INTEGER NOT NULL,
-    sapdbh REAL,
-    PRIMARY KEY (collectid, clumpid)
+    sapdbh REAL
 );
 
 CREATE TABLE IF NOT EXISTS regencounts (
