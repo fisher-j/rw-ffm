@@ -244,7 +244,9 @@ class FWDFrame(FuelFrame):
         fwd = (int(w.get()) if w.get() != "" else None for w in self.entry_widgets[4:7])
         backend.insert_fwd(transectid, *fwd)
         # using indexes of entry widgets, covert wide to long data
-        for mm, slc in zip((5, 10), (7, 10)):
+        # swap metermark labels if necessayr to match widget order
+        meterMarkOrder = (10, 5) if self.swap else (5, 10)
+        for mm, slc in zip(meterMarkOrder, (7, 10)):
             dufflitterfbd = [w.get() for w in self.entry_widgets[slc:slc+3]]
             dufflitterfbd = [float(val) if val != "" else None for val in dufflitterfbd]
             backend.insert_dufflitterfbd(transectid, mm, *dufflitterfbd)
@@ -305,7 +307,9 @@ class VegFrame(FuelFrame):
         collectid = self.collection["collectid"]
         crew = self.entry_widgets[0].get()
         backend.insert_crew(collectid, "veg", crew, transectid)
-        for mm, slc in zip((5, 10), (1, 7)):
+        # swap metermark labels if necessayr to match widget order
+        meterMarkOrder = (10, 5) if self.swap else (5, 10)
+        for mm, slc in zip(meterMarkOrder, (1, 7)):
             veg = [w.get() for w in self.entry_widgets[slc:slc+6]]
             veg = [float(val) if val != "" else None for val in veg]
             backend.insert_veg(transectid, mm, *veg)

@@ -21,3 +21,6 @@ reference/
 
 # random sql queries
 queries.sql
+
+# ignore drive backup stuff
+.tmp.driveupload
