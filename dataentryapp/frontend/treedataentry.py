@@ -43,8 +43,8 @@ class TreeListFrame(ttk.Frame):
 
         # Create dataview widget (ttk.Treeview)
         # columns and headings
-        columns = ("treeid", "spp", "dbh", "ht", "cbh", "clumpid", "clumpsaplings", "damage", "notes")
-        col_names = ("Tree ID", "Species", "DBH", "HT", "Crown base", "Clump ID", "Clump saplings", "Damage", "Notes")
+        columns = ("treeid", "spp", "dbh", "ht", "cbh", "clumpid", "damage", "clumpsaplings", "notes")
+        col_names = ("Tree ID", "Species", "DBH", "HT", "Crown base", "Clump ID", "Damage", "Clump saplings", "Notes")
         col_widths = (60, 60, 50, 50, 90, 80, 115, 80, 220)
 
         # Create widget
@@ -160,7 +160,7 @@ class EntryFrame(ttk.Frame):
         super().__init__(parent)
         # field options
         options = {'padx': 3, 'pady': 3}
-        labels = ("Tree ID", "Species", "DBH", "HT", "Crown base", "Clump ID", "Clump saplings", "Damage", "Notes")
+        labels = ("Tree ID", "Species", "DBH", "HT", "Crown base", "Clump ID", "Damage", "Clump saplings", "Notes")
 
         # Build widget labels
         self.label_list = [tk.Label(self, text=labels[i]) for i in range(len(labels))]
@@ -201,8 +201,8 @@ class EntryFrame(ttk.Frame):
         self.ht_e.grid(row=2, column=3, **options)
         self.cbh_e.grid(row=2, column=4, **options)
         self.clumpid_e.grid(row=2, column=5, **options)
-        self.clumpsap_b.grid(row=2, column=6, **options)
-        self.damage_b.grid(row=2, column=7, **options)
+        self.damage_b.grid(row=2, column=6, **options)
+        self.clumpsap_b.grid(row=2, column=7, **options)
         self.notes_e.grid(row=2, column=8, **options)
 
         # bottom row buttons
@@ -258,14 +258,14 @@ class EntryFrame(ttk.Frame):
         treeid = self.treeid_e.get()
         clumpid = self.clumpid_e.get()
         if not (treeid and clumpid) or not (treeid.isdigit() and clumpid.isdigit()):
-            print("must supply integer clumpid and treeid")
+            messagebox.showinfo("Need more info", "must supply integer clumpid and treeid")
             return
         args = {
             "collectid": self.collection["collectid"],
             "clumpid": int(clumpid)
         }
         if not backend.match_tree_clump(treeid=treeid, **args):
-            print("Wrong clumpid")
+            messagebox.showinfo("Wrong clumpid", "Clumpid mismatch, check clumpid.")
             return
         columns = ["Sap DBH"]
         self.newWin = template.SimpleEntry(self, columns=columns, hide=0)

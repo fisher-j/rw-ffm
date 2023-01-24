@@ -1188,7 +1188,7 @@ def get_datasheet_trees(collectid):
     # get data associated with datatype and datasheet id
     cur.execute(
         """
-        SELECT treeid, spp, dbh, ht, cbh, clumpid, clumpsap, defects, notes 
+        SELECT treeid, spp, dbh, ht, cbh, clumpid, defects, clumpsap, notes 
         FROM trees
         LEFT JOIN (SELECT treeobsid, GROUP_CONCAT(defecttype) defects 
             FROM treedefect GROUP BY treeobsid) 
