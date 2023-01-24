@@ -106,6 +106,7 @@ class MainMenu(tk.Tk):
         datasheets = [list(row) for row in datasheets]
         for idx, row in enumerate(datasheets):
             datasheets[idx][2] = row[2].strftime("%m/%d/%Y %H:%M:%S")
+        datasheets.sort(key=lambda x: x[1])
 
         # add data to the treeview
         for sheet in datasheets:
