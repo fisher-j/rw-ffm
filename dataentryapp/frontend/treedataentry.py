@@ -208,11 +208,17 @@ class EntryFrame(ttk.Frame):
         self.button_frame = tk.Frame(self)
         self.button_frame.grid(row=3, column=0, columnspan=9)
         self.button1 = tk.Button(self.button_frame, text="Submit", command=self.submit)
-        self.button2 = tk.Button(self.button_frame, text="Close", command=parent.destroy)
-        self.button3 = tk.Button(self.button_frame, text="Delete entry", command=self.delete)
+        # allow to set status
+        cbvals = ["Not started", "Started", "Complete"]
+        status = backend.get_datasheet_status(self.parent.datasheetid)[0]
+        self.button2 = ttk.Combobox(self.button_frame, state="readonly", values=cbvals)
+        self.button2.set(status)
+        self.button3 = tk.Button(self.button_frame, text="Mark and close", command=self.mark_and_close)
+        self.button4 = tk.Button(self.button_frame, text="Delete entry", command=self.delete)
         self.button1.grid(row=0, column=0, **options)
         self.button2.grid(row=0, column=1, **options)
         self.button3.grid(row=0, column=2, **options)
+        self.button4.grid(row=0, column=3, **options)
 
         self.treeid_e.focus()
 
@@ -228,8 +234,12 @@ class EntryFrame(ttk.Frame):
                 backend.delete_tree_entry(collectid=collectid, treeid=treeid)
                 self.update_dataview()
 
-    def close(self):
-        self.destroy()
+    def mark_and_close(self):
+        status = self.button2.get()
+        datasheetid = self.parent.datasheetid
+        backend.insert_datasheet_status(datasheetid, status)
+        self.parent.destroy()
+
 
     def open_damage_entry(self):
         columns = ["Tree id", "Location", "Defect type"]
