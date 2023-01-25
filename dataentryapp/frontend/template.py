@@ -143,10 +143,10 @@ class SimpleEntry(tk.Toplevel):
             print(self.inserter_args)
             self.inserter_func(**self.inserter_args)
         self.update_dataview()
-        # for wid in self.entry_widgets:
-        #     wid.delete(0, "end")
-        # self.entry_widgets[0].focus()
-        # self.entry_widgets[0].select_range(0, tk.END)
+        for wid in self.entry_widgets:
+            wid.delete(0, "end")
+        self.entry_widgets[0].focus()
+        self.entry_widgets[0].select_range(0, tk.END)
 
     def on_delete(self):
         """Delete currently selected row, if there is one."""
