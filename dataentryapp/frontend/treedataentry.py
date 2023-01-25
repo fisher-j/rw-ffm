@@ -151,6 +151,10 @@ class TreeListFrame(ttk.Frame):
             d = [d if d is not None else '' for d in d]
             self.dataview.insert("", "end", values=d)
 
+        rootNodes = self.dataview.get_children()
+        if rootNodes:
+            self.dataview.see(rootNodes[-1])
+
 
 class EntryFrame(ttk.Frame):
     def __init__(self, parent):
