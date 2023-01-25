@@ -1207,9 +1207,9 @@ def get_datasheet_trees(collectid):
         LEFT JOIN (SELECT treeobsid, GROUP_CONCAT(defecttype) defects 
             FROM treedefect GROUP BY treeobsid) 
         USING(treeobsid)
-        LEFT JOIN (SELECT clumpid, GROUP_CONCAT(sapdbh) clumpsap
-            FROM clumpsaplings GROUP BY clumpid)
-        USING(clumpid)
+        LEFT JOIN (SELECT collectid, clumpid, GROUP_CONCAT(sapdbh) clumpsap
+            FROM clumpsaplings GROUP BY clumpid, collectid)
+        USING(clumpid, collectid)
         WHERE collectid = ?
         ORDER BY treeobsid;
         """,
