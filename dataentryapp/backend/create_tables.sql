@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS treemetadata (
 );
 
 CREATE TABLE IF NOT EXISTS reftrees (
-    collectid INTEGER PRIMARY KEY,
+    collectid INTEGER,
     treeid INTEGER NOT NULL,
     distance REAL,
     azimuth INTEGER
