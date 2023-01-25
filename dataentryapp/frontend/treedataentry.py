@@ -283,7 +283,7 @@ class EntryFrame(ttk.Frame):
         )
 
 
-    def submit(self):
+    def submit(self, event=None):
         values = [w.get() if w.get() != "" else None for w in self.entry_widgets]
         values.append(self.collection["collectid"])
         backend.insert_tree_data(values)
@@ -323,6 +323,7 @@ class App(tk.Toplevel):
         self.e_frame.grid(row=1, column=0, sticky="ew", padx=4, pady=4)
 
         self.bind("<Destroy>", self.on_destroy)
+        self.bind("<Return>", self.e_frame.submit)
 
     def on_destroy(self, event):
         if event.widget == self:
