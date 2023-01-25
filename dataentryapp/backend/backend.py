@@ -1125,7 +1125,7 @@ def get_dates(collectid):
     )
     res = cur.fetchall()
     try:
-        output = [row[0].strftime("%m/%d/%Y") for row in res]
+        output = [[row[0].strftime("%m/%d/%Y")] for row in res]
     except ValueError:
         output = None
         messagebox.showerror("Exception", "Problem importing dates: wrong format")
