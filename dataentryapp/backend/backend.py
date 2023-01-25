@@ -70,6 +70,20 @@ def match_tree_clump(collectid, treeid, clumpid):
 ################### Delete Commands ####################
 ########################################################
 
+def delete_unused_saplings(collectid):
+    cur = conn.cursor()
+    cur.execute(
+        """
+        DELETE FROM clumpsaplings 
+        WHERE clumpid NOT IN (
+            SELECT clumpid from trees WHERE collectid = ?
+        )
+        """,
+        (collectid,)
+    )
+    conn.commit()
+    cur.close()
+
 def delete_all_cwd(transectid):
     cur = conn.cursor()
     cur.execute(

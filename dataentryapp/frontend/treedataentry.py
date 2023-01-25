@@ -273,9 +273,6 @@ class EntryFrame(ttk.Frame):
             "collectid": self.collection["collectid"],
             "clumpid": int(clumpid)
         }
-        if not backend.match_tree_clump(treeid=treeid, **args):
-            messagebox.showinfo("Wrong clumpid", "Clumpid mismatch, check clumpid.")
-            return
         columns = ["Sap DBH"]
         self.newWin = template.SimpleEntry(self, columns=columns, hide=0)
         self.newWin.set_selector(
@@ -291,6 +288,7 @@ class EntryFrame(ttk.Frame):
             backend.delete_clumpsaplings,
             **args
         )
+        backend.delete_unused_saplings(self.collection["collectid"])
 
 
     def submit(self, event=None):
