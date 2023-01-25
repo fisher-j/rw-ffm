@@ -793,7 +793,7 @@ def get_datasheet_status(datasheetid):
         """
         SELECT status FROM datasheets WHERE datasheetid = ?
         """,
-        (datasheetid)
+        (datasheetid,)
     )
     res = cur.fetchall()
     cur.close()
