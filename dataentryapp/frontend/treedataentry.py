@@ -143,7 +143,6 @@ class TreeListFrame(ttk.Frame):
         notes = self.e_notes.get()
         backend.insert_tree_notes(self.collection["collectid"], notes)
 
-
     def update_dataview(self):
         for child in self.dataview.get_children():
             self.dataview.delete(child)
@@ -179,8 +178,8 @@ class EntryFrame(ttk.Frame):
         self.ht_e = tk.Entry(self, width=6)
         self.cbh_e = tk.Entry(self, width=6)
         self.clumpid_e = tk.Entry(self, width=6)
-        self.clumpsap_b = tk.Button(self, text="Enter", command=self.open_clump_sapling_entry)
         self.damage_b = tk.Button(self, text="Enter", command=self.open_damage_entry)
+        self.clumpsap_b = tk.Button(self, text="Enter", command=self.open_clump_sapling_entry)
         self.notes_e = tk.Entry(self, width=42)
 
         # This list is a list (in order) of entry widgets used for iterating
