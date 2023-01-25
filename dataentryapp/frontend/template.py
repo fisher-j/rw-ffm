@@ -61,8 +61,8 @@ class SimpleEntry(tk.Toplevel):
         self.submit = tk.Button(self.button_frame, text="Submit")
         self.submit.config(command=self.on_submit)
         self.submit.grid(row=0, column=0, **options)
-        self.close = tk.Button(self.button_frame, text="Close", command=self.destroy)
-        self.close.config(command=self.destroy)
+        self.close = tk.Button(self.button_frame, text="Close")
+        self.close.config(command=self.on_close)
         self.close.grid(row=0, column=1, **options)
         self.delete = tk.Button(self.button_frame, text="delete")
         self.delete.config(command=self.on_delete)
@@ -81,6 +81,8 @@ class SimpleEntry(tk.Toplevel):
 
         # Update parent on close, save id to remove this binding if needed
         self.bindid = self.bind("<Destroy>", self.on_destroy)
+        self.bind("<Return>", self.on_submit)
+        self.bind("<Escape>", self.on_close)
 
     def cur_selection(self):
         """Dictionary of col names: values for selected row with col names converted to variable names"""
@@ -110,7 +112,10 @@ class SimpleEntry(tk.Toplevel):
         self.deleter_func = func
         self.deleter_args = kwargs
     
-    def on_destroy(self, event):
+    def on_close(self, event=None):
+        self.destroy()
+
+    def on_destroy(self, event=None):
         if event.widget == self:
             self.parent.update_dataview()
 
@@ -131,7 +136,7 @@ class SimpleEntry(tk.Toplevel):
         out = re.sub("\W", "", col_name.lower())
         return out
 
-    def on_submit(self):
+    def on_submit(self, event=None):
         """Prepare arguments and call function for inserting values
         
         Combines values passed from parent with values found in entry
