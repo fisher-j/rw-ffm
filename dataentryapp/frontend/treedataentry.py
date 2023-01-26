@@ -224,7 +224,6 @@ class EntryFrame(ttk.Frame):
         self.button3.grid(row=0, column=2, **options)
         self.button4.grid(row=0, column=3, **options)
 
-        self.treeid_e.focus()
 
     def delete(self):
         treeid = self.treeid_e.get()
