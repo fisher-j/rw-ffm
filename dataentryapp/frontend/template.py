@@ -15,6 +15,14 @@ class SimpleEntry(tk.Toplevel):
         self.selector = None
         self.inserter = None
         
+        # position window within parent
+        xpos = self.parent.winfo_rootx()
+        ypos = self.parent.winfo_rooty()
+
+        print("x and y: ", xpos, ypos)
+
+        self.geometry(f"+{xpos}+{ypos}")
+        
         # separate frames
         self.data_frame = tk.Frame(self)
         self.data_frame.grid(row=0, column=0, sticky="nsew")
@@ -51,6 +59,7 @@ class SimpleEntry(tk.Toplevel):
             lab.grid(row=0, column=n, **options)
             self.label_widgets.append(lab)
         
+        # TODO: implement AutocompleteEntry for these
         # Entry widgets
         self.entry_widgets = []
         for n, c in enumerate(visible):
@@ -81,6 +90,7 @@ class SimpleEntry(tk.Toplevel):
 
         # Update parent on close, save id to remove this binding if needed
         self.bindid = self.bind("<Destroy>", self.on_destroy)
+        # Other bindings for faster entry
         self.bind("<Return>", self.on_submit)
         self.bind("<Escape>", self.on_close)
 
