@@ -4,7 +4,7 @@ from tkinter import ttk, messagebox
 
 from dataentryapp.backend import backend
 from dataentryapp.frontend import template
-
+from ttkwidgets.autocomplete import AutocompleteEntry
 
 class TreeListFrame(ttk.Frame):
     def __init__(self, parent):
@@ -175,6 +175,7 @@ class EntryFrame(ttk.Frame):
         for i in range(len(self.label_list)):
             self.columnconfigure(i, weight=1)
 
+        # TODO: implement AutocompleteEntry for these
         # Entry and button widgets
         self.treeid_e = tk.Entry(self, width=6)
         self.spp_e = tk.Entry(self, width=4)
