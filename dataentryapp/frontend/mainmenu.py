@@ -81,7 +81,7 @@ class MainMenu(tk.Tk):
     def __init__(self):
         super().__init__()
 
-        self.datasheetDir = Path("../../data/datasheets/final/")
+        self.datasheetDir = Path("data/datasheets/final/")
 
         self.title('RW Fire Mitigation Datasheet Entry')
         # self.geometry('620x400')
