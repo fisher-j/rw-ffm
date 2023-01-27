@@ -86,9 +86,9 @@ class TreeListFrame(ttk.Frame):
 
     def open_crew_entry(self):
         columns = ["Role", "Member"]
-        self.newWin = template.SimpleEntry(self, columns=columns, hide=1)
+        self.newWin = template.SimpleEntry(self.parent, columns=columns, hide=1)
         # When I close these windows, I don't want to update anything in the parent frame
-        self.newWin.unbind("<Destroy>", self.newWin.bindid)
+        self.newWin.do_update = False
         self.newWin.set_selector(
             func=backend.get_crew,
             collectid=self.collection["collectid"]
@@ -106,8 +106,8 @@ class TreeListFrame(ttk.Frame):
 
     def open_dates_entry(self):
         columns = ["Date"]
-        self.newWin = template.SimpleEntry(self, columns=columns, hide=0)
-        self.newWin.unbind("<Destroy>", self.newWin.bindid)
+        self.newWin = template.SimpleEntry(self.parent, columns=columns, hide=0)
+        self.newWin.do_update = False
         self.newWin.set_selector(
             func=backend.get_dates,
             collectid=self.collection["collectid"]
@@ -124,8 +124,8 @@ class TreeListFrame(ttk.Frame):
 
     def open_ref_tree_entry(self):
         columns = ["Tree ID", "Distance", "Azimuth"]
-        self.newWin = template.SimpleEntry(self, columns=columns, hide=0)
-        self.newWin.unbind("<Destroy>", self.newWin.bindid)
+        self.newWin = template.SimpleEntry(self.parent, columns=columns, hide=0)
+        self.newWin.do_update = False
         self.newWin.set_selector(
             func=backend.get_reftrees,
             collectid=self.collection["collectid"]
@@ -250,7 +250,7 @@ class EntryFrame(ttk.Frame):
         treeid = self.treeid_e.get()
         collectid = self.collection["collectid"]
         if treeid and collectid:
-            self.newWin = template.SimpleEntry(self, columns=columns)
+            self.newWin = template.SimpleEntry(self.parent, columns=columns)
 
             self.newWin.set_selector(
                 func=backend.get_tree_defect,
@@ -271,14 +271,14 @@ class EntryFrame(ttk.Frame):
         treeid = self.treeid_e.get()
         clumpid = self.clumpid_e.get()
         if not (treeid and clumpid) or not (treeid.isdigit() and clumpid.isdigit()):
-            messagebox.showinfo("Need more info", "must supply integer clumpid and treeid")
+            messagebox.showinfo("Need more info", "must supply integer clumpid and treeid", parent=self)
             return
         args = {
             "collectid": self.collection["collectid"],
             "clumpid": int(clumpid)
         }
         columns = ["Sap DBH"]
-        self.newWin = template.SimpleEntry(self, columns=columns, hide=0)
+        self.newWin = template.SimpleEntry(self.parent, columns=columns, hide=0)
         self.newWin.set_selector(
             func=backend.get_clumpsaplings,
             **args
@@ -292,7 +292,6 @@ class EntryFrame(ttk.Frame):
             backend.delete_clumpsaplings,
             **args
         )
-        backend.delete_unused_saplings(self.collection["collectid"])
 
 
     def submit(self, event=None):
@@ -307,7 +306,7 @@ class EntryFrame(ttk.Frame):
     # buttons called from this EntryFrame (e_frame) need to update
     # the TreeListFrame (tl_frame) dataview widget when they close.
     def update_dataview(self):
-        self.parent.tl_frame.update_dataview()
+        self.parent.update_dataview()
 
 
 class App(tk.Toplevel):
@@ -340,6 +339,9 @@ class App(tk.Toplevel):
     def on_destroy(self, event):
         if event.widget == self:
             self.parent.update_dataview()
+
+    def update_dataview(self):
+        self.tl_frame.update_dataview()
 
 
 if __name__ == "__main__":
