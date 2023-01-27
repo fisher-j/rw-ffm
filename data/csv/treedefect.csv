@@ -1,1 +1,107 @@
 treeobsid,location,defecttype
+1,bot,cavity
+1,mid,cavity
+1,mid,break
+2,bot,cavity
+3,bot,scar
+5,bot,scar
+6,bot,conk
+6,mid,conk
+6,top,conk
+7,bot,operational
+8,bot,break
+9,mid,break
+9,bot,scar
+10,bot,scar
+11,bot,scar
+12,top,scar
+12,bot,scar
+14,bot,scar
+15,bot,scar
+26,bot,mistletoe
+31,bot,scar
+33,bot,cav
+40,bot,scar
+55,bot,scar
+56,bot,scar
+59,bot,scar
+61,bot,cavity
+62,bot,cavity
+63,bot,canker
+70,bot,scar
+71,bot,scar
+80,top,break
+81,bot,cavity
+86,bot,scar
+89,bot,cav
+90,bot,scar
+93,bot,scar
+99,top,break
+100,mid,scar
+100,bot,scar
+102,bot,scar
+103,bot,large dead sprout
+107,mid,healed scar
+107,bot,healed scar
+116,mid,scar
+118,bottom,scar
+119,bot,scar
+120,bottom,scar
+123,bot,scar
+127,top,dead top
+127,mid,dead top
+139,bot,scar
+142,bot,large dead sprout
+145,mid,scar
+145,bot,scar
+152,bot,break
+152,bot,scar
+155,bot,on dead stump
+158,bot,on dead stump
+200,bot,on dead stump
+210,top,scar
+210,mid,scar
+210,bot,scar
+212,mid,break
+212,bot,necrosis
+213,top,break
+213,bot,necrosis
+215,bot,down
+216,bot,break
+222,bot,scar
+225,bot,scar
+234,bot,scar
+236,bot,scar
+239,bot,cavity
+240,top,cavity
+240,bot,cavity
+249,top,scar
+249,mid,scar
+249,bot,cavity
+251,bot,cav
+253,bot,operational
+263,mid,break
+272,bot,large dead sprout
+276,top,sparse foliage
+276,mid,sparse foliage
+276,bot,cavity
+277,top,sparse foliage
+277,mid,sparse foliage
+278,bot,conk
+279,bot,cavity
+286,top,suppressed leader
+287,bot,scar
+290,bot,cav
+291,bot,cavity
+301,bot,cavity
+302,mid,break
+302,bot,scar
+303,bot,cavity
+306,bot,cavity
+309,top,break
+315,mid,deadtop
+316,bot,break
+317,bot,scar
+323,bot,scar
+325,bot,large dead sprout
+327,bot,cavity
