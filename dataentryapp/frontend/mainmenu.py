@@ -112,23 +112,38 @@ class MainMenu(tk.Tk):
         for sheet in datasheets:
             self.ds_frame.datasheets.insert('', tk.END, values=sheet)
 
-    def focus_entry_form(self):
+    def open_pdf(self, filename):
+        # Open datasheet in default pdf viewer
+        if platform.system() == 'Darwin':       # macOS
+            sp.call(('open', filename))
+        elif platform.system() == 'Windows':    # Windows
+            mycall = f'start "" {str(filename)}'
+            sp.Popen(mycall, shell=True)
+        else:                                   # linux variants
+            sp.call(('xdg-open', filename))
+
+    def open_dataentry_window(self, datasheettype, datasheetid):
+        if datasheettype == "tree":
+            self.dataEntryWindow = treedataentry.App(self, datasheetid)
+        elif datasheettype == "regen":
+            self.dataEntryWindow = regendataentry.App(self, datasheetid)
+        elif datasheettype == "fuel":
+            self.dataEntryWindow = fueldataentry.App(self, datasheetid)
+        
         # disable main menu window
         self.dataEntryWindow.wait_visibility()
         self.dataEntryWindow.focus()
         self.dataEntryWindow.grab_set()
-        # Open datasheet in default pdf viewer
-        if platform.system() == 'Darwin':       # macOS
-            sp.call(('open', self.filename))
-        elif platform.system() == 'Windows':    # Windows
-            sp.Popen(("start", self.filename), shell=True)
-        else:                                   # linux variants
-            sp.call(('xdg-open', self.filename))
+
+        xpos = int( self.winfo_screenwidth() / 2 )
+        ypos = int(self.winfo_screenheight() / 2)
+        self.dataEntryWindow.geometry(f"+{xpos}+75")
 
     def on_enter_data(self):
         # get values for selected row
         cur_row = self.ds_frame.datasheets.focus()
         cur_row = self.ds_frame.datasheets.item(cur_row, "values")
+        datasheetid = cur_row[0]
 
         # Only if there is an active selection
         if(cur_row):
@@ -136,17 +151,10 @@ class MainMenu(tk.Tk):
             collection = backend.get_collection_from_datasheetid(cur_row[0])
             # get first row to identify datasheet type
             datasheettype = collection[0]["datasheettype"]
-            self.filename = self.datasheetDir / cur_row[1]
+            filename = self.datasheetDir / cur_row[1]
+            self.open_pdf(filename)
             # Then open appropriate data entry form
-            if datasheettype == "tree":
-                self.dataEntryWindow = treedataentry.App(self, cur_row[0])
-                self.focus_entry_form()
-            elif datasheettype == "regen":
-                self.dataEntryWindow = regendataentry.App(self, cur_row[0])
-                self.focus_entry_form()
-            elif datasheettype == "fuel":
-                self.dataEntryWindow = fueldataentry.App(self, cur_row[0])
-                self.focus_entry_form()
+            self.open_dataentry_window(datasheettype, datasheetid)
 
     def open_import(self):
         filetypes = (
