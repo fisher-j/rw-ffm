@@ -78,8 +78,9 @@ def delete_unused_saplings(collectid):
         WHERE clumpid NOT IN (
             SELECT clumpid from trees WHERE collectid = ?
         )
+        AND collectid = ?
         """,
-        (collectid,)
+        (collectid, collectid)
     )
     conn.commit()
     cur.close()
