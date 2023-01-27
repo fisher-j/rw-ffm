@@ -347,6 +347,9 @@ def delete_tree_entry(collectid, treeid):
     )
     conn.commit()
     cur.close()
+    # when deleteing a tree, or changing its clumpid its possible to create
+    # orphan saplings
+    backend.delete_unused_saplings(self.collection["collectid"])
 
 ######################################################
 ################## Insert commands ###################
@@ -736,6 +739,8 @@ def insert_tree_data(treedata):
     )
     conn.commit()
     cur.close()
+    # when deleteing a tree, or changing its clumpid its possible to create
+    delete_unused_saplings(treedata[7])
 
 
 def insert_tree_defect(collectid, treeid, location, defecttype):
