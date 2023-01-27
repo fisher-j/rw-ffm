@@ -126,7 +126,9 @@ class SimpleEntry(tk.Toplevel):
 
     def on_destroy(self, event=None):
         if event.widget == self:
-            self.parent.update_dataview()
+            if self.do_update:
+                self.parent.update_dataview()
+            self.parent.grab_set()
 
     def update_dataview(self):
         if self.selector_func:
