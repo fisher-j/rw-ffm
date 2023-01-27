@@ -14,13 +14,12 @@ class SimpleEntry(tk.Toplevel):
         self.parent = parent
         self.selector = None
         self.inserter = None
+        self.do_update = True
         
         # position window within parent
-        xpos = self.parent.winfo_rootx()
-        ypos = self.parent.winfo_rooty()
-
-        print("x and y: ", xpos, ypos)
-
+        xpos = parent.winfo_toplevel().winfo_rootx()
+        ypos = parent.winfo_toplevel().winfo_rooty()
+        print("position: ", xpos, ypos)
         self.geometry(f"+{xpos}+{ypos}")
         
         # separate frames
@@ -83,13 +82,13 @@ class SimpleEntry(tk.Toplevel):
         scrollbar.grid(row=0, column=1, sticky='ns')
             
         # initialize new window
-        self.wait_visibility()
+        # self.wait_visibility()
         self.focus()
         self.grab_set()
         self.entry_widgets[0].focus()
 
         # Update parent on close, save id to remove this binding if needed
-        self.bindid = self.bind("<Destroy>", self.on_destroy)
+        self.bind("<Destroy>", self.on_destroy)
         # Other bindings for faster entry
         self.bind("<Return>", self.on_submit)
         self.bind("<Escape>", self.on_close)
