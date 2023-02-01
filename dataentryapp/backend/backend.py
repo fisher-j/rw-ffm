@@ -335,6 +335,18 @@ def delete_treedefect(collectid, treeid, location, defecttype):
     conn.commit()
     cur.close()
 
+def delete_unused_defects():
+    cur = conn.cursor()
+    cur.execute(
+        """
+        DELETE FROM treedefect
+        WHERE treeobsid NOT IN (SELECT treeobsid from trees)
+        """,
+        ()
+    )
+    conn.commit()
+    cur.close()
+
 def delete_tree_entry(collectid, treeid):
     cur = conn.cursor()
     cur.execute(
@@ -350,6 +362,8 @@ def delete_tree_entry(collectid, treeid):
     # when deleteing a tree, or changing its clumpid its possible to create
     # orphan saplings
     delete_unused_saplings(collectid)
+    # And the same for treedefect
+    delete_unused_defects()
 
 ######################################################
 ################## Insert commands ###################
@@ -740,6 +754,8 @@ def insert_tree_data(treedata):
     conn.commit()
     cur.close()
     # when deleteing a tree, or changing its clumpid its possible to create
+    # orphan tree, but because treeobsid is a primary key, updating a record
+    # should not change it--so we don't need to check or orphaned defects
     delete_unused_saplings(treedata[7])
 
 
