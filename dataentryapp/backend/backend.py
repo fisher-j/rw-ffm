@@ -349,7 +349,7 @@ def delete_tree_entry(collectid, treeid):
     cur.close()
     # when deleteing a tree, or changing its clumpid its possible to create
     # orphan saplings
-    backend.delete_unused_saplings(self.collection["collectid"])
+    delete_unused_saplings(collectid)
 
 ######################################################
 ################## Insert commands ###################

@@ -72,9 +72,9 @@ class TreeListFrame(ttk.Frame):
         # Populate my dataview (ttk.Treeview)
         self.update_dataview()
 
-
     def on_select_row(self, event):
         row = self.dataview.selection()
+        if not row: return
         keys = self.dataview["columns"]
         values = self.dataview.item(row, "values")
         row = dict(zip(keys, values))
@@ -82,7 +82,6 @@ class TreeListFrame(ttk.Frame):
         for col, wid in zip(col_names, self.parent.e_frame.entry_widgets):
             wid.delete(0, "end")
             wid.insert(0, row[col])
-
 
     def open_crew_entry(self):
         columns = ["Role", "Member"]
@@ -121,7 +120,6 @@ class TreeListFrame(ttk.Frame):
             collectid=self.collection["collectid"]
         )
 
-
     def open_ref_tree_entry(self):
         columns = ["Tree ID", "Distance", "Azimuth"]
         self.newWin = template.SimpleEntry(self.parent, columns=columns, hide=0)
@@ -144,6 +142,11 @@ class TreeListFrame(ttk.Frame):
         backend.insert_tree_notes(self.collection["collectid"], notes)
 
     def update_dataview(self):
+        row_selected = self.dataview.selection()
+        cur_row_idx = []
+        if row_selected:
+            cur_row_idx = self.dataview.index(row_selected[0])
+
         for child in self.dataview.get_children():
             self.dataview.delete(child)
 
@@ -151,10 +154,12 @@ class TreeListFrame(ttk.Frame):
             d = [d if d is not None else '' for d in d]
             self.dataview.insert("", "end", values=d)
 
-        rootNodes = self.dataview.get_children()
-        if rootNodes:
-            self.dataview.see(rootNodes[-1])
+        all_rows = self.dataview.get_children()
 
+        if row_selected:
+            self.dataview.selection_set(all_rows[cur_row_idx])
+        else:
+            if all_rows: self.dataview.see(all_rows[-1])
 
 class EntryFrame(ttk.Frame):
     def __init__(self, parent):
@@ -173,7 +178,7 @@ class EntryFrame(ttk.Frame):
 
         # Fill entire frame
         for i in range(len(self.label_list)):
-            self.columnconfigure(i, weight=1)
+           self.columnconfigure(i, weight=1)
 
         # TODO: implement AutocompleteEntry for these
         # Entry and button widgets
@@ -187,7 +192,7 @@ class EntryFrame(ttk.Frame):
         self.clumpsap_b = tk.Button(self, text="Enter", command=self.open_clump_sapling_entry)
         self.notes_e = tk.Entry(self, width=42)
 
-        # This list is a list (in order) of entry widgets used for iterating
+        # This is a list (in order) of entry widgets used for iterating
         # over them as in the on_select_row method
         self.entry_widgets = [
             self.treeid_e,
@@ -225,7 +230,6 @@ class EntryFrame(ttk.Frame):
         self.button3.grid(row=0, column=2, **options)
         self.button4.grid(row=0, column=3, **options)
 
-
     def delete(self):
         treeid = self.treeid_e.get()
         collectid = self.collection["collectid"]
@@ -236,6 +240,12 @@ class EntryFrame(ttk.Frame):
                 parent=self)
             if mb:
                 backend.delete_tree_entry(collectid=collectid, treeid=treeid)
+                cur_selection = self.parent.tl_frame.dataview.selection()
+                if cur_selection:
+                    print("there is a selection detected on delete, attempt to remove")
+                    self.parent.tl_frame.dataview.selection_remove(cur_selection[0])
+                    if self.parent.tl_frame.dataview.selection():
+                        print("there is still an active selection.")
                 self.update_dataview()
 
     def mark_and_close(self):
@@ -295,13 +305,34 @@ class EntryFrame(ttk.Frame):
 
 
     def submit(self, event=None):
+        dataview = self.parent.tl_frame.dataview
+        cur_widget = self.parent.focus_get()
+
         values = [w.get() if w.get() != "" else None for w in self.entry_widgets]
         values.append(self.collection["collectid"])
         backend.insert_tree_data(values)
         for wid in self.entry_widgets:
             wid.delete(0, "end")
-        self.entry_widgets[0].focus()
-        self.update_dataview()
+            
+        self.parent.tl_frame.update_dataview()
+
+        all_rows = dataview.get_children()
+        
+        # advance to next row after submit
+        if dataview.selection():
+            next_row = dataview.next(dataview.selection()[0])
+            if next_row:
+                dataview.selection_set(next_row)
+                dataview.see(next_row)
+            else:
+                dataview.selection_set(all_rows[0])
+                dataview.see(all_rows[0])
+        else:
+            if all_rows: dataview.see(all_rows[-1])
+
+        # needed to wait before selecting newly inserted text
+        if cur_widget in self.entry_widgets:
+            self.after_idle(cur_widget.select_range, 0, "end")
 
     # buttons called from this EntryFrame (e_frame) need to update
     # the TreeListFrame (tl_frame) dataview widget when they close.
