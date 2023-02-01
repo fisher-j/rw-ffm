@@ -256,6 +256,7 @@ class EntryFrame(ttk.Frame):
 
 
     def open_damage_entry(self):
+        self.damage_b.focus_set()
         columns = ["Tree id", "Location", "Defect type"]
         treeid = self.treeid_e.get()
         collectid = self.collection["collectid"]
@@ -278,6 +279,7 @@ class EntryFrame(ttk.Frame):
             )
 
     def open_clump_sapling_entry(self):
+        self.clumpsap_b.focus_set()
         treeid = self.treeid_e.get()
         clumpid = self.clumpid_e.get()
         if not (treeid and clumpid) or not (treeid.isdigit() and clumpid.isdigit()):
