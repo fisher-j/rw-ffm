@@ -76,7 +76,9 @@ def delete_unused_saplings(collectid):
         """
         DELETE FROM clumpsaplings 
         WHERE clumpid NOT IN (
-            SELECT clumpid from trees WHERE collectid = ?
+            SELECT clumpid from trees 
+            WHERE collectid = ?
+            AND clumpid IS NOT NULL
         )
         AND collectid = ?
         """,
@@ -369,6 +371,20 @@ def delete_tree_entry(collectid, treeid):
 ################## Insert commands ###################
 ######################################################
 
+def insert_treeid_clumpid(collectid, treeid, clumpid):
+    cur = conn.cursor()
+    cur.execute(
+        """
+        INSERT INTO trees (collectid, treeid, clumpid)
+        VALUES (?, ?, ?)
+        ON CONFLICT DO UPDATE SET
+        treeid = excluded.treeid,
+        clumpid = excluded.clumpid
+        """,
+        (collectid, treeid, clumpid)
+    )
+    conn.commit()
+    cur.close()
 
 def insert_datasheet_status(datasheetid, status):
     cur = conn.cursor()
