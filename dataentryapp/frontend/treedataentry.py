@@ -313,17 +313,24 @@ class EntryFrame(ttk.Frame):
         cur_widget = self.parent.focus_get()
 
         values = [w.get() if w.get() != "" else None for w in self.entry_widgets]
+        cur_id = int(values[0])
         values.append(self.collection["collectid"])
         backend.insert_tree_data(values)
+        self.parent.tl_frame.update_dataview()
+
+        if cur_widget == self.treeid_e:
+            if dataview.selection():
+                dataview.selection_remove(dataview.selection()[0])
+            self.after_idle(self.treeid_e.delete, 0, "end")
+            self.after_idle(self.treeid_e.insert, 0, str(cur_id + 1))
+        
         for wid in self.entry_widgets:
             wid.delete(0, "end")
-            
-        self.parent.tl_frame.update_dataview()
 
         all_rows = dataview.get_children()
         
         # advance to next row after submit
-        if dataview.selection():
+        if dataview.selection() and cur_widget != self.treeid_e:
             next_row = dataview.next(dataview.selection()[0])
             if next_row:
                 dataview.selection_set(next_row)
