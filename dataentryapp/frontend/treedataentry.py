@@ -277,6 +277,8 @@ class EntryFrame(ttk.Frame):
                 func=backend.delete_treedefect,
                 collectid=self.collection["collectid"]
             )
+        self.wait_window(self.newWin)
+        self.next_selection()
 
     def open_clump_sapling_entry(self):
         self.clumpsap_b.focus_set()
@@ -307,6 +309,8 @@ class EntryFrame(ttk.Frame):
             **args
         )
 
+        self.wait_window(self.newWin)
+        self.next_selection()
 
     def submit(self, event=None):
         dataview = self.parent.tl_frame.dataview
@@ -327,19 +331,9 @@ class EntryFrame(ttk.Frame):
         for wid in self.entry_widgets:
             wid.delete(0, "end")
 
-        all_rows = dataview.get_children()
-        
         # advance to next row after submit
-        if dataview.selection() and cur_widget != self.treeid_e:
-            next_row = dataview.next(dataview.selection()[0])
-            if next_row:
-                dataview.selection_set(next_row)
-                dataview.see(next_row)
-            else:
-                dataview.selection_set(all_rows[0])
-                dataview.see(all_rows[0])
-        else:
-            if all_rows: dataview.see(all_rows[-1])
+        if cur_widget != self.treeid_e:
+            self.next_selection()
 
         # needed to wait before selecting newly inserted text
         if cur_widget in self.entry_widgets:
@@ -349,6 +343,21 @@ class EntryFrame(ttk.Frame):
     # the TreeListFrame (tl_frame) dataview widget when they close.
     def update_dataview(self):
         self.parent.update_dataview()
+
+    def next_selection(self):
+        dataview = self.parent.tl_frame.dataview
+        all_rows = dataview.get_children()
+        if dataview.selection():
+            next_row = dataview.next(dataview.selection()[0])
+            if next_row:
+                dataview.selection_set(next_row)
+                dataview.see(next_row)
+            else:
+                dataview.selection_set(all_rows[0])
+                dataview.see(all_rows[0])
+        else:
+            if all_rows: dataview.see(all_rows[-1])
+        
 
 
 class App(tk.Toplevel):
