@@ -285,6 +285,8 @@ class EntryFrame(ttk.Frame):
         if not (treeid and clumpid) or not (treeid.isdigit() and clumpid.isdigit()):
             messagebox.showinfo("Need more info", "must supply integer clumpid and treeid", parent=self)
             return
+        # ensure that treeid exists and has clumpid, i.e., submit.
+        backend.insert_treeid_clumpid(self.collection["collectid"], treeid, clumpid)
         args = {
             "collectid": self.collection["collectid"],
             "clumpid": int(clumpid)
