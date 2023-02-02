@@ -91,7 +91,6 @@ treeobsid,location,defecttype
 279,bot,cavity
 286,top,suppressed leader
 287,bot,scar
-290,bot,cav
 291,bot,cavity
 301,bot,cavity
 302,mid,break
@@ -105,3 +104,43 @@ treeobsid,location,defecttype
 323,bot,scar
 325,bot,large dead sprout
 327,bot,cavity
+329,bot,cavity
+336,bot,scar
+337,bot,scar
+103,bot,scar
+290,bot,cavity
+292,bot,cavity
+340,bot,cavity
+341,bot,skid
+342,top,deadtop
+342,mid,deadtop
+342,bot,scar
+343,bot,cavity
+348,top,break
+348,mid,break
+353,bot,conk
+355,bot,operational
+363,bot,scar
+374,bot,scar
+389,bot,bear damage
+389,mid,bear damage
+389,top,bear damage
+389,top,deadtop
+389,mid,deadtop
+397,bot,scar
+415,bot,cavity
+415,bot,large dead sprout
+416,bot,cavity
+416,bot,scar
+423,bot,scar
+423,bot,conk
+432,bot,large dead sprout
+435,bot,scar
+436,bot,scar
+437,bot,scar
+439,bot,large dead sprout
+440,top,deadtop
+441,top,deadtop
+443,bot,large dead sprout
+444,mid,scar
+444,bot,scar
