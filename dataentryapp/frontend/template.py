@@ -128,7 +128,7 @@ class SimpleEntry(tk.Toplevel):
         if event.widget == self:
             if self.do_update:
                 self.parent.update_dataview()
-            self.parent.grab_set()
+            # self.parent.grab_set()
 
     def update_dataview(self):
         if self.selector_func:
