@@ -32,6 +32,7 @@ class DataviewFrame(ttk.Frame):
             for b in self.button_labels:
                 but = tk.Button(self.plotinfoframe, text=b)
                 self.button_widgets.append(but)
+
         self.button_widgets[0]["command"] = self.on_metadata
 
         for n, wid in enumerate(self.label_widgets + self.button_widgets):
@@ -52,6 +53,7 @@ class DataviewFrame(ttk.Frame):
 
         # Create widget
         self.dataview = ttk.Treeview(self, columns=columns, show="headings")
+        self.dataview["height"] = 25
 
         for i in range(len(columns)):
             text = columns[i] if not columns[i].startswith("ht") else ""
@@ -270,7 +272,7 @@ class App(tk.Toplevel):
         self.columnconfigure(0, weight=1)
 
         self.dataview_frame = DataviewFrame(self)
-        self.dataview_frame.grid(column=0, sticky="nsew", padx=4, pady=4)
+        self.dataview_frame.grid(row=0, column=0, sticky="nsew", padx=4, pady=4)
 
         self.entry_frame = EntryFrame(self)
         self.entry_frame.grid(row=1, column=0, sticky="ew", padx=4, pady=4)
