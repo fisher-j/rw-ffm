@@ -52,6 +52,8 @@ class TreeListFrame(ttk.Frame):
         for i in range(len(columns)):
             self.dataview.heading(columns[i], text=col_names[i])
             self.dataview.column(columns[i], width=col_widths[i], stretch=True)
+        self.dataview["height"] = 30
+        self.dataview["takefocus"] = 0
 
         self.dataview.bind('<<TreeviewSelect>>', self.on_select_row)
 
