@@ -23,3 +23,12 @@ transectid,collectid,transectnum,azimuth,slope,notes
 22,8,1,0,24,
 23,8,2,120,43,in skid
 24,8,3,240,29,
+25,9,1,0,36,
+26,9,2,120,13,begining crosses skid
+27,9,3,240,16,in skid
+28,10,1,0,21,huckleberry at 10m
+29,10,2,120,4,
+30,10,3,240,18,
+31,11,1,0,16,
+32,11,2,120,12,
+33,11,3,240,2,redwood foliage (branchlets) 2mm cutoff

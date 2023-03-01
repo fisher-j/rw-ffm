@@ -2,7 +2,7 @@
 *.url
 
 # other administrative stuff
-expenses/
+administrative/
 
 # don't include pdfs or sqlite database
 data/**/*.pdf

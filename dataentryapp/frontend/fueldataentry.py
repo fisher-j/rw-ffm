@@ -91,7 +91,7 @@ class FuelFrame(ttk.Frame):
             self.dataview.heading(self.columns[i], text=text)
             self.dataview.column(
                 self.columns[i],
-                width=tk.font.Font().measure(self.columns[i].title()),
+                width=int(tk.font.Font().measure(self.columns[i]) * 0.8),
                 stretch=True
             )
 

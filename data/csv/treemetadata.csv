@@ -11,4 +11,13 @@ collectid,notes
 229,no crew on sheet
 230,no crew on sheet
 231,near skid
+233,no crew on sheet
+234,"plot overlaps with another experiment's plot, other tag numbers 2 digits only"
+235,no ref trees or crew
 322,"plot center in open/skid, huckleberry"
+352,plot open in middle
+357,"near skid intersection, borderline skip plot"
+368,skip sprouts on gf for cbh (whole season)
+370,"lot of skid road, few trees"
+398,not counting gf sprouts for cbh
+430,no reference trees on sheet

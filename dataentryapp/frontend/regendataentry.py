@@ -71,7 +71,6 @@ class DataviewFrame(ttk.Frame):
         self.rowconfigure(1, weight=1)
         self.columnconfigure(0, weight=1)
 
-
         # add a scrollbar
         scrollbar = ttk.Scrollbar(self, orient=tk.VERTICAL, command=self.dataview.yview)
         self.dataview.configure(yscroll=scrollbar.set)

@@ -1496,6 +1496,7 @@ def export_tables():
     tables = cur.fetchall()
     for table in tables:
         table = table[0]
+        print("current table: ", table)
         cur.execute("SELECT * FROM " + table) 
         fn = Path(dir, table + ".csv")
         with fn.open(mode="w", newline="") as csv_file:
