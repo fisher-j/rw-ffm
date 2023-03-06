@@ -91,7 +91,7 @@ class FuelFrame(ttk.Frame):
             self.dataview.heading(self.columns[i], text=text)
             self.dataview.column(
                 self.columns[i],
-                width=int(tk.font.Font().measure(self.columns[i]) * 0.8),
+                width=int(tk.font.Font().measure(self.columns[i]) * 0.7),
                 stretch=True
             )
 
@@ -569,18 +569,30 @@ class App(tk.Toplevel):
         if self.swap:
             self.swap = False
             self.fwd_frame.destroy()
-            self.fwd_frame = FWDFrame(self)
+            self.veg_frame.destroy()
+            self.fwd_frame = FWDFrame(self, swap=False)
             self.fwd_frame.grid(column=0, row=1, sticky="ns", padx=4, pady=4)
             self.veg_frame = VegFrame(self, swap=False)
             self.veg_frame.grid(column=0, row=2, sticky="ns", padx=4, pady=4)
+
         else:
             self.swap = True
             self.fwd_frame.destroy()
+            self.veg_frame.destroy()
             self.fwd_frame = FWDFrame(self, swap=True)
             self.fwd_frame.grid(column=0, row=1, sticky="ns", padx=4, pady=4)
             self.veg_frame = VegFrame(self, swap=True)
             self.veg_frame.grid(column=0, row=2, sticky="ns", padx=4, pady=4)
 
+        self.metadata_frame.lift()
+        self.fwd_frame.lift()
+        self.veg_frame.lift()
+
+        # reorder_frames = self.fwd_frame + self.veg_frame
+        # print("reorder widgets: ", reorder_frames)
+        # for frame in reorder_frames:
+        #     frame.lift()
+        #
     def update_all_dataviews(self):
         self.fwd_frame.update_dataview()
         self.veg_frame.update_dataview()
