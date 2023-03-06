@@ -14,6 +14,10 @@ collectid,notes
 233,no crew on sheet
 234,"plot overlaps with another experiment's plot, other tag numbers 2 digits only"
 235,no ref trees or crew
+239,no crew
+240,no crew
+245,plot center in skid
+249,plot center in skid
 322,"plot center in open/skid, huckleberry"
 352,plot open in middle
 357,"near skid intersection, borderline skip plot"

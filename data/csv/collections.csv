@@ -437,7 +437,7 @@ collectid,plotid,stageid,datasheettype
 436,152,1,tree
 437,154,1,tree
 438,154,1,fuel
-439,155,1,fuel
+439,149,1,fuel
 440,156,1,regen
 441,157,1,regen
 442,158,1,regen

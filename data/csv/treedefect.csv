@@ -337,3 +337,82 @@ treeobsid,location,defecttype
 1156,bot,scar
 1157,bot,scar
 1163,mid,broken
+1166,bot,scar
+1178,bot,scar
+1181,bot,scar
+1182,bot,scar
+1186,bot,scar
+1188,bot,scar
+1190,bot,scar
+1197,bot,scar
+1209,bot,scar
+1209,bot,operational
+1210,bot,operational
+1214,top,break
+1214,bot,operational
+1215,top,break
+1215,bot,operational
+1216,top,deadtop
+1216,mid,deadtop
+1216,bot,break
+1217,bot,operational
+1218,bot,operational
+1219,bot,operational
+1220,bot,operational
+1227,top,break
+1228,bot,break
+1230,top,break
+1233,bot,operational
+1236,bot,operational
+1242,mid,scar
+1242,bot,scar
+1245,bot,scar
+1249,bot,operational
+1263,mid,operational
+1263,bot,operational
+1268,bot,cavity
+1271,bot,scar
+1272,mid,scar
+1272,bot,scar
+1273,bot,scar
+1274,top,break
+1274,bot,operational
+1275,bot,operational
+1285,bot,scar
+1287,bot,scar
+1296,bot,large dead sprout
+1308,bot,large dead sprout
+1309,top,fork
+1312,bot,scar
+1312,bot,operational
+1332,bot,scar
+1333,bot,scar
+1337,bot,scar
+1341,bot,scar
+1341,bot,large dead sprout
+1342,bot,scar
+1343,bot,large dead sprout
+1344,bot,large dead sprout
+1354,bot,cavity
+1358,bot,large dead sprout
+1359,bot,scar
+1368,bot,operational
+1376,bot,scar
+1369,bot,large dead sprout
+1370,bot,large dead sprout
+1379,bot,large dead sprout
+1381,top,break
+1381,bot,scar
+1382,bot,scar
+1383,bot,scar
+1388,top,break
+1391,bot,break
+1391,bot,scar
+1399,top,break
+1399,bot,scar
+1400,bot,scar
+1413,mid,scar
+1432,bot,operational
+1433,bot,break
+1424,bot,operational
+1429,bot,conk
