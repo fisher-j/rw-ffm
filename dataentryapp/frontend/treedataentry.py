@@ -346,7 +346,7 @@ class EntryFrame(ttk.Frame):
     def update_dataview(self):
         self.parent.update_dataview()
 
-    def next_selection(self):
+    def next_selection(self, even=None):
         dataview = self.parent.tl_frame.dataview
         all_rows = dataview.get_children()
         if dataview.selection():
@@ -360,6 +360,21 @@ class EntryFrame(ttk.Frame):
         else:
             if all_rows: dataview.see(all_rows[-1])
         
+    def prev_selection(self, event=None):
+        dataview = self.parent.tl_frame.dataview
+        all_rows = dataview.get_children()
+        if dataview.selection():
+            prev_row = dataview.prev(dataview.selection()[0])
+            if prev_row:
+                dataview.selection_set(prev_row)
+                dataview.see(prev_row)
+            else:
+                dataview.selection_set(all_rows[-1])
+                dataview.see(all_rows[-1])
+        else:
+            if all_rows: dataview.see(all_rows[0])
+        
+
 
 
 class App(tk.Toplevel):
@@ -388,6 +403,8 @@ class App(tk.Toplevel):
 
         self.bind("<Destroy>", self.on_destroy)
         self.bind("<Return>", self.e_frame.submit)
+        self.bind("<Up>", self.e_frame.prev_selection)
+        self.bind("<Down>", self.e_frame.next_selection)
 
     def on_destroy(self, event):
         if event.widget == self:
