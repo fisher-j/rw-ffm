@@ -20,7 +20,16 @@ collectid,notes
 249,plot center in skid
 251,wrong treatment recorded on datasheet
 252,small dead splings
+254,plot center in skid
+256,1/3 in skid
+257,"site boundary crosses plot, purple flagging"
+258,north edge in skid
+259,missing one ref. tree distance
+262,1/3 of plot in skid
+266,"large trees, shade, doesn't appear logged"
+267,partial skid
 322,"plot center in open/skid, huckleberry"
+340,two skids
 352,plot open in middle
 357,"near skid intersection, borderline skip plot"
 368,skip sprouts on gf for cbh (whole season)
