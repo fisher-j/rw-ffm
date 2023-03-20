@@ -174,7 +174,7 @@ class EntryFrame(ttk.Frame):
         # bottom row buttons
         self.button_frame = tk.Frame(self)
         self.button_frame.grid(row=3, column=0, columnspan=12)
-        button_labels2 = ("Submit", "Close", "Delete entry")
+        button_labels2 = ("Submit", "Mark and close", "Delete entry")
 
         self.button_widgets2 = []
         for b in button_labels2:
@@ -183,6 +183,13 @@ class EntryFrame(ttk.Frame):
             func = getattr(self, b.lower().replace(" ", "_"))
             wid = tk.Button(self.button_frame, text=b, command=func)
             self.button_widgets2.append(wid)
+        
+        # allow to set status
+        cbvals = ["Not started", "Started", "Complete"]
+        cb = ttk.Combobox(self.button_frame, state="readonly", values=cbvals)
+        self.button_widgets2.insert(1, cb)
+        status = backend.get_datasheet_status(self.parent.datasheetid)[0]
+        self.button_widgets2[1].set(status)
 
         # arrange widgets
         for idx, w in enumerate(self.button_widgets2):
@@ -232,7 +239,10 @@ class EntryFrame(ttk.Frame):
         self.update_dataview()
 
 
-    def close(self):
+    def mark_and_close(self):
+        status = self.button_widgets2[1].get()
+        datasheetid = self.datasheetid
+        backend.insert_datasheet_status(datasheetid, status)
         self.parent.destroy()
 
     def submit(self):
