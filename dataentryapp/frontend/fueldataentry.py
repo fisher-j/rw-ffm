@@ -5,16 +5,23 @@ from tkinter import ttk, messagebox
 from dataentryapp.backend import backend
 from dataentryapp.frontend import template
 
+
 class MetadataFrame(ttk.Frame):
     def __init__(self, parent):
         super().__init__(parent)
         self.parent = parent
         self.collection = parent.collection
-        options = {'padx': 3, 'pady': 3}
+        options = {"padx": 3, "pady": 3}
 
         self.id_labels = ["StageId", "Site", "Treatment", "Burn", "Plotnum"]
         self.date_labels = ["Date"]
-        self.transect_labels = ["One hr", "Ten hr", "Hund hr", "Thous hr", "# transects"]
+        self.transect_labels = [
+            "One hr",
+            "Ten hr",
+            "Hund hr",
+            "Thous hr",
+            "# transects",
+        ]
 
         self.label_widgets = []
         for l in self.id_labels + self.transect_labels + self.date_labels:
@@ -47,10 +54,12 @@ class MetadataFrame(ttk.Frame):
 
         self.button_widget = tk.Button(self, text="Submit")
         self.button_widget["command"] = self.submit
-        second_row_widgets = [*self.id_widgets, 
+        second_row_widgets = [
+            *self.id_widgets,
             *self.transect_widgets,
             self.date_widget,
-            self.button_widget]
+            self.button_widget,
+        ]
 
         for n, wid in enumerate(second_row_widgets):
             wid.grid(row=1, column=n, **options)
@@ -58,22 +67,22 @@ class MetadataFrame(ttk.Frame):
     def submit(self):
         print("self.collection: ", self.collection)
         vals = ["onehrlen", "tenhrlen", "hundhrlen", "thoushrlen"]
-        submit_vals = {k : int(v.get()) for (k, v) in zip(vals, self.transect_widgets)}
+        submit_vals = {k: int(v.get()) for (k, v) in zip(vals, self.transect_widgets)}
         submit_vals["collectid"] = self.collection["collectid"]
         backend.insert_fuel_metadata(**submit_vals)
         backend.insert_dates(
-            self.collection["collectid"],
-            self.date_widget.get(),
-            only_one=True)
+            self.collection["collectid"], self.date_widget.get(), only_one=True
+        )
+
 
 class FuelFrame(ttk.Frame):
     def __init__(self, parent, parent2=None):
         super().__init__(parent)
-        options = {'padx': 3, 'pady': 3}
+        options = {"padx": 3, "pady": 3}
         self.parent = parent2 if parent2 else parent
         self.collection = self.parent.collection
 
-        # give dataview widget its own frame and make sure the 
+        # give dataview widget its own frame and make sure the
         # widget resizes with frame
         self.dataview_frame = ttk.Frame(self)
         self.dataview_frame.grid(row=0, column=0, sticky="nsew")
@@ -81,30 +90,34 @@ class FuelFrame(ttk.Frame):
         self.dataview_frame.columnconfigure(0, weight=1)
 
         # Create widget
-        self.dataview = ttk.Treeview(self.dataview_frame,
-                                     columns=self.columns,
-                                     show="headings",
-                                     takefocus=0,
-                                     height=6)
+        self.dataview = ttk.Treeview(
+            self.dataview_frame,
+            columns=self.columns,
+            show="headings",
+            takefocus=0,
+            height=6,
+        )
         for i in range(len(self.columns)):
             text = self.columns[i]
             self.dataview.heading(self.columns[i], text=text)
             self.dataview.column(
                 self.columns[i],
                 width=int(tk.font.Font().measure(self.columns[i]) * 0.7),
-                stretch=True
+                stretch=True,
             )
 
-        self.dataview.bind('<<TreeviewSelect>>', self.on_select_row)
+        self.dataview.bind("<<TreeviewSelect>>", self.on_select_row)
         self.dataview.grid(sticky=tk.NSEW)
 
         self.rowconfigure(0, weight=1)
         self.columnconfigure(0, weight=1)
 
         # add a scrollbar
-        scrollbar = ttk.Scrollbar(self.dataview_frame, orient=tk.VERTICAL, command=self.dataview.yview)
+        scrollbar = ttk.Scrollbar(
+            self.dataview_frame, orient=tk.VERTICAL, command=self.dataview.yview
+        )
         self.dataview.configure(yscroll=scrollbar.set)
-        scrollbar.grid(row=0, column=1, sticky='ns')
+        scrollbar.grid(row=0, column=1, sticky="ns")
 
         # Populate dataview
         self.update_dataview()
@@ -174,7 +187,6 @@ class FuelFrame(ttk.Frame):
         if hasattr(self, "select_row_extra"):
             self.select_row_extra(row)
 
-
     def update_dataview(self):
         collectid = self.collection["collectid"]
         for child in self.dataview.get_children():
@@ -187,7 +199,8 @@ class FuelFrame(ttk.Frame):
     def clear_entries(self):
         for wid in self.entry_widgets:
             wid.delete(0, "end")
-    
+
+
 class FWDFrame(FuelFrame):
     def __init__(self, parent, swap=False):
         self.swap = swap
@@ -205,11 +218,11 @@ class FWDFrame(FuelFrame):
                 "FBD 10",
                 "Duff/litter 5",
                 "% Litter 5",
-                "FBD 5"
+                "FBD 5",
             )
             self.button_labels2 = []
             self.data_getter = backend.get_fwd_swap
-        else:    
+        else:
             self.columns = (
                 "Azimuth",
                 "Crew",
@@ -223,7 +236,7 @@ class FWDFrame(FuelFrame):
                 "FBD 5",
                 "Duff/litter 10",
                 "% Litter 10",
-                "FBD 10"
+                "FBD 10",
             )
             self.button_labels2 = []
             self.data_getter = backend.get_fwd
@@ -251,12 +264,13 @@ class FWDFrame(FuelFrame):
         # swap metermark labels if necessayr to match widget order
         meterMarkOrder = (10, 5) if self.swap else (5, 10)
         for mm, slc in zip(meterMarkOrder, (7, 10)):
-            dufflitterfbd = [w.get() for w in self.entry_widgets[slc:slc+3]]
+            dufflitterfbd = [w.get() for w in self.entry_widgets[slc : slc + 3]]
             dufflitterfbd = [float(val) if val != "" else None for val in dufflitterfbd]
             backend.insert_dufflitterfbd(transectid, mm, *dufflitterfbd)
 
     def select_row_extra(self, row):
         self.parent.veg_frame.dataview.selection_set(row)
+
 
 class VegFrame(FuelFrame):
     def __init__(self, parent, swap=False):
@@ -276,9 +290,9 @@ class VegFrame(FuelFrame):
                 "Wdy. ht. 5",
                 "Live hrb. 5",
                 "Dead hrb. 5",
-                "Hrb. ht. 5"
+                "Hrb. ht. 5",
             )
-            # Don't enter transect again, so there are different number of entry widgets and 
+            # Don't enter transect again, so there are different number of entry widgets and
             # dataview columns
             self.entry_labels = self.columns[1:]
             self.button_labels2 = []
@@ -298,9 +312,9 @@ class VegFrame(FuelFrame):
                 "Wdy. ht. 10",
                 "Live hrb. 10",
                 "Dead hrb. 10",
-                "Hrb. ht. 10"
+                "Hrb. ht. 10",
             )
-            # Don't enter transect again, so there are different number of entry widgets and 
+            # Don't enter transect again, so there are different number of entry widgets and
             # dataview columns
             self.entry_labels = self.columns[1:]
             self.button_labels2 = []
@@ -314,28 +328,26 @@ class VegFrame(FuelFrame):
         # swap metermark labels if necessayr to match widget order
         meterMarkOrder = (10, 5) if self.swap else (5, 10)
         for mm, slc in zip(meterMarkOrder, (1, 7)):
-            veg = [w.get() for w in self.entry_widgets[slc:slc+6]]
+            veg = [w.get() for w in self.entry_widgets[slc : slc + 6]]
             veg = [float(val) if val != "" else None for val in veg]
             backend.insert_veg(transectid, mm, *veg)
-    
+
     def select_row_extra(self, row):
         if not self.parent.fwd_frame.dataview.selection() == row:
             self.parent.fwd_frame.dataview.selection_set(row)
 
+
 class CWDFrame(FuelFrame):
     def __init__(self, parent, parent2):
-        self.columns = (
-            "Transect",
-            "Diameter",
-            "Decay class"
-        )
+        self.columns = ("Transect", "Diameter", "Decay class")
         self.button_labels2 = ["Submit", "Delete entry"]
         self.data_getter = backend.get_cwd
         super().__init__(parent, parent2=parent2)
         self.dataview["height"] = 11
 
     def submit(self):
-        if not self.update_transectnum(): return
+        if not self.update_transectnum():
+            return
         transectnum = self.transectnum
         collectid = self.collection["collectid"]
         backend.insert_transect(collectid, transectnum)
@@ -350,7 +362,8 @@ class CWDFrame(FuelFrame):
         self.entry_widgets[0].focus()
 
     def delete_entry(self):
-        if not self.update_transectnum(): return
+        if not self.update_transectnum():
+            return
         transectnum = self.transectnum
         collectid = self.collection["collectid"]
         transectid = backend.get_transectid(collectid, transectnum)
@@ -375,18 +388,19 @@ class CWDFrame(FuelFrame):
         self.transectnum = int(transectnum)
         return 1
 
+
 class ButtonFrame(tk.Frame):
     def __init__(self, parent):
         super().__init__(parent)
         self.parent = parent
         self.collection = parent.collection
-        options = {'padx': 3, 'pady': 3}
+        options = {"padx": 3, "pady": 3}
         self.button_labels2 = [
             "Submit",
             "Delete transect",
             "Clear entries",
             "Swap stations",
-            "Mark and Close"
+            "Mark and Close",
         ]
         self.button_widgets2 = []
         for b in self.button_labels2:
@@ -416,7 +430,8 @@ class ButtonFrame(tk.Frame):
         return 1
 
     def submit(self):
-        if not self.update_transectnum(): return
+        if not self.update_transectnum():
+            return
         transectnum = self.transectnum
         collectid = self.collection["collectid"]
         backend.insert_transect(collectid, transectnum)
@@ -428,7 +443,8 @@ class ButtonFrame(tk.Frame):
 
     def delete_transect(self):
         # more deleting needs to happen here
-        if not self.update_transectnum(): return
+        if not self.update_transectnum():
+            return
         collectid = self.collection["collectid"]
         transectnum = self.transectnum
         transectid = backend.get_transectid(collectid, transectnum)
@@ -458,29 +474,23 @@ class ButtonFrame(tk.Frame):
     def swap_stations(self):
         self.parent.swap_frame()
 
+
 class NotesFrame(FuelFrame):
     def __init__(self, parent, parent2=None):
-        self.columns = (
-            "Transect",
-            "Notes"
-        )
+        self.columns = ("Transect", "Notes")
         self.button_labels2 = ["Submit", "Delete entry"]
         self.data_getter = backend.get_transect_notes
         super().__init__(parent, parent2=parent2)
         self.dataview["height"] = 6
         self.dataview.column(
-            "Transect",
-            width=tk.font.Font().measure("Transect"),
-            stretch=False
+            "Transect", width=tk.font.Font().measure("Transect"), stretch=False
         )
-        self.dataview.column(
-            "Notes",
-            stretch=True
-        )
+        self.dataview.column("Notes", stretch=True)
         self.entry_widgets[1]["width"] = 75
 
     def submit(self):
-        if not self.update_transectnum(): return
+        if not self.update_transectnum():
+            return
         transectnum = self.transectnum
         collectid = self.collection["collectid"]
         backend.insert_transect(collectid, transectnum)
@@ -493,7 +503,8 @@ class NotesFrame(FuelFrame):
         self.entry_widgets[0].focus()
 
     def delete_entry(self):
-        if not self.update_transectnum(): return
+        if not self.update_transectnum():
+            return
         transectnum = self.transectnum
         collectid = self.collection["collectid"]
         transectid = backend.get_transectid(collectid, transectnum)
@@ -512,13 +523,14 @@ class NotesFrame(FuelFrame):
             print("need to provide a transect number")
             return
         self.transectnum = int(transectnum)
-        return 1 
+        return 1
+
 
 class App(tk.Toplevel):
     def __init__(self, parent, datasheetid):
         super().__init__(parent)
 
-        self.title('Fuel data entry')
+        self.title("Fuel data entry")
         # self.geometry('800x400')
 
         self.parent = parent
@@ -593,6 +605,7 @@ class App(tk.Toplevel):
         # for frame in reorder_frames:
         #     frame.lift()
         #
+
     def update_all_dataviews(self):
         self.fwd_frame.update_dataview()
         self.veg_frame.update_dataview()
@@ -606,6 +619,7 @@ class App(tk.Toplevel):
     def on_destroy(self, event):
         if event.widget == self:
             self.parent.update_dataview()
+
     #
     # def report_callback_exception(self, *args):
     #     err = traceback.format_exception(*args)
