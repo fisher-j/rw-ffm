@@ -24,5 +24,9 @@ queries.sql
 
 # ignore drive backup stuff
 .tmp.driveupload
+
 data/csv/.RData
 data/csv/.Rhistory
+
+# Don't include GIS data
+data/gis
