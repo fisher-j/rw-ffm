@@ -1039,8 +1039,13 @@ def get_regen_metadata(datasheetid):
         (datasheetid, ),
     )
     out = cur.fetchall()
-    cur.close()
     print(out)
+    out = [
+        [v if i != 1 or v is None else datetime.strptime(v, "%Y-%m-%d").strftime("%m/%d/%Y") for i, v in enumerate(l)]
+        for l in out
+    ]
+
+    cur.close()
     return out
 
 def func_set(func, *args):
