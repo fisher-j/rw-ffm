@@ -73,7 +73,7 @@ class DataviewFrame(ttk.Frame):
 
         # add a scrollbar
         scrollbar = ttk.Scrollbar(self, orient=tk.VERTICAL, command=self.dataview.yview)
-        self.dataview.configure(yscroll=scrollbar.set)
+        self.dataview[ "yscroll" ] = scrollbar.set
         scrollbar.grid(row=1, column=1, sticky='ns')
 
         # Populate my dataview (ttk.Treeview)
