@@ -82,7 +82,23 @@ class DataviewFrame(ttk.Frame):
     def on_metadata(self):
         columns = ["Plotnum", "Date", "Seedling radius", "Sapling radius", "Notes"]
         widths = [90, 90, 90, 90, 90]
-        self.newWin = template.SimpleEntry(self, widths=widths, columns=columns, hide=0)
+
+        # augment SimpleEntry to autofill often repeated info
+        class RegenMetaDataEntry(template.SimpleEntry):
+            def on_submit(self, event=None):
+                super().on_submit()
+                self.entry_widgets[2].insert(0, 5.64)
+                self.entry_widgets[3].insert(0, 11.28)
+                all_rows = self.dataview.get_children()
+                dates = [self.dataview.set(i, "Date") for i in all_rows]
+                print("dates 1: ", dates)
+                dates = [d for d in dates if d != ""]
+                print("dates 2: ", dates)
+
+                if dates:
+                    self.entry_widgets[1].insert(0, dates[-1])
+            
+        self.newWin = RegenMetaDataEntry(self, widths=widths, columns=columns, hide=0)
         self.newWin.entry_widgets[2].insert(0, 5.64)
         self.newWin.entry_widgets[3].insert(0, 11.28)
         self.newWin.set_selector(
