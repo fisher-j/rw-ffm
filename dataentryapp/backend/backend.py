@@ -184,14 +184,7 @@ def delete_regen_metadata(datasheetid, plotnum, date, **kwargs):
         """,
         (collectid,),
     )
-    cur.execute(
-        """
-        DELETE FROM collectdates
-        WHERE collectid = ?
-        AND date = ?
-        """,
-        (collectid, date),
-    )
+    delete_dates(collectid, date) 
     conn.commit()
     cur.close()
 
