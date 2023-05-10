@@ -118,7 +118,7 @@ class DataviewFrame(ttk.Frame):
         """push selected dataview row contents to entry widgets in other class"""
         target = self.parent.entry_frame.entry_widgets
         keys = self.dataview["columns"]
-        row = self.dataview.selection()
+        row = self.dataview.selection()[0]
         values = self.dataview.item(row, "values")
         row = dict(zip(keys, values))
         # make sure these names match entry widget names in target
@@ -218,27 +218,28 @@ class EntryFrame(ttk.Frame):
             wid.lift(aboveThis=self.entry_widgets[i + 3])
 
     def ht_entry_window_maker(self, sizeclass):
-        def make_window(self=self, sizeclass=sizeclass):
+        self2 = self
+        def make_window(self2=self2, sizeclass=sizeclass):
             columns = ("CBH", "Ht")
-            datasheetid = self.datasheetid
-            plotnum = self.entry_widgets[self.widget_names.index("Plot")].get()
-            spp = self.entry_widgets[self.widget_names.index("Species")].get()
-            self.newWin = template.SimpleEntry(self, columns=columns, hide=0)
-            self.newWin.set_selector(
+            datasheetid = self2.datasheetid
+            plotnum = self2.entry_widgets[self2.widget_names.index("Plot")].get()
+            spp = self2.entry_widgets[self2.widget_names.index("Species")].get()
+            self2.newWin = template.SimpleEntry(self2, columns=columns, hide=0)
+            self2.newWin.set_selector(
                 func=backend.get_regen_heights,
                 datasheetid=datasheetid,
                 plotnum=plotnum,
                 spp=spp,
                 sizeclass=sizeclass
             )
-            self.newWin.set_inserter(
+            self2.newWin.set_inserter(
                 func=backend.insert_regen_heights,
                 datasheetid=datasheetid,
                 plotnum=plotnum,
                 spp=spp,
                 sizeclass=sizeclass
             )
-            self.newWin.set_deleter(
+            self2.newWin.set_deleter(
                 func=backend.delete_regen_heights,
                 datasheetid=datasheetid,
                 plotnum=plotnum,
@@ -261,13 +262,15 @@ class EntryFrame(ttk.Frame):
         backend.insert_datasheet_status(datasheetid, status)
         self.parent.destroy()
 
-    def submit(self):
+    def submit(self, event=None):
         size = self.widget_names[2:10]
         counts = [w.get() if w.get() else 0 for w in self.entry_widgets[2:10]]
         plot = self.entry_widgets[0].get()
         spp = self.entry_widgets[1].get()
         backend.insert_regen_counts(self.datasheetid, plot, spp, size, counts)
         self.update_dataview()
+        for wid in self.entry_widgets:
+            wid.delete(0, "end")
         self.entry_widgets[0].focus()
         self.entry_widgets[0].select_range(0, tk.END)
 
@@ -303,12 +306,8 @@ class App(tk.Toplevel):
         self.entry_frame.grid(row=1, column=0, sticky="ew", padx=4, pady=4)
 
         self.bind("<Destroy>", self.on_destroy)
+        self.bind("<Return>", self.entry_frame.submit)
 
     def on_destroy(self, event):
         if event.widget == self:
             self.parent.update_dataview()
-
-
-if __name__ == "__main__":
-    app = App()
-    app.mainloop()
