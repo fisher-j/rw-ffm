@@ -120,7 +120,7 @@ class MainMenu(tk.Tk):
             mycall = f'start "" {str(filename)}'
             sp.Popen(mycall, shell=True)
         else:                                   # linux variants
-            sp.call(('xdg-open', filename))
+            sp.Popen(('xdg-open', filename))
 
     def open_dataentry_window(self, datasheettype, datasheetid):
         if datasheettype == "tree":

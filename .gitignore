@@ -5,9 +5,9 @@
 administrative/
 
 # don't include pdfs or sqlite database
-data/**/*.pdf
+# data/**/*.pdf
 
-*.db
+# *.db
 
 # unecessary python stuff
 __pycache__
