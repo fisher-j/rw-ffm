@@ -9,7 +9,7 @@
 <meta name="author" content="Judson Fisher">
 <meta name="dcterms.date" content="2023-04-01">
 
-<title>RW-FFM data analysis</title>
+<title>RW-FFM Fuel Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,40 +22,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -66,7 +32,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
+<link href="./ground/ground.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -123,7 +89,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">RW-FFM data analysis</a> 
+      <a href="./">RW-FFM Fuel Analysis</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -139,18 +105,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./ground/ground.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">From the ground up</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  <a href="./ground/named_and_numbered.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Import and wrangle 2d</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  <a href="./ground/visualize_3d.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Import and visualize 3d</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
@@ -176,7 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">RW-FFM data analysis</h1>
+<h1 class="title">RW-FFM Fuel Analysis</h1>
 </div>
 
 
@@ -205,202 +182,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="preface" class="level1 unnumbered">
 <h1 class="unnumbered">Preface</h1>
-<p>This is a Quarto book.</p>
-<p>To learn more about Quarto books visit <a href="https://quarto.org/docs/books" class="uri">https://quarto.org/docs/books</a>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>here() starts at C:/Users/walki/Desktop/RW-ffm</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">"data/csv/plots.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>    plotid  site treatment burn plotnum coord_x coord_y notes
-1        1   bob        ls    b      12      NA      NA    NA
-2        2   bob        ls    b       3      NA      NA    NA
-3        3   bob        ls    b       5      NA      NA    NA
-4        4   bob        ls    b       6      NA      NA    NA
-5        5   bob        ls    b       9      NA      NA    NA
-6        6   bob        ls   nb       1      NA      NA    NA
-7        7   bob        ls   nb      12      NA      NA    NA
-8        8   bob        ls   nb       3      NA      NA    NA
-9        9   bob        ls   nb       6      NA      NA    NA
-10      10   bob        ls   nb       9      NA      NA    NA
-11      11   bob         m    b       1      NA      NA    NA
-12      12   bob         m    b      11      NA      NA    NA
-13      13   bob         m    b       4      NA      NA    NA
-14      14   bob         m    b       6      NA      NA    NA
-15      15   bob         m    b       7      NA      NA    NA
-16      16   bob         m   nb       1      NA      NA    NA
-17      17   bob         m   nb      10      NA      NA    NA
-18      18   bob         m   nb      11      NA      NA    NA
-19      19   bob         m   nb       3      NA      NA    NA
-20      20   bob         m   nb       9      NA      NA    NA
-21      21   bob        np    b      12      NA      NA    NA
-22      22   bob        np   nb       1      NA      NA    NA
-23      23   bob        np   nb      11      NA      NA    NA
-24      24   bob        np   nb      12      NA      NA    NA
-25      25   bob        np   nb       2      NA      NA    NA
-26      26   bob        np   nb       7      NA      NA    NA
-27      27  crib        ls    b       1      NA      NA    NA
-28      28  crib        ls    b      11      NA      NA    NA
-29      29  crib        ls    b      14      NA      NA    NA
-30      30  crib        ls    b      21      NA      NA    NA
-31      31  crib        ls    b      23      NA      NA    NA
-32      32  crib        ls    b       8      NA      NA    NA
-33      33  crib        ls   nb      11      NA      NA    NA
-34      34  crib        ls   nb       2      NA      NA    NA
-35      35  crib        ls   nb       4      NA      NA    NA
-36      36  crib        ls   nb       8      NA      NA    NA
-37      37  crib        ls   nb       9      NA      NA    NA
-38      38  crib         m    b      10      NA      NA    NA
-39      39  crib         m    b      12      NA      NA    NA
-40      40  crib         m    b      19      NA      NA    NA
-41      41  crib         m    b       2      NA      NA    NA
-42      42  crib         m    b       8      NA      NA    NA
-43      43  crib         m   nb       1      NA      NA    NA
-44      44  crib         m   nb      10      NA      NA    NA
-45      45  crib         m   nb       3      NA      NA    NA
-46      46  crib         m   nb       5      NA      NA    NA
-47      47  crib         m   nb       6      NA      NA    NA
-48      48  crib        np    b      10      NA      NA    NA
-49      49  crib        np    b      12      NA      NA    NA
-50      50  crib        np    b      17      NA      NA    NA
-51      51  crib        np    b       2      NA      NA    NA
-52      52  crib        np    b       4      NA      NA    NA
-53      53  crib        np   nb       1      NA      NA    NA
-54      54  crib        np   nb       6      NA      NA    NA
-55      55  crib        np   nb       9      NA      NA    NA
-56      56  fair        ls    b       1      NA      NA    NA
-57      57  fair        ls    b      10      NA      NA    NA
-58      58  fair        ls    b       2      NA      NA    NA
-59      59  fair        ls    b       6      NA      NA    NA
-60      60  fair        ls    b       8      NA      NA    NA
-61      61  fair        ls   nb       1      NA      NA    NA
-62      62  fair        ls   nb      11      NA      NA    NA
-63      63  fair        ls   nb       4      NA      NA    NA
-64      64  fair        ls   nb       5      NA      NA    NA
-65      65  fair        ls   nb       7      NA      NA    NA
-66      66  fair         m    b      10      NA      NA    NA
-67      67  fair         m    b       3      NA      NA    NA
-68      68  fair         m    b       4      NA      NA    NA
-69      69  fair         m    b       6      NA      NA    NA
-70      70  fair         m    b       7      NA      NA    NA
-71      71  fair        np    b       2      NA      NA    NA
-72      72  fair        np    b       3      NA      NA    NA
-73      73  fair        np    b       5      NA      NA    NA
-74      74  fair        np    b       7      NA      NA    NA
-75      75  fair        np    b       9      NA      NA    NA
-76      76  fair        np   nb      10      NA      NA    NA
-77      77  fair        np   nb       7      NA      NA    NA
-78      78  hare        ls    b      10      NA      NA    NA
-79      79  hare        ls    b      12      NA      NA    NA
-80      80  hare        ls    b       2      NA      NA    NA
-81      81  hare        ls    b       5      NA      NA    NA
-82      82  hare        ls    b       6      NA      NA    NA
-83      83  hare        ls   nb      10      NA      NA    NA
-84      84  hare        ls   nb       2      NA      NA    NA
-85      85  hare        ls   nb       4      NA      NA    NA
-86      86  hare        ls   nb       6      NA      NA    NA
-87      87  hare        ls   nb       9      NA      NA    NA
-88      88  hare         m    b       1      NA      NA    NA
-89      89  hare         m    b       4      NA      NA    NA
-90      90  hare         m    b       5      NA      NA    NA
-91      91  hare         m    b       8      NA      NA    NA
-92      92  hare         m    b       9      NA      NA    NA
-93      93  hare         m   nb       1      NA      NA    NA
-94      94  hare         m   nb      10      NA      NA    NA
-95      95  hare         m   nb       3      NA      NA    NA
-96      96  hare         m   nb       5      NA      NA    NA
-97      97  hare         m   nb       9      NA      NA    NA
-98      98  hare        np    b       1      NA      NA    NA
-99      99  hare        np    b      10      NA      NA    NA
-100    100  hare        np    b       3      NA      NA    NA
-101    101  hare        np    b       4      NA      NA    NA
-102    102  hare        np    b       8      NA      NA    NA
-103    103  hare        np   nb       1      NA      NA    NA
-104    104  hare        np   nb      11      NA      NA    NA
-105    105  hare        np   nb       5      NA      NA    NA
-106    106  hare        np   nb       6      NA      NA    NA
-107    107  hare        np   nb       8      NA      NA    NA
-108    108  crib        np    b       3      NA      NA    NA
-109    109  fair        np   nb       5      NA      NA    NA
-110    110  fair        np   nb       3      NA      NA    NA
-111    111   bob        np    b       3      NA      NA    NA
-112    112   bob        np    b       1      NA      NA    NA
-113    113   bob        np    b       6      NA      NA    NA
-114    114   bob        np    b       9      NA      NA    NA
-115    115   bob         m   nb       7      NA      NA    NA
-116    116   bob         m   nb       8      NA      NA    NA
-117    117  crib        np   nb       7      NA      NA    NA
-118    118  crib        np   nb      12      NA      NA    NA
-119    119   dun        ls    b      10      NA      NA    NA
-120    120   dun        ls    b      17      NA      NA    NA
-121    121   dun        ls    b      20      NA      NA    NA
-122    122   dun        ls    b       2      NA      NA    NA
-123    123  fair        np   nb       1      NA      NA    NA
-124    124 camp8         m   nb       6      NA      NA    NA
-125    125 camp8         m   nb       4      NA      NA    NA
-126    126 camp8         m   nb       2      NA      NA    NA
-127    127 camp8        ls   nb       6      NA      NA    NA
-128    128 camp8        ls   nb       4      NA      NA    NA
-129    129 camp8        ls   nb       3      NA      NA    NA
-130    130 camp8         m    b      11      NA      NA    NA
-131    131 camp8         m    b       5      NA      NA    NA
-132    132 camp8         m    b      13      NA      NA    NA
-133    133 camp8         m    b      17      NA      NA    NA
-134    134 camp8         m    b       6      NA      NA    NA
-135    135 camp8        ls   nb      10      NA      NA    NA
-136    136 camp8        ls   nb       1      NA      NA    NA
-137    137 camp8         m   nb       7      NA      NA    NA
-138    138 camp8         m   nb      12      NA      NA    NA
-139    139   dun        ls   nb       3      NA      NA    NA
-140    140   dun         m   nb       1      NA      NA    NA
-141    141   dun         m   nb      10      NA      NA    NA
-142    142   dun         m   nb       9      NA      NA    NA
-143    143   dun         m   nb       6      NA      NA    NA
-144    144   dun         m   nb       3      NA      NA    NA
-145    145   dun        ls   nb       6      NA      NA    NA
-146    146   dun        ls   nb      10      NA      NA    NA
-147    147   dun        ls   nb       1      NA      NA    NA
-148    148   dun        ls   nb       8      NA      NA    NA
-149    149   dun        ls    b       7      NA      NA    NA
-150    150 camp8        ls    b      12      NA      NA    NA
-151    151 camp8        ls    b       3      NA      NA    NA
-152    152 camp8        np   nb       8      NA      NA    NA
-153    153  fair         m   nb       3      NA      NA    NA
-154    154 camp8        np   nb      11      NA      NA    NA
-155    156 camp8        np   nb       2      NA      NA    NA
-156    157 camp8        np   nb       3      NA      NA    NA
-157    158 camp8        np   nb      10      NA      NA    NA
-158    159 camp8        np    b       2      NA      NA    NA
-159    160 camp8        np    b       4      NA      NA    NA
-160    161 camp8        np    b       7      NA      NA    NA
-161    162 camp8        np    b       8      NA      NA    NA
-162    163 camp8        np    b      10      NA      NA    NA
-163    164 camp8        ls    b      13      NA      NA    NA
-164    165  fair         m   nb       1      NA      NA    NA
-165    166 camp8        ls    b       5      NA      NA    NA
-166    167 camp8        ls    b       8      NA      NA    NA
-167    168   dun        np    b       4      NA      NA    NA
-168    169   dun        np    b       1      NA      NA    NA
-169    170   dun        np   nb       1      NA      NA    NA
-170    171  fair         m   nb      11      NA      NA    NA
-171    172   dun        np   nb      10      NA      NA    NA
-172    173   dun        np   nb       2      NA      NA    NA
-173    174   dun        np    b       5      NA      NA    NA
-174    175  fair         m   nb      13      NA      NA    NA
-175    176   dun        np   nb       4      NA      NA    NA
-176    177   dun        np    b      11      NA      NA    NA
-177    178   dun        np    b       7      NA      NA    NA
-178    179   dun         m    b       3      NA      NA    NA
-179    180   dun         m    b       6      NA      NA    NA
-180    181   dun         m    b       1      NA      NA    NA
-181    182   dun         m    b       9      NA      NA    NA
-182    183   dun         m    b      10      NA      NA    NA
-183    184  fair         m   nb       7      NA      NA    NA
-184    185   dun        np   nb       8      NA      NA    NA</code></pre>
-</div>
-</div>
+<p>I am going to analyze fuels in 3d for my master’s thesis.</p>
+<p>3d fuel models support the use of 3d, atmospheric-coupled, physics-based fire models. My research focuses on managed redwood forests which, in general have not burned in hundreds of years, but under indigenous management, they burned on average about every 15 years. Fire exclusion, and several cycles of resulting from Euro-american colonization has ostensibly resulted in novel fuel conditions for these systems. Process based models, which can extend to novel conditions could be important to realistically predicing potential fire behavior and building trust surrounding fires re-introduction into these coastal forests. It is assumed that this is a desireable and potentially necesary outcome.</p>
+<p>Herein are the steps I took to model fuels in 3d using data collected from the Jackson Demonstration State Forest in conjunction with the Redwood Fire and Fuels Mitigation thinning experiment, using mostly traditional, field-based fuel sampling techniques.</p>
 
 
 </section>
@@ -643,8 +427,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./ground/ground.html" class="pagination-link">
+        <span class="nav-page-text">From the ground up</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

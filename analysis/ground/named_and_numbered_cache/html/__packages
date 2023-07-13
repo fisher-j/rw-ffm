@@ -1,0 +1,8 @@
+sf
+DBI
+RSQLite
+tibble
+dplyr
+stringr
+ggplot2
+tmap
