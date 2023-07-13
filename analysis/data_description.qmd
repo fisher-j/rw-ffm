@@ -1,0 +1,36 @@
+---
+title: Data description
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+```
+
+The following is generated from the field_descriptions table which is included
+in the database which can be [downloaded here](rw.db).
+
+First, get table as a dataframe.
+
+```{r}
+con <- DBI::dbConnect(RSQLite::SQLite(), "../data/rw.db")
+DBI::dbListTables(con)
+descriptions <- tbl(con, "field_descriptions") |> collect()
+```
+
+Then print out the table in sections.
+
+```{r}
+print_desctiption <- function(table_name) {
+  cat("\n\n## `", table_name, "`\n\n", sep = "")
+  filter(descriptions, table == table_name) |>
+    select(-table) |>
+    knitr::kable() |>
+    print()
+}
+```
+
+```{r}
+#| output: asis
+walk(unique(descriptions$table), ~ print_desctiption(.x))
+```

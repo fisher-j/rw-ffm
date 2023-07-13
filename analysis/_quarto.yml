@@ -16,6 +16,7 @@ book:
     - references.qmd
 
 bibliography: references.bib
+resources: rw.db
 
 format:
   html:
