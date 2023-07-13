@@ -1,8 +1,0 @@
-table,field,description
-datasheets, datasheetid, "PK Unique ID for each physical datasheet"
-datasheets, filename, "Filename of the scanned pdf for this datasheet"
-datasheets, modtime, "The last modification time of the file, provided by the os"
-datasheets, status, "One of 'started', 'incomplete', or 'incomplete', indicating the data entry status. Fuel datasheets that do not have fuel bed depth are marked as incomplete."
-plots, plotid, "PK Unique ID for each physical plot"
-plots, site, "Site name, one of: 'dun', 'fair', 'camp8', 'bob', 'crib', 'hare'"
-
