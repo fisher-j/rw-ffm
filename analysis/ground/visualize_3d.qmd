@@ -1,0 +1,14 @@
+# Import and visualize 3d
+
+Now that I have plot points and treatment boundaries all defined with
+consistent naming, I can visualize a 3d model of our topography and determine a
+strategy for extracting topograpical variables and simulating representative
+topogrphy for fire simulation.
+
+```{r}
+#| file: "./ground/chunks/visualize_topo.r"
+#| message: false
+#| warning: false
+#| cache: true
+#| code-fold: true
+```

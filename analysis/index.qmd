@@ -1,10 +1,19 @@
 # Preface {.unnumbered}
 
-This is a Quarto book.
+I am going to analyze fuels in 3d for my master's thesis.
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+3d fuel models support the use of 3d, atmospheric-coupled, physics-based fire
+models. My research focuses on managed redwood forests which, in general have
+not burned in hundreds of years, but under indigenous management, they burned
+on average about every 15 years. Fire exclusion, and several cycles of
+resulting from Euro-american colonization has ostensibly resulted in novel fuel
+conditions for these systems. Process based models, which can extend to novel
+conditions could be important to realistically predicing potential fire
+behavior and building trust surrounding fires re-introduction into these
+coastal forests. It is assumed that this is a desireable and potentially
+necesary outcome.
 
-```{r}
-library(here)
-read.csv(here("data/csv/plots.csv"))
-```
+Herein are the steps I took to model fuels in 3d using data collected from the
+Jackson Demonstration State Forest in conjunction with the Redwood Fire and
+Fuels Mitigation thinning experiment, using mostly traditional, field-based
+fuel sampling techniques.

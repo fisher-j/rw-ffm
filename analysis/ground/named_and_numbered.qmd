@@ -1,0 +1,16 @@
+# Import and wrangle 2d
+
+First I need to import and wrangle spatial and tabular data. Here I'm going to
+focus on the 2d, vector data.
+
+```{r first-viz}
+#| file: "./ground/chunks/named_and_numbered.r"
+#| message: false
+#| warning: false
+#| cache: true  
+#| code-fold: true
+a <- rnorm(100, 3)
+
+test <- function(x) cat(x)
+dplyr::filter
+```
