@@ -114,45 +114,46 @@ aerial_photo_3d <- function(fig) {
   print(paste(fig, collapse = " "))
 }
 
-rgl::mfrow3d(4, 3)
-for(fig in list_figures(blocks)) {
-  rgl::next3d()
-  aerial_photo_3d(fig)
-}
+# rgl::mfrow3d(4, 3)
+# for(fig in list_figures(blocks)) {
+#   rgl::next3d()
+#   aerial_photo_3d(fig)
+#   rglwidget()
+# }
 
 
-rgl::mfrow3d(1, 3)
-aerial_photo_3d(list(site = "fair", treatment = "m", burn = "nb"))
-next3d()
-aerial_photo_3d(list(site = "fair", treatment = "ls", burn = "nb"))
-next3d()
-aerial_photo_3d(list(site = "fair", treatment = "np", burn = "nb"))
-next3d()
-
-aerial_photo_3d(list(site = "fair", burn = "nb"))
+# rgl::mfrow3d(1, 3)
+# aerial_photo_3d(list(site = "fair", treatment = "m", burn = "nb"))
+# next3d()
+# aerial_photo_3d(list(site = "fair", treatment = "ls", burn = "nb"))
+# next3d()
+# aerial_photo_3d(list(site = "fair", treatment = "np", burn = "nb"))
+# next3d()
+#
+# aerial_photo_3d(list(site = "fair", burn = "nb"))
 
 
 # rgl::rglwidget()
 
-dem_matrix |>
-  sphere_shade(texture = rw_texture) |>
-  add_overlay(plots_overlay) |>
-  plot_3d(dem_matrix)
-
-bb <- st_bbox(oneraster)
-deltay <- bb[4] - bb[2]
-y_offset <- (1 - 200 / deltay) / 2 
-dem_matrix |>
-  sphere_shade(texture = rw_texture) |>
-  add_shadow(texture_shade(dem_matrix)) |>
-  add_shadow(lamb_shade(dem_matrix), max_darken = 0.2) |>
-  add_overlay(plots_overlay) |>
-  plot_3d(dem_matrix, theta = 300, phi = 25, fov = 60, zoom = 0.8)
-render_compass(position = "S", altitude = min(dem_matrix, na.rm = TRUE), compass_radius = 30)
-render_scalebar(
-  limits = c(0, 200),
-  scale_length = c(y_offset, 1 - y_offset),
-  y = min(dem_matrix, na.rm = TRUE),
-  label_unit = "m"
-)
+# dem_matrix |>
+#   sphere_shade(texture = rw_texture) |>
+#   add_overlay(plots_overlay) |>
+#   plot_3d(dem_matrix)
+#
+# bb <- st_bbox(oneraster)
+# deltay <- bb[4] - bb[2]
+# y_offset <- (1 - 200 / deltay) / 2 
+# dem_matrix |>
+#   sphere_shade(texture = rw_texture) |>
+#   add_shadow(texture_shade(dem_matrix)) |>
+#   add_shadow(lamb_shade(dem_matrix), max_darken = 0.2) |>
+#   add_overlay(plots_overlay) |>
+#   plot_3d(dem_matrix, theta = 300, phi = 25, fov = 60, zoom = 0.8)
+# render_compass(position = "S", altitude = min(dem_matrix, na.rm = TRUE), compass_radius = 30)
+# render_scalebar(
+#   limits = c(0, 200),
+#   scale_length = c(y_offset, 1 - y_offset),
+#   y = min(dem_matrix, na.rm = TRUE),
+#   label_unit = "m"
+# )
 

@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>RW-FFM Fuel Analysis - 1&nbsp; Data description</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./ground/ground.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data_description.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data description</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">RW-FFM Fuel Analysis</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_description.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data description</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./ground/ground.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">From the ground up</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ground/named_and_numbered.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Import and wrangle 2d</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ground/visualize_3d.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Import and visualize 3d</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#datasheets" id="toc-datasheets" class="nav-link active" data-scroll-target="#datasheets"><span class="header-section-number">1.1</span> <code>datasheets</code></a></li>
+  <li><a href="#plots" id="toc-plots" class="nav-link" data-scroll-target="#plots"><span class="header-section-number">1.2</span> <code>plots</code></a></li>
+  <li><a href="#stages" id="toc-stages" class="nav-link" data-scroll-target="#stages"><span class="header-section-number">1.3</span> <code>stages</code></a></li>
+  <li><a href="#collections" id="toc-collections" class="nav-link" data-scroll-target="#collections"><span class="header-section-number">1.4</span> <code>collections</code></a></li>
+  <li><a href="#collectdatasheets" id="toc-collectdatasheets" class="nav-link" data-scroll-target="#collectdatasheets"><span class="header-section-number">1.5</span> <code>collectdatasheets</code></a></li>
+  <li><a href="#collectdates" id="toc-collectdates" class="nav-link" data-scroll-target="#collectdates"><span class="header-section-number">1.6</span> <code>collectdates</code></a></li>
+  <li><a href="#collectcrew" id="toc-collectcrew" class="nav-link" data-scroll-target="#collectcrew"><span class="header-section-number">1.7</span> <code>collectcrew</code></a></li>
+  <li><a href="#reftrees" id="toc-reftrees" class="nav-link" data-scroll-target="#reftrees"><span class="header-section-number">1.8</span> <code>reftrees</code></a></li>
+  <li><a href="#regenmetadata" id="toc-regenmetadata" class="nav-link" data-scroll-target="#regenmetadata"><span class="header-section-number">1.9</span> <code>regenmetadata</code></a></li>
+  <li><a href="#treemetadata" id="toc-treemetadata" class="nav-link" data-scroll-target="#treemetadata"><span class="header-section-number">1.10</span> <code>treemetadata</code></a></li>
+  <li><a href="#trees" id="toc-trees" class="nav-link" data-scroll-target="#trees"><span class="header-section-number">1.11</span> <code>trees</code></a></li>
+  <li><a href="#treedefect" id="toc-treedefect" class="nav-link" data-scroll-target="#treedefect"><span class="header-section-number">1.12</span> <code>treedefect</code></a></li>
+  <li><a href="#regencounts" id="toc-regencounts" class="nav-link" data-scroll-target="#regencounts"><span class="header-section-number">1.13</span> <code>regencounts</code></a></li>
+  <li><a href="#regenheights" id="toc-regenheights" class="nav-link" data-scroll-target="#regenheights"><span class="header-section-number">1.14</span> <code>regenheights</code></a></li>
+  <li><a href="#clumpsaplings" id="toc-clumpsaplings" class="nav-link" data-scroll-target="#clumpsaplings"><span class="header-section-number">1.15</span> <code>clumpsaplings</code></a></li>
+  <li><a href="#fuelmetadata" id="toc-fuelmetadata" class="nav-link" data-scroll-target="#fuelmetadata"><span class="header-section-number">1.16</span> <code>fuelmetadata</code></a></li>
+  <li><a href="#transects" id="toc-transects" class="nav-link" data-scroll-target="#transects"><span class="header-section-number">1.17</span> <code>transects</code></a></li>
+  <li><a href="#fwd" id="toc-fwd" class="nav-link" data-scroll-target="#fwd"><span class="header-section-number">1.18</span> <code>fwd</code></a></li>
+  <li><a href="#station" id="toc-station" class="nav-link" data-scroll-target="#station"><span class="header-section-number">1.19</span> <code>station</code></a></li>
+  <li><a href="#cwd" id="toc-cwd" class="nav-link" data-scroll-target="#cwd"><span class="header-section-number">1.20</span> <code>cwd</code></a></li>
+  <li><a href="#table" id="toc-table" class="nav-link" data-scroll-target="#table"><span class="header-section-number">1.21</span> <code>table</code></a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data description</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>The following is generated from the field_descriptions table which is included in the database which can be <a href="rw.db">downloaded here</a>.</p>
+<p>First, get table as a dataframe.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), <span class="st">"../data/rw.db"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>DBI<span class="sc">::</span><span class="fu">dbListTables</span>(con)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "clumpsaplings"      "collectcrew"        "collectdatasheets" 
+ [4] "collectdates"       "collections"        "cwd"               
+ [7] "datasheets"         "expand_collection"  "field_descriptions"
+[10] "fuelmetadata"       "fwd"                "plots"             
+[13] "reftrees"           "regencounts"        "regenheights"      
+[16] "regenmetadata"      "stages"             "station"           
+[19] "transects"          "treedefect"         "treemetadata"      
+[22] "trees"             </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>descriptions <span class="ot">&lt;-</span> <span class="fu">tbl</span>(con, <span class="st">"field_descriptions"</span>) <span class="sc">|&gt;</span> <span class="fu">collect</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then print out the table in sections.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>print_desctiption <span class="ot">&lt;-</span> <span class="cf">function</span>(table_name) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n\n</span><span class="st">## `"</span>, table_name, <span class="st">"`</span><span class="sc">\n\n</span><span class="st">"</span>, <span class="at">sep =</span> <span class="st">""</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(descriptions, table <span class="sc">==</span> table_name) <span class="sc">|&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span>table) <span class="sc">|&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>() <span class="sc">|&gt;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>()</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">walk</span>(<span class="fu">unique</span>(descriptions<span class="sc">$</span>table), <span class="sc">~</span> <span class="fu">print_desctiption</span>(.x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="datasheets" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="datasheets"><span class="header-section-number">1.1</span> <code>datasheets</code></h2>
+<table class="table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 92%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">field</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">datasheetid</td>
+<td style="text-align: left;">PK Unique ID for each physical datasheet</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">filename</td>
+<td style="text-align: left;">Filename of the scanned pdf for this datasheet</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">modtime</td>
+<td style="text-align: left;">The last modification time of the file, provided by the os</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">status</td>
+<td style="text-align: left;">One of ‘started’, ‘incomplete’, or ‘incomplete’, indicating the data entry status. Fuel datasheets that do not have fuel bed depth are marked as incomplete.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">datasheetid</td>
+<td style="text-align: left;">PK Unique ID for each physical datasheet</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">filename</td>
+<td style="text-align: left;">Filename of the scanned pdf for this datasheet</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">modtime</td>
+<td style="text-align: left;">The last modification time of the file, provided by the os</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">status</td>
+<td style="text-align: left;">One of ‘started’, ‘incomplete’, or ‘incomplete’, indicating the data entry status. Fuel datasheets that do not have fuel bed depth are marked as incomplete.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="plots" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="plots"><span class="header-section-number">1.2</span> <code>plots</code></h2>
+<table class="table">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 94%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">field</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">plotid</td>
+<td style="text-align: left;">PK Unique ID for each physical plot</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">site</td>
+<td style="text-align: left;">Site name, one of: ‘dun’, ‘fair’, ‘camp8’, ‘bob’, ‘crib’, ‘hare’</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">treatment</td>
+<td style="text-align: left;">One of ‘np’ (no prep), ‘m’ (masticate), or ‘ls’ (lop and scatter)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">burn</td>
+<td style="text-align: left;">One of ‘b’ (burn), or (no burn), indicating if the treatment will be burned or not</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">plotnum</td>
+<td style="text-align: left;">Integer identying the plot number within the treatment. Potential plot locations (arranged systematically) were numbered sequentially, rowwise from upper left to lower right</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">coord_x</td>
+<td style="text-align: left;">East-west coordinate of plot center, currently unused</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">coord_y</td>
+<td style="text-align: left;">North-south coordinate of plot center, currently unused</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">notes</td>
+<td style="text-align: left;">Genearl notes for plot</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">plotid</td>
+<td style="text-align: left;">PK Unique ID for each physical plot</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">site</td>
+<td style="text-align: left;">Site name, one of: ‘dun’, ‘fair’, ‘camp8’, ‘bob’, ‘crib’, ‘hare’</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">treatment</td>
+<td style="text-align: left;">One of ‘np’ (no prep), ‘m’ (masticate), or ‘ls’ (lop and scatter)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">burn</td>
+<td style="text-align: left;">One of ‘b’ (burn), or (no burn), indicating if the treatment will be burned or not</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">plotnum</td>
+<td style="text-align: left;">Integer identying the plot number within the treatment. Potential plot locations (arranged systematically) were numbered sequentially, rowwise from upper left to lower right</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">coord_x</td>
+<td style="text-align: left;">East-west coordinate of plot center, currently unused</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">coord_y</td>
+<td style="text-align: left;">North-south coordinate of plot center, currently unused</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">notes</td>
+<td style="text-align: left;">Genearl notes for plot</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="stages" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="stages"><span class="header-section-number">1.3</span> <code>stages</code></h2>
+<table class="table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 89%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">field</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">stageid</td>
+<td style="text-align: left;">PK Integer indicating experiment stage, stage 1 being pre-treatment.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">stage</td>
+<td style="text-align: left;">Text name of stage, currently unused.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">stageid</td>
+<td style="text-align: left;">PK Integer indicating experiment stage, stage 1 being pre-treatment.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">stage</td>
+<td style="text-align: left;">Text name of stage, currently unused.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="collections" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="collections"><span class="header-section-number">1.4</span> <code>collections</code></h2>
+<table class="table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 90%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">field</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">collectid</td>
+<td style="text-align: left;">PK Identifies a collection, which is data collected for one datasheettype, at one plot, during one stage.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">plotid</td>
+<td style="text-align: left;">FK Refers to plots.plotid.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">stageid</td>
+<td style="text-align: left;">FK Refers to stages.stageid.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">datasheettype</td>
+<td style="text-align: left;">Data was collected on three different datasheets, broadly representing different fuels strata. One of ‘trees’, ‘regen’, or ‘fuels’.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">collectid</td>
+<td style="text-align: left;">PK Identifies a collection, which is data collected for one datasheettype, at one plot, during one stage.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">plotid</td>
+<td style="text-align: left;">FK Refers to plots.plotid.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">stageid</td>
+<td style="text-align: left;">FK Refers to stages.stageid.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">datasheettype</td>
+<td style="text-align: left;">Data was collected on three different datasheets, broadly representing different fuels strata. One of ‘trees’, ‘regen’, or ‘fuels’.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="collectdatasheets" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="collectdatasheets"><span class="header-section-number">1.5</span> <code>collectdatasheets</code></h2>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">field</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">collectid</td>
+<td style="text-align: left;">PK FK Refers to collections.collectid.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">collectid</td>
+<td style="text-align: left;">PK FK Referes to datasheets.datasheetid.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">collectid</td>
+<td style="text-align: left;">PK FK Refers to collections.collectid.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">collectid</td>
+<td style="text-align: left;">PK FK Referes to datasheets.datasheetid.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="collectdates" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="collectdates"><span class="header-section-number">1.6</span> <code>collectdates</code></h2>
+<table class="table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 89%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">field</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">collectid</td>
+<td style="text-align: left;">FK Refers to collections.collectid.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">date</td>
+<td style="text-align: left;">A date associated with a collection. There can be multiple dates for a collection.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">collectid</td>
+<td style="text-align: left;">FK Refers to collections.collectid.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">date</td>
+<td style="text-align: left;">A date associated with a collection. There can be multiple dates for a collection.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="collectcrew" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="collectcrew"><span class="header-section-number">1.7</span> <code>collectcrew</code></h2>
+<table class="table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 91%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">field</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">collectid</td>
+<td style="text-align: left;">FK Refers to collections.collectid.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">transectid</td>
+<td style="text-align: left;">For fuels transect data, this field allows crew members to be identified on a transect basis. Null for other datasheet type</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">role</td>
+<td style="text-align: left;">Curretnly only used to identify the crew member responsible for estimating fine woody debris (fwd) or vegetation (veg).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">member</td>
+<td style="text-align: left;">First and last initials of a crew member.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">collectid</td>
+<td style="text-align: left;">FK Refers to collections.collectid.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">transectid</td>
+<td style="text-align: left;">For fuels transect data, this field allows crew members to be identified on a transect basis. Null for other datasheet type</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">role</td>
+<td style="text-align: left;">Curretnly only used to identify the crew member responsible for estimating fine woody debris (fwd) or vegetation (veg).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">member</td>
+<td style="text-align: left;">First and last initials of a crew member.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="reftrees" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="reftrees"><span class="header-section-number">1.8</span> <code>reftrees</code></h2>
+<table class="table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 86%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">field</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">collectid</td>
+<td style="text-align: left;">FK Refers to collections.collectid.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">treeid</td>
+<td style="text-align: left;">FK refers to trees.treeid.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">distance</td>
+<td style="text-align: left;">Distance in meters from plot center to pith of reference tree.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">azimuth</td>
+<td style="text-align: left;">Azimuth in degrees from reference tree center to plot center.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">collectid</td>
+<td style="text-align: left;">FK Refers to collections.collectid.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">treeid</td>
+<td style="text-align: left;">FK refers to trees.treeid.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">distance</td>
+<td style="text-align: left;">Distance in meters from plot center to pith of reference tree.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">azimuth</td>
+<td style="text-align: left;">Azimuth in degrees from reference tree center to plot center.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="regenmetadata" class="level2" data-number="1.9">
+<h2 data-number="1.9" class="anchored" data-anchor-id="regenmetadata"><span class="header-section-number">1.9</span> <code>regenmetadata</code></h2>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">field</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">collectid</td>
+<td style="text-align: left;">PK Refers to collections.collectid.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">seedlingradius</td>
+<td style="text-align: left;">Radius of seedling plot in meters.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">saplingradius</td>
+<td style="text-align: left;">Radius of sapling plot in meters.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">notes</td>
+<td style="text-align: left;">Permanent notes regarding the regen plot.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">collectid</td>
+<td style="text-align: left;">PK Refers to collections.collectid.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">seedlingradius</td>
+<td style="text-align: left;">Radius of seedling plot in meters.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">saplingradius</td>
+<td style="text-align: left;">Radius of sapling plot in meters.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">notes</td>
+<td style="text-align: left;">Permanent notes regarding the regen plot.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="treemetadata" class="level2" data-number="1.10">
+<h2 data-number="1.10" class="anchored" data-anchor-id="treemetadata"><span class="header-section-number">1.10</span> <code>treemetadata</code></h2>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">field</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">collectid</td>
+<td style="text-align: left;">PK Refers to collections.collectid.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">notes</td>
+<td style="text-align: left;">Permanent notes regarding the trees plot.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">collectid</td>
+<td style="text-align: left;">PK Refers to collections.collectid.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">notes</td>
+<td style="text-align: left;">Permanent notes regarding the trees plot.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="trees" class="level2" data-number="1.11">
+<h2 data-number="1.11" class="anchored" data-anchor-id="trees"><span class="header-section-number">1.11</span> <code>trees</code></h2>
+<table class="table">
+<colgroup>
+<col style="width: 3%">
+<col style="width: 96%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">field</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">treeobsid</td>
+<td style="text-align: left;">PK Uniquely identifies the observation of a tree. This allows a tree to be observed multiple times (for different stages). Trees were measured on a 11.28 meter radius plot.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">collectid</td>
+<td style="text-align: left;">FK Refers to collections.collectid.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">treeid</td>
+<td style="text-align: left;">Tag number of physical tree tag. These are unique across the experiment.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">spp</td>
+<td style="text-align: left;">Tree species as a two-letter identifier, to=tanoak, df=Douglas-fir, rw=redwood, gc=golden chinquapin, gf=grand fir, md=madrone, cb=California bay, cn=California nutmeg, sx=Salix spp., hm=western hemlock, cp=unknown, ra=red alder, wm=wax myrtle, bp=bishop pine.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">dbh</td>
+<td style="text-align: left;">Diameter at breash height in cm.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ht</td>
+<td style="text-align: left;">Total height of tree. Heights were recorded intermittently in the begining, then not at all later on. The decision was made to use heights predicted from local allometric equations.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">cbh</td>
+<td style="text-align: left;">Crown base heigth in meters. This is the vertical distance from the level of the base of the tree, to the continuous live crown. Single, lone, or outlier branches were skipped. No limit was placeds on the number of sides that branches must be comming out of.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cr</td>
+<td style="text-align: left;">Crown ratio, not used.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">clumpid</td>
+<td style="text-align: left;">Integer identifying trees that were determined to belong to the same clump. For redwoods, this meant that stems were within about a meter of eachother and assumed to share a root system. It did not include all trees forming a fairy ring. For tanoak, trees were visibly connected above the soil level.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">notes</td>
+<td style="text-align: left;">Tree observation notes.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">treeobsid</td>
+<td style="text-align: left;">PK Uniquely identifies the observation of a tree. This allows a tree to be observed multiple times (for different stages). Trees were measured on a 11.28 meter radius plot.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">collectid</td>
+<td style="text-align: left;">FK Refers to collections.collectid.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">treeid</td>
+<td style="text-align: left;">Tag number of physical tree tag. These are unique across the experiment.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">spp</td>
+<td style="text-align: left;">Tree species as a two-letter identifier, to=tanoak, df=Douglas-fir, rw=redwood, gc=golden chinquapin, gf=grand fir, md=madrone, cb=California bay, cn=California nutmeg, sx=Salix spp., hm=western hemlock, cp=unknown, ra=red alder, wm=wax myrtle, bp=bishop pine.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">dbh</td>
+<td style="text-align: left;">Diameter at breash height in cm.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ht</td>
+<td style="text-align: left;">Total height of tree. Heights were recorded intermittently in the begining, then not at all later on. The decision was made to use heights predicted from local allometric equations.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">cbh</td>
+<td style="text-align: left;">Crown base heigth in meters. This is the vertical distance from the level of the base of the tree, to the continuous live crown. Single, lone, or outlier branches were skipped. No limit was placeds on the number of sides that branches must be comming out of.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cr</td>
+<td style="text-align: left;">Crown ratio, not used.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">clumpid</td>
+<td style="text-align: left;">Integer identifying trees that were determined to belong to the same clump. For redwoods, this meant that stems were within about a meter of eachother and assumed to share a root system. It did not include all trees forming a fairy ring. For tanoak, trees were visibly connected above the soil level.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">notes</td>
+<td style="text-align: left;">Tree observation notes.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="treedefect" class="level2" data-number="1.12">
+<h2 data-number="1.12" class="anchored" data-anchor-id="treedefect"><span class="header-section-number">1.12</span> <code>treedefect</code></h2>
+<table class="table">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 95%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">field</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">treeobsid</td>
+<td style="text-align: left;">FK refers to trees.treeobsid</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">location</td>
+<td style="text-align: left;">One of: ‘top’, ‘mid’, or ‘bot’, indicating the upper, middle, or lower third of the tree as the location of the damage.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">defecttyp</td>
+<td style="text-align: left;">Description of deffect, the most commom was ‘operational’ meaning damage resuling from skidding or felling operations. Lean (and lean angle) was recorded in notes.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">regencounts,collectid,“FK refers to collections.collectid.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">treeobsid</td>
+<td style="text-align: left;">FK refers to trees.treeobsid</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">location</td>
+<td style="text-align: left;">One of: ‘top’, ‘mid’, or ‘bot’, indicating the upper, middle, or lower third of the tree as the location of the damage.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">defecttyp</td>
+<td style="text-align: left;">Description of deffect, the most commom was ‘operational’ meaning damage resuling from skidding or felling operations. Lean (and lean angle) was recorded in notes.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="regencounts" class="level2" data-number="1.13">
+<h2 data-number="1.13" class="anchored" data-anchor-id="regencounts"><span class="header-section-number">1.13</span> <code>regencounts</code></h2>
+<table class="table">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 94%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">field</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">spp</td>
+<td style="text-align: left;">Species, refer to trees.spp.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sizeclass</td>
+<td style="text-align: left;">1-cm size classes (exept for the two smallest, which were 2.5 cm classes) for saplings less than 10 cm. &lt;BH, (less than breast height) identifies seedlings.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">count</td>
+<td style="text-align: left;">Number of saplings per spp., size-class.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">collectid</td>
+<td style="text-align: left;">FK refers to collections.collectid.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">spp</td>
+<td style="text-align: left;">Species, refer to trees.spp.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sizeclass</td>
+<td style="text-align: left;">1-cm size classes (exept for the two smallest, which were 2.5 cm classes) for saplings less than 10 cm. &lt;BH, (less than breast height) identifies seedlings.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">count</td>
+<td style="text-align: left;">Number of saplings per spp., size-class.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="regenheights" class="level2" data-number="1.14">
+<h2 data-number="1.14" class="anchored" data-anchor-id="regenheights"><span class="header-section-number">1.14</span> <code>regenheights</code></h2>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">field</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">collectid</td>
+<td style="text-align: left;">FK Refers to collections.collectid.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">spp</td>
+<td style="text-align: left;">Species.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sizeclass</td>
+<td style="text-align: left;">Sapling size-class.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cbh</td>
+<td style="text-align: left;">Crown base height.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ht</td>
+<td style="text-align: left;">Total height.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">collectid</td>
+<td style="text-align: left;">FK Refers to collections.collectid.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">spp</td>
+<td style="text-align: left;">Species.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sizeclass</td>
+<td style="text-align: left;">Sapling size-class.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">cbh</td>
+<td style="text-align: left;">Crown base height.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ht</td>
+<td style="text-align: left;">Total height.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="clumpsaplings" class="level2" data-number="1.15">
+<h2 data-number="1.15" class="anchored" data-anchor-id="clumpsaplings"><span class="header-section-number">1.15</span> <code>clumpsaplings</code></h2>
+<table class="table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 91%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">field</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">collectid</td>
+<td style="text-align: left;">FK Refers to collections.collectid.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">clumpid</td>
+<td style="text-align: left;">FK Refers to trees.clumpid.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sapdbh</td>
+<td style="text-align: left;">1-cm diameter class of an individual sampling in a clump with a tree. These are basically basal sprouts.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">collectid</td>
+<td style="text-align: left;">FK Refers to collections.collectid.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">clumpid</td>
+<td style="text-align: left;">FK Refers to trees.clumpid.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sapdbh</td>
+<td style="text-align: left;">1-cm diameter class of an individual sampling in a clump with a tree. These are basically basal sprouts.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fuelmetadata" class="level2" data-number="1.16">
+<h2 data-number="1.16" class="anchored" data-anchor-id="fuelmetadata"><span class="header-section-number">1.16</span> <code>fuelmetadata</code></h2>
+<table class="table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 84%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">field</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">collectid</td>
+<td style="text-align: left;">PK Refers to collections.collectid.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">onehrlen</td>
+<td style="text-align: left;">Specifies transect length for one-hour fuels in meters.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tenhrlen</td>
+<td style="text-align: left;">Specifies transect length for ten-hour fuels in meters.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">hundhrlen</td>
+<td style="text-align: left;">Specifies transect length for hundred-hour fuels in meters.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">thoushrlen</td>
+<td style="text-align: left;">Specifies transect length for thousand-hour fuels in meters.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">notes</td>
+<td style="text-align: left;">Permanent notes regarding the fuels plot.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">collectid</td>
+<td style="text-align: left;">PK Refers to collections.collectid.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">onehrlen</td>
+<td style="text-align: left;">Specifies transect length for one-hour fuels in meters.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tenhrlen</td>
+<td style="text-align: left;">Specifies transect length for ten-hour fuels in meters.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">hundhrlen</td>
+<td style="text-align: left;">Specifies transect length for hundred-hour fuels in meters.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">thoushrlen</td>
+<td style="text-align: left;">Specifies transect length for thousand-hour fuels in meters.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">notes</td>
+<td style="text-align: left;">Permanent notes regarding the fuels plot.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="transects" class="level2" data-number="1.17">
+<h2 data-number="1.17" class="anchored" data-anchor-id="transects"><span class="header-section-number">1.17</span> <code>transects</code></h2>
+<table class="table">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 95%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">field</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">transectid</td>
+<td style="text-align: left;">PK Unique identifier for observations of transects. Should have been called ‘transectobsid’. There is currently not another identifier for transects as permanent entities. Subsequent measurements will be linked based on their plotid and azimuth.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">collectid</td>
+<td style="text-align: left;">FK Refers to collections.collectid.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">transectnum</td>
+<td style="text-align: left;">Transects within plots were given a number 1-3.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">azimuth</td>
+<td style="text-align: left;">Azimuth of transect from plot center, usually one of 0, 120, or 240, unless and obstacle required moving the transect. Then it was moved the shortest distance to avoid the obstacle (usually a large stump).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">slope</td>
+<td style="text-align: left;">Total slope, in percent from begining to end of transect.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">notes</td>
+<td style="text-align: left;">Transect observation notes.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">transectid</td>
+<td style="text-align: left;">PK Unique identifier for observations of transects. Should have been called ‘transectobsid’. There is currently not another identifier for transects as permanent entities. Subsequent measurements will be linked based on their plotid and azimuth.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">collectid</td>
+<td style="text-align: left;">FK Refers to collections.collectid.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">transectnum</td>
+<td style="text-align: left;">Transects within plots were given a number 1-3.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">azimuth</td>
+<td style="text-align: left;">Azimuth of transect from plot center, usually one of 0, 120, or 240, unless and obstacle required moving the transect. Then it was moved the shortest distance to avoid the obstacle (usually a large stump).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">slope</td>
+<td style="text-align: left;">Total slope, in percent from begining to end of transect.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">notes</td>
+<td style="text-align: left;">Transect observation notes.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fwd" class="level2" data-number="1.18">
+<h2 data-number="1.18" class="anchored" data-anchor-id="fwd"><span class="header-section-number">1.18</span> <code>fwd</code></h2>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">field</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">transectid</td>
+<td style="text-align: left;">FK Refers to transects.transectid.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">onehr</td>
+<td style="text-align: left;">Count of one-hr fuels. &lt; 0.635 cm.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tenhr</td>
+<td style="text-align: left;">Count of ten-hr fuels, 0.635 - &lt;2.54 cm.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">hundhr</td>
+<td style="text-align: left;">Count of hundred-hr fuels, 2.54 - &lt;7.62 cm.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">transectid</td>
+<td style="text-align: left;">FK Refers to transects.transectid.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">onehr</td>
+<td style="text-align: left;">Count of one-hr fuels. &lt; 0.635 cm.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tenhr</td>
+<td style="text-align: left;">Count of ten-hr fuels, 0.635 - &lt;2.54 cm.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">hundhr</td>
+<td style="text-align: left;">Count of hundred-hr fuels, 2.54 - &lt;7.62 cm.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="station" class="level2" data-number="1.19">
+<h2 data-number="1.19" class="anchored" data-anchor-id="station"><span class="header-section-number">1.19</span> <code>station</code></h2>
+<table class="table">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 95%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">field</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">transectid</td>
+<td style="text-align: left;">FK Refers to transects.transectid.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">metermark</td>
+<td style="text-align: left;">Meters from plot center along the transect where the measurement was taken.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">depth</td>
+<td style="text-align: left;">Combined depth of duff and litter. This was measured to the top of the litter layer and may include 1-hour fuels.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">pctlitter</td>
+<td style="text-align: left;">Percent of duff and litter depth that is composed of litter. Litter was judged by having a lighter color, and particles that had not yet begun to break down, for instance, redwood sprays with leaves still attached.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">fbd</td>
+<td style="text-align: left;">Fuel bed depth was measured as an ocular estimate of the average combined depth of fine and coarse woody fuels in a 1 m radius circle, centered at the metermark. This excluded duff.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">livewoody</td>
+<td style="text-align: left;">Percent cover of live woody material within a 1-meter radius sampling cylinder, 2-meters tall. Alternatively, Percent of ground that would be completely covered if all woody vegetation within the sampling cylinder were pushed to the ground.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">deadwoody</td>
+<td style="text-align: left;">Same as for live woody, but for dead material attached to live plants.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">woodyheight</td>
+<td style="text-align: left;">Average maximum height of live or dead woody vegetation within the sampling cylinder. If a sheet were draped over the woody vegetation only, the average height of the sheet.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">liveherb</td>
+<td style="text-align: left;">Percent cover of live herbaceous vegetation, as for livewoody.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">deadherb</td>
+<td style="text-align: left;">Percent cover of dead herbaceous vegetation, as livewoody.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">herbheight</td>
+<td style="text-align: left;">Average maximum height in meters, as for woodyheight.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">transectid</td>
+<td style="text-align: left;">FK Refers to transects.transectid.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">metermark</td>
+<td style="text-align: left;">Meters from plot center along the transect where the measurement was taken.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">depth</td>
+<td style="text-align: left;">Combined depth of duff and litter. This was measured to the top of the litter layer and may include 1-hour fuels.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">pctlitter</td>
+<td style="text-align: left;">Percent of duff and litter depth that is composed of litter. Litter was judged by having a lighter color, and particles that had not yet begun to break down, for instance, redwood sprays with leaves still attached.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">fbd</td>
+<td style="text-align: left;">Fuel bed depth was measured as an ocular estimate of the average combined depth of fine and coarse woody fuels in a 1 m radius circle, centered at the metermark. This excluded duff.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">livewoody</td>
+<td style="text-align: left;">Percent cover of live woody material within a 1-meter radius sampling cylinder, 2-meters tall. Alternatively, Percent of ground that would be completely covered if all woody vegetation within the sampling cylinder were pushed to the ground.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">deadwoody</td>
+<td style="text-align: left;">Same as for live woody, but for dead material attached to live plants.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">woodyheight</td>
+<td style="text-align: left;">Average maximum height of live or dead woody vegetation within the sampling cylinder. If a sheet were draped over the woody vegetation only, the average height of the sheet.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">liveherb</td>
+<td style="text-align: left;">Percent cover of live herbaceous vegetation, as for livewoody.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">deadherb</td>
+<td style="text-align: left;">Percent cover of dead herbaceous vegetation, as livewoody.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">herbheight</td>
+<td style="text-align: left;">Average maximum height in meters, as for woodyheight.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cwd" class="level2" data-number="1.20">
+<h2 data-number="1.20" class="anchored" data-anchor-id="cwd"><span class="header-section-number">1.20</span> <code>cwd</code></h2>
+<table class="table">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 94%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">field</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">transectid</td>
+<td style="text-align: left;">FK Refers to transects.transectid.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">diameter</td>
+<td style="text-align: left;">Diameter in cm of dead downed wood &gt; 7.62cm at the location where the transect intersects with the particles pith. Only pieces whose pith intersects with the vertical sampling plane are counted.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">decayclass</td>
+<td style="text-align: left;">Decay class 1-5, 1=Fine branches still present, 2=Some branches and bark missing, 3=most branches and much bark missing potentially minor decay, 4=Significant decay, 5=Almost completely rotten.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">transectid</td>
+<td style="text-align: left;">FK Refers to transects.transectid.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">diameter</td>
+<td style="text-align: left;">Diameter in cm of dead downed wood &gt; 7.62cm at the location where the transect intersects with the particles pith. Only pieces whose pith intersects with the vertical sampling plane are counted.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">decayclass</td>
+<td style="text-align: left;">Decay class 1-5, 1=Fine branches still present, 2=Some branches and bark missing, 3=most branches and much bark missing potentially minor decay, 4=Significant decay, 5=Almost completely rotten.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="table" class="level2" data-number="1.21">
+<h2 data-number="1.21" class="anchored" data-anchor-id="table"><span class="header-section-number">1.21</span> <code>table</code></h2>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">field</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">field</td>
+<td style="text-align: left;">description</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./ground/ground.html" class="pagination-link">
+        <span class="nav-page-text">From the ground up</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

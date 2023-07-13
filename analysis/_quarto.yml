@@ -9,6 +9,7 @@ book:
   date: "4/1/2023"
   chapters:
     - index.qmd
+    - data_description.qmd
     - part: ./ground/ground.qmd
       chapters:
         - ./ground/named_and_numbered.qmd
@@ -16,7 +17,7 @@ book:
     - references.qmd
 
 bibliography: references.bib
-resources: rw.db
+resources: ../data/rw.db
 
 format:
   html:

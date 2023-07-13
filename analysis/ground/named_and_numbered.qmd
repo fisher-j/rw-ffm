@@ -7,7 +7,7 @@ focus on the 2d, vector data.
 #| file: "./ground/chunks/named_and_numbered.r"
 #| message: false
 #| warning: false
-#| cache: true  
+#| cache: false  
 #| code-fold: true
 a <- rnorm(100, 3)
 

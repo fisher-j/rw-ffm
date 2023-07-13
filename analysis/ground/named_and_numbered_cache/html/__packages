@@ -1,3 +1,10 @@
+base
+methods
+utils
+datasets
+grDevices
+graphics
+stats
 sf
 DBI
 RSQLite

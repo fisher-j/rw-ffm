@@ -9,6 +9,6 @@ topogrphy for fire simulation.
 #| file: "./ground/chunks/visualize_topo.r"
 #| message: false
 #| warning: false
-#| cache: true
+#| cache: false
 #| code-fold: true
 ```
