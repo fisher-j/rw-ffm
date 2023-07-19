@@ -4,6 +4,9 @@ library(sf)
 library(stars)
 library(rayshader)
 
+# Allow printing to html document
+rgl::setupKnitr(autoprint = TRUE)
+
 # I want to overlay my plots on a 3d surface representing the terrain for each
 # site
 my_import_rast <- function(fold) {
@@ -22,7 +25,8 @@ blocks_buffer <- my_read("blocks_buffer")
 blocks <- my_read("blocks")
 plot_centers <- my_read("plot_centers") |> filter(!is.na(plotid))
 
-# determine groupings of blocks for individual figures
+# determine groupings of blocks for individual figures and alternatively, filter
+# out desired targets
 list_figures <- function(blocks, by = c(site, burn), my_filter = TRUE) {
   st_drop_geometry(blocks) |>
     dplyr::filter({{ my_filter }}) |>
@@ -30,12 +34,7 @@ list_figures <- function(blocks, by = c(site, burn), my_filter = TRUE) {
     purrr::transpose()
 }
 
-fig <- list(site = "fair", burn = "nb")
-
-x <- purrr::map2(fig, names(fig), ~rlang::expr(!!sym(.y) == !!.x))
-rlang::exprs(!!!x)
-
-# construct a filter get get data for one figure
+# construct a filter get get data for one figure based on specified groups.
 make_filter <- function(fig) {
   x <- purrr::map2(unname(fig), names(fig), ~rlang::expr(!!sym(.y) == !!.x))
   function(obj) {
@@ -43,8 +42,7 @@ make_filter <- function(fig) {
   }
 }
 
-make_filter(fig)(blocks)
-
+# This function draws a 3d map of a portion of the study area.
 aerial_photo_3d <- function(fig) {
 
   my_filter <- make_filter(fig)
@@ -114,26 +112,16 @@ aerial_photo_3d <- function(fig) {
   print(paste(fig, collapse = " "))
 }
 
+# This will render all units at the burn/no-burn level
 # rgl::mfrow3d(4, 3)
 # for(fig in list_figures(blocks)) {
 #   rgl::next3d()
 #   aerial_photo_3d(fig)
-#   rglwidget()
 # }
 
 
-# rgl::mfrow3d(1, 3)
-# aerial_photo_3d(list(site = "fair", treatment = "m", burn = "nb"))
-# next3d()
-# aerial_photo_3d(list(site = "fair", treatment = "ls", burn = "nb"))
-# next3d()
-# aerial_photo_3d(list(site = "fair", treatment = "np", burn = "nb"))
-# next3d()
-#
-# aerial_photo_3d(list(site = "fair", burn = "nb"))
+aerial_photo_3d(list(site = "fair", burn = "nb"))
 
-
-# rgl::rglwidget()
 
 # dem_matrix |>
 #   sphere_shade(texture = rw_texture) |>

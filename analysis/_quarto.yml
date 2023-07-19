@@ -17,7 +17,9 @@ book:
     - references.qmd
 
 bibliography: references.bib
-resources: ../data/rw.db
+post-render: 
+  - cp ../data/rw.db ../docs
+  - cp ../data/rw_csvs.zip /docs
 
 format:
   html:

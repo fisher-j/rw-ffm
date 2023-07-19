@@ -204,7 +204,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#fwd" id="toc-fwd" class="nav-link" data-scroll-target="#fwd"><span class="header-section-number">1.18</span> <code>fwd</code></a></li>
   <li><a href="#station" id="toc-station" class="nav-link" data-scroll-target="#station"><span class="header-section-number">1.19</span> <code>station</code></a></li>
   <li><a href="#cwd" id="toc-cwd" class="nav-link" data-scroll-target="#cwd"><span class="header-section-number">1.20</span> <code>cwd</code></a></li>
-  <li><a href="#table" id="toc-table" class="nav-link" data-scroll-target="#table"><span class="header-section-number">1.21</span> <code>table</code></a></li>
   </ul>
 </nav>
     </div>
@@ -228,7 +227,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>The following is generated from the field_descriptions table which is included in the database which can be <a href="rw.db">downloaded here</a>.</p>
+<p>The following is generated from the field_descriptions table which is included in the database which can be <a href="rw.db">downloaded here</a>, or you can download a zip file with csvs <a href="rw_csvs.zip">here</a>.</p>
 <p>First, get table as a dataframe.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), <span class="st">"../data/rw.db"</span>)</span>
@@ -245,8 +244,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>descriptions <span class="ot">&lt;-</span> <span class="fu">tbl</span>(con, <span class="st">"field_descriptions"</span>) <span class="sc">|&gt;</span> <span class="fu">collect</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Then print out the table in sections.</p>
+<p>The field (column) descriptions are printed out by table below. The abbreviations PK and FK are for primary key and foreign key, respectively. The primary key serves as the unique identifier for records (rows) in the table. A foreign key refers to a column in another table, which should be used for join operations. If a table has no PK listed, then its PK is a hidden column called rowid.</p>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>print_desctiption <span class="ot">&lt;-</span> <span class="cf">function</span>(table_name) {</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n\n</span><span class="st">## `"</span>, table_name, <span class="st">"`</span><span class="sc">\n\n</span><span class="st">"</span>, <span class="at">sep =</span> <span class="st">""</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(descriptions, table <span class="sc">==</span> table_name) <span class="sc">|&gt;</span></span>
@@ -254,6 +255,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>() <span class="sc">|&gt;</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>()</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">walk</span>(<span class="fu">unique</span>(descriptions<span class="sc">$</span>table), <span class="sc">~</span> <span class="fu">print_desctiption</span>(.x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="datasheets" class="level2" data-number="1.1">
@@ -270,22 +272,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">datasheetid</td>
-<td style="text-align: left;">PK Unique ID for each physical datasheet</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">filename</td>
-<td style="text-align: left;">Filename of the scanned pdf for this datasheet</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">modtime</td>
-<td style="text-align: left;">The last modification time of the file, provided by the os</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">status</td>
-<td style="text-align: left;">One of ‘started’, ‘incomplete’, or ‘incomplete’, indicating the data entry status. Fuel datasheets that do not have fuel bed depth are marked as incomplete.</td>
-</tr>
 <tr class="odd">
 <td style="text-align: left;">datasheetid</td>
 <td style="text-align: left;">PK Unique ID for each physical datasheet</td>
@@ -351,38 +337,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">notes</td>
 <td style="text-align: left;">Genearl notes for plot</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">plotid</td>
-<td style="text-align: left;">PK Unique ID for each physical plot</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">site</td>
-<td style="text-align: left;">Site name, one of: ‘dun’, ‘fair’, ‘camp8’, ‘bob’, ‘crib’, ‘hare’</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">treatment</td>
-<td style="text-align: left;">One of ‘np’ (no prep), ‘m’ (masticate), or ‘ls’ (lop and scatter)</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">burn</td>
-<td style="text-align: left;">One of ‘b’ (burn), or (no burn), indicating if the treatment will be burned or not</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">plotnum</td>
-<td style="text-align: left;">Integer identying the plot number within the treatment. Potential plot locations (arranged systematically) were numbered sequentially, rowwise from upper left to lower right</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">coord_x</td>
-<td style="text-align: left;">East-west coordinate of plot center, currently unused</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">coord_y</td>
-<td style="text-align: left;">North-south coordinate of plot center, currently unused</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">notes</td>
-<td style="text-align: left;">Genearl notes for plot</td>
-</tr>
 </tbody>
 </table>
 </section>
@@ -400,14 +354,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">stageid</td>
-<td style="text-align: left;">PK Integer indicating experiment stage, stage 1 being pre-treatment.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">stage</td>
-<td style="text-align: left;">Text name of stage, currently unused.</td>
-</tr>
 <tr class="odd">
 <td style="text-align: left;">stageid</td>
 <td style="text-align: left;">PK Integer indicating experiment stage, stage 1 being pre-treatment.</td>
@@ -449,22 +395,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">datasheettype</td>
 <td style="text-align: left;">Data was collected on three different datasheets, broadly representing different fuels strata. One of ‘trees’, ‘regen’, or ‘fuels’.</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">collectid</td>
-<td style="text-align: left;">PK Identifies a collection, which is data collected for one datasheettype, at one plot, during one stage.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">plotid</td>
-<td style="text-align: left;">FK Refers to plots.plotid.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">stageid</td>
-<td style="text-align: left;">FK Refers to stages.stageid.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">datasheettype</td>
-<td style="text-align: left;">Data was collected on three different datasheets, broadly representing different fuels strata. One of ‘trees’, ‘regen’, or ‘fuels’.</td>
-</tr>
 </tbody>
 </table>
 </section>
@@ -478,14 +408,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">collectid</td>
-<td style="text-align: left;">PK FK Refers to collections.collectid.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">collectid</td>
-<td style="text-align: left;">PK FK Referes to datasheets.datasheetid.</td>
-</tr>
 <tr class="odd">
 <td style="text-align: left;">collectid</td>
 <td style="text-align: left;">PK FK Refers to collections.collectid.</td>
@@ -519,14 +441,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">date</td>
 <td style="text-align: left;">A date associated with a collection. There can be multiple dates for a collection.</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">collectid</td>
-<td style="text-align: left;">FK Refers to collections.collectid.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">date</td>
-<td style="text-align: left;">A date associated with a collection. There can be multiple dates for a collection.</td>
-</tr>
 </tbody>
 </table>
 </section>
@@ -544,22 +458,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">collectid</td>
-<td style="text-align: left;">FK Refers to collections.collectid.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">transectid</td>
-<td style="text-align: left;">For fuels transect data, this field allows crew members to be identified on a transect basis. Null for other datasheet type</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">role</td>
-<td style="text-align: left;">Curretnly only used to identify the crew member responsible for estimating fine woody debris (fwd) or vegetation (veg).</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">member</td>
-<td style="text-align: left;">First and last initials of a crew member.</td>
-</tr>
 <tr class="odd">
 <td style="text-align: left;">collectid</td>
 <td style="text-align: left;">FK Refers to collections.collectid.</td>
@@ -609,22 +507,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">azimuth</td>
 <td style="text-align: left;">Azimuth in degrees from reference tree center to plot center.</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">collectid</td>
-<td style="text-align: left;">FK Refers to collections.collectid.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">treeid</td>
-<td style="text-align: left;">FK refers to trees.treeid.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">distance</td>
-<td style="text-align: left;">Distance in meters from plot center to pith of reference tree.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">azimuth</td>
-<td style="text-align: left;">Azimuth in degrees from reference tree center to plot center.</td>
-</tr>
 </tbody>
 </table>
 </section>
@@ -638,22 +520,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">collectid</td>
-<td style="text-align: left;">PK Refers to collections.collectid.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">seedlingradius</td>
-<td style="text-align: left;">Radius of seedling plot in meters.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">saplingradius</td>
-<td style="text-align: left;">Radius of sapling plot in meters.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">notes</td>
-<td style="text-align: left;">Permanent notes regarding the regen plot.</td>
-</tr>
 <tr class="odd">
 <td style="text-align: left;">collectid</td>
 <td style="text-align: left;">PK Refers to collections.collectid.</td>
@@ -691,14 +557,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">notes</td>
 <td style="text-align: left;">Permanent notes regarding the trees plot.</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">collectid</td>
-<td style="text-align: left;">PK Refers to collections.collectid.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">notes</td>
-<td style="text-align: left;">Permanent notes regarding the trees plot.</td>
-</tr>
 </tbody>
 </table>
 </section>
@@ -716,46 +574,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">treeobsid</td>
-<td style="text-align: left;">PK Uniquely identifies the observation of a tree. This allows a tree to be observed multiple times (for different stages). Trees were measured on a 11.28 meter radius plot.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">collectid</td>
-<td style="text-align: left;">FK Refers to collections.collectid.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">treeid</td>
-<td style="text-align: left;">Tag number of physical tree tag. These are unique across the experiment.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">spp</td>
-<td style="text-align: left;">Tree species as a two-letter identifier, to=tanoak, df=Douglas-fir, rw=redwood, gc=golden chinquapin, gf=grand fir, md=madrone, cb=California bay, cn=California nutmeg, sx=Salix spp., hm=western hemlock, cp=unknown, ra=red alder, wm=wax myrtle, bp=bishop pine.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">dbh</td>
-<td style="text-align: left;">Diameter at breash height in cm.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">ht</td>
-<td style="text-align: left;">Total height of tree. Heights were recorded intermittently in the begining, then not at all later on. The decision was made to use heights predicted from local allometric equations.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">cbh</td>
-<td style="text-align: left;">Crown base heigth in meters. This is the vertical distance from the level of the base of the tree, to the continuous live crown. Single, lone, or outlier branches were skipped. No limit was placeds on the number of sides that branches must be comming out of.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">cr</td>
-<td style="text-align: left;">Crown ratio, not used.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">clumpid</td>
-<td style="text-align: left;">Integer identifying trees that were determined to belong to the same clump. For redwoods, this meant that stems were within about a meter of eachother and assumed to share a root system. It did not include all trees forming a fairy ring. For tanoak, trees were visibly connected above the soil level.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">notes</td>
-<td style="text-align: left;">Tree observation notes.</td>
-</tr>
 <tr class="odd">
 <td style="text-align: left;">treeobsid</td>
 <td style="text-align: left;">PK Uniquely identifies the observation of a tree. This allows a tree to be observed multiple times (for different stages). Trees were measured on a 11.28 meter radius plot.</td>
@@ -829,18 +647,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">regencounts,collectid,“FK refers to collections.collectid.</td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">treeobsid</td>
-<td style="text-align: left;">FK refers to trees.treeobsid</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">location</td>
-<td style="text-align: left;">One of: ‘top’, ‘mid’, or ‘bot’, indicating the upper, middle, or lower third of the tree as the location of the damage.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">defecttyp</td>
-<td style="text-align: left;">Description of deffect, the most commom was ‘operational’ meaning damage resuling from skidding or felling operations. Lean (and lean angle) was recorded in notes.</td>
-</tr>
 </tbody>
 </table>
 </section>
@@ -858,22 +664,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">spp</td>
-<td style="text-align: left;">Species, refer to trees.spp.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">sizeclass</td>
-<td style="text-align: left;">1-cm size classes (exept for the two smallest, which were 2.5 cm classes) for saplings less than 10 cm. &lt;BH, (less than breast height) identifies seedlings.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">count</td>
-<td style="text-align: left;">Number of saplings per spp., size-class.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">collectid</td>
-<td style="text-align: left;">FK refers to collections.collectid.</td>
-</tr>
 <tr class="odd">
 <td style="text-align: left;">spp</td>
 <td style="text-align: left;">Species, refer to trees.spp.</td>
@@ -919,26 +709,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">ht</td>
 <td style="text-align: left;">Total height.</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">collectid</td>
-<td style="text-align: left;">FK Refers to collections.collectid.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">spp</td>
-<td style="text-align: left;">Species.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">sizeclass</td>
-<td style="text-align: left;">Sapling size-class.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">cbh</td>
-<td style="text-align: left;">Crown base height.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">ht</td>
-<td style="text-align: left;">Total height.</td>
-</tr>
 </tbody>
 </table>
 </section>
@@ -968,18 +738,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">sapdbh</td>
 <td style="text-align: left;">1-cm diameter class of an individual sampling in a clump with a tree. These are basically basal sprouts.</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">collectid</td>
-<td style="text-align: left;">FK Refers to collections.collectid.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">clumpid</td>
-<td style="text-align: left;">FK Refers to trees.clumpid.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">sapdbh</td>
-<td style="text-align: left;">1-cm diameter class of an individual sampling in a clump with a tree. These are basically basal sprouts.</td>
-</tr>
 </tbody>
 </table>
 </section>
@@ -997,30 +755,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">collectid</td>
-<td style="text-align: left;">PK Refers to collections.collectid.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">onehrlen</td>
-<td style="text-align: left;">Specifies transect length for one-hour fuels in meters.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">tenhrlen</td>
-<td style="text-align: left;">Specifies transect length for ten-hour fuels in meters.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">hundhrlen</td>
-<td style="text-align: left;">Specifies transect length for hundred-hour fuels in meters.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">thoushrlen</td>
-<td style="text-align: left;">Specifies transect length for thousand-hour fuels in meters.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">notes</td>
-<td style="text-align: left;">Permanent notes regarding the fuels plot.</td>
-</tr>
 <tr class="odd">
 <td style="text-align: left;">collectid</td>
 <td style="text-align: left;">PK Refers to collections.collectid.</td>
@@ -1086,30 +820,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">notes</td>
 <td style="text-align: left;">Transect observation notes.</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">transectid</td>
-<td style="text-align: left;">PK Unique identifier for observations of transects. Should have been called ‘transectobsid’. There is currently not another identifier for transects as permanent entities. Subsequent measurements will be linked based on their plotid and azimuth.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">collectid</td>
-<td style="text-align: left;">FK Refers to collections.collectid.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">transectnum</td>
-<td style="text-align: left;">Transects within plots were given a number 1-3.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">azimuth</td>
-<td style="text-align: left;">Azimuth of transect from plot center, usually one of 0, 120, or 240, unless and obstacle required moving the transect. Then it was moved the shortest distance to avoid the obstacle (usually a large stump).</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">slope</td>
-<td style="text-align: left;">Total slope, in percent from begining to end of transect.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">notes</td>
-<td style="text-align: left;">Transect observation notes.</td>
-</tr>
 </tbody>
 </table>
 </section>
@@ -1123,22 +833,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">transectid</td>
-<td style="text-align: left;">FK Refers to transects.transectid.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">onehr</td>
-<td style="text-align: left;">Count of one-hr fuels. &lt; 0.635 cm.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">tenhr</td>
-<td style="text-align: left;">Count of ten-hr fuels, 0.635 - &lt;2.54 cm.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">hundhr</td>
-<td style="text-align: left;">Count of hundred-hr fuels, 2.54 - &lt;7.62 cm.</td>
-</tr>
 <tr class="odd">
 <td style="text-align: left;">transectid</td>
 <td style="text-align: left;">FK Refers to transects.transectid.</td>
@@ -1216,50 +910,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">herbheight</td>
 <td style="text-align: left;">Average maximum height in meters, as for woodyheight.</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">transectid</td>
-<td style="text-align: left;">FK Refers to transects.transectid.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">metermark</td>
-<td style="text-align: left;">Meters from plot center along the transect where the measurement was taken.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">depth</td>
-<td style="text-align: left;">Combined depth of duff and litter. This was measured to the top of the litter layer and may include 1-hour fuels.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">pctlitter</td>
-<td style="text-align: left;">Percent of duff and litter depth that is composed of litter. Litter was judged by having a lighter color, and particles that had not yet begun to break down, for instance, redwood sprays with leaves still attached.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">fbd</td>
-<td style="text-align: left;">Fuel bed depth was measured as an ocular estimate of the average combined depth of fine and coarse woody fuels in a 1 m radius circle, centered at the metermark. This excluded duff.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">livewoody</td>
-<td style="text-align: left;">Percent cover of live woody material within a 1-meter radius sampling cylinder, 2-meters tall. Alternatively, Percent of ground that would be completely covered if all woody vegetation within the sampling cylinder were pushed to the ground.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">deadwoody</td>
-<td style="text-align: left;">Same as for live woody, but for dead material attached to live plants.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">woodyheight</td>
-<td style="text-align: left;">Average maximum height of live or dead woody vegetation within the sampling cylinder. If a sheet were draped over the woody vegetation only, the average height of the sheet.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">liveherb</td>
-<td style="text-align: left;">Percent cover of live herbaceous vegetation, as for livewoody.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">deadherb</td>
-<td style="text-align: left;">Percent cover of dead herbaceous vegetation, as livewoody.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">herbheight</td>
-<td style="text-align: left;">Average maximum height in meters, as for woodyheight.</td>
-</tr>
 </tbody>
 </table>
 </section>
@@ -1288,35 +938,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td style="text-align: left;">decayclass</td>
 <td style="text-align: left;">Decay class 1-5, 1=Fine branches still present, 2=Some branches and bark missing, 3=most branches and much bark missing potentially minor decay, 4=Significant decay, 5=Almost completely rotten.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">transectid</td>
-<td style="text-align: left;">FK Refers to transects.transectid.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">diameter</td>
-<td style="text-align: left;">Diameter in cm of dead downed wood &gt; 7.62cm at the location where the transect intersects with the particles pith. Only pieces whose pith intersects with the vertical sampling plane are counted.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">decayclass</td>
-<td style="text-align: left;">Decay class 1-5, 1=Fine branches still present, 2=Some branches and bark missing, 3=most branches and much bark missing potentially minor decay, 4=Significant decay, 5=Almost completely rotten.</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="table" class="level2" data-number="1.21">
-<h2 data-number="1.21" class="anchored" data-anchor-id="table"><span class="header-section-number">1.21</span> <code>table</code></h2>
-<table class="table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">field</th>
-<th style="text-align: left;">description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">field</td>
-<td style="text-align: left;">description</td>
 </tr>
 </tbody>
 </table>

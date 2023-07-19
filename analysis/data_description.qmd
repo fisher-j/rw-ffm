@@ -8,7 +8,8 @@ library(tidyverse)
 ```
 
 The following is generated from the field_descriptions table which is included
-in the database which can be [downloaded here](rw.db).
+in the database which can be [downloaded here](rw.db), or you can download a zip
+file with csvs [here](rw_csvs.zip).
 
 First, get table as a dataframe.
 
@@ -18,9 +19,15 @@ DBI::dbListTables(con)
 descriptions <- tbl(con, "field_descriptions") |> collect()
 ```
 
-Then print out the table in sections.
+The field (column) descriptions are printed out by table below. The
+abbreviations PK and FK are for primary key and foreign key, respectively. The
+primary key serves as the unique identifier for records (rows) in the table. A
+foreign key refers to a column in another table, which should be used for join
+operations. If a table has no PK listed, then its PK is a hidden column called
+rowid.
 
 ```{r}
+#| code-fold: true
 print_desctiption <- function(table_name) {
   cat("\n\n## `", table_name, "`\n\n", sep = "")
   filter(descriptions, table == table_name) |>

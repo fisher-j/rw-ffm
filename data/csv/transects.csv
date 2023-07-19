@@ -1,58 +1,58 @@
 transectid,collectid,transectnum,azimuth,slope,notes
-1,1,1,0,3,under huckleberry at 5m
+1,1,1,0,3,"under huckleberry at 5m"
 2,1,2,120,21,
 3,1,3,240,33,
 4,2,1,0,54,
 5,2,2,120,19,
 6,2,3,240,26,
-7,3,1,0,18,huckleberry at 10m pieces of broken rw top are on transect at 10m
+7,3,1,0,18,"huckleberry at 10m pieces of broken rw top are on transect at 10m"
 8,3,2,120,18,
 9,3,3,240,18,
 10,4,1,0,4,
-11,4,2,120,18,in skid
-12,4,3,240,17,5-10m in skid
-13,5,1,0,15,middle in skid
+11,4,2,120,18,"in skid"
+12,4,3,240,17,"5-10m in skid"
+13,5,1,0,15,"middle in skid"
 14,5,2,120,4,"in skid, all iris"
 15,5,3,240,23,"end and middle in skid, end in iris"
-16,6,1,0,17,end in skid
-17,6,2,120,17,end in skid
+16,6,1,0,17,"end in skid"
+17,6,2,120,17,"end in skid"
 18,6,3,240,10,
 19,7,1,353,38,
-20,7,2,120,19,through skid
-21,7,3,240,26,edge of skid
+20,7,2,120,19,"through skid"
+21,7,3,240,26,"edge of skid"
 22,8,1,0,24,
-23,8,2,120,43,in skid
+23,8,2,120,43,"in skid"
 24,8,3,240,29,
 25,9,1,0,36,
-26,9,2,120,13,begining crosses skid
-27,9,3,240,16,in skid
-28,10,1,0,21,huckleberry at 10m
+26,9,2,120,13,"begining crosses skid"
+27,9,3,240,16,"in skid"
+28,10,1,0,21,"huckleberry at 10m"
 29,10,2,120,4,
 30,10,3,240,18,
 31,11,1,0,16,
 32,11,2,120,12,
-33,11,3,240,2,redwood foliage (branchlets) 2mm cutoff
+33,11,3,240,2,"redwood foliage (branchlets) 2mm cutoff"
 34,12,1,0,13,
-35,12,2,120,21,large redwood litter particles
+35,12,2,120,21,"large redwood litter particles"
 36,12,3,240,8,
-37,13,1,0,43,large old-growth tree well
-38,13,2,120,2,along skid
-39,13,3,240,3,in skid
-40,14,1,0,37,lots of huckleberry in plot
-41,14,2,120,2,lots of huckleberry in plot
-42,14,3,248,31,lots of huckleberry in plot
-43,15,1,0,42,plot center in draw
-44,15,2,120,21,plot center in draw
-45,15,3,240,18,plot center in draw
-46,16,1,0,25,in skid
+37,13,1,0,43,"large old-growth tree well"
+38,13,2,120,2,"along skid"
+39,13,3,240,3,"in skid"
+40,14,1,0,37,"lots of huckleberry in plot"
+41,14,2,120,2,"lots of huckleberry in plot"
+42,14,3,248,31,"lots of huckleberry in plot"
+43,15,1,0,42,"plot center in draw"
+44,15,2,120,21,"plot center in draw"
+45,15,3,240,18,"plot center in draw"
+46,16,1,0,25,"in skid"
 47,16,2,120,26,
 48,16,3,240,11,
-49,17,1,0,9,in skid
-50,17,2,120,19,partial skid
-51,17,3,240,24,through large downed tanoak with leaves
+49,17,1,0,9,"in skid"
+50,17,2,120,19,"partial skid"
+51,17,3,240,24,"through large downed tanoak with leaves"
 52,18,1,0,51,
 53,18,2,120,3,
-54,18,3,240,43,in old growth stump
+54,18,3,240,43,"in old growth stump"
 55,19,1,0,38,
 56,19,2,120,3,
 57,19,3,260,27,
@@ -60,41 +60,41 @@ transectid,collectid,transectnum,azimuth,slope,notes
 59,346,2,146,14,
 60,346,3,240,1,
 61,331,1,0,5,
-62,331,2,120,21,large down ceanothus
+62,331,2,120,21,"large down ceanothus"
 63,331,3,240,54,
-64,20,1,0,14,near skid at 10 m
+64,20,1,0,14,"near skid at 10 m"
 65,20,2,120,18,
-66,20,3,240,63,in skid at 10 m
+66,20,3,240,63,"in skid at 10 m"
 67,351,1,0,10,
-68,351,2,120,7,in skid
+68,351,2,120,7,"in skid"
 69,351,3,240,4,"crosses skid, skid edge at 10 m"
-70,21,1,0,7,thick redwood needle cast
+70,21,1,0,7,"thick redwood needle cast"
 71,21,2,120,2,"seasonal seep, all sedge at 10 m"
 72,21,3,240,1,
 73,321,1,0,54,
 74,321,2,120,12,
-75,321,3,240,19,huckleberry at 5 m
+75,321,3,240,19,"huckleberry at 5 m"
 76,323,1,0,4,
 77,323,2,120,10,
-78,323,3,240,8,redwood litter
-79,327,1,0,9,
-80,327,2,120,8,tanoak at 10 m
+78,323,3,240,8,"redwood litter"
+79,327,1,0,9,""
+80,327,2,120,8,"tanoak at 10 m"
 81,327,3,240,3,"open area, lots of fuel, does not seem to be skid or landing"
 82,22,1,0,13,
 83,22,2,120,8,
 84,22,3,240,19,
 85,23,1,0,11,
-86,23,2,120,4,crosses downed trees from another experiment
+86,23,2,120,4,"crosses downed trees from another experiment"
 87,23,3,240,16,
-88,24,1,0,47,through dead/down shrub
+88,24,1,0,47,"through dead/down shrub"
 89,24,2,115,29,
 90,24,3,240,42,
 91,25,1,0,4,
-92,25,2,120,11,in skid
+92,25,2,120,11,"in skid"
 93,25,3,240,24,
 94,26,1,0,9,
 95,26,2,120,14,
-96,26,3,240,12,in skid
+96,26,3,240,12,"in skid"
 97,428,1,358,15,
 98,428,2,120,7,
 99,428,3,226,13,
@@ -117,33 +117,33 @@ transectid,collectid,transectnum,azimuth,slope,notes
 116,388,2,120,5,
 117,388,3,235,7,
 118,390,1,0,38,
-119,390,2,120,8,in skid
+119,390,2,120,8,"in skid"
 120,390,3,240,25,
-121,365,1,0,9,large redwood trunk at 10 m
+121,365,1,0,9,"large redwood trunk at 10 m"
 122,365,2,120,12,
 123,365,3,240,9,"crosses skid, still a lot of fuel"
-124,363,1,0,10,started recording FBD
+124,363,1,0,10,"started recording FBD"
 125,363,2,120,33,
 126,363,3,240,31,
-127,361,1,335,21,offset: tall stump
+127,361,1,335,21,"offset: tall stump"
 128,361,2,120,28,
 129,361,3,240,4,
-130,367,1,0,33,crosses skid
+130,367,1,0,33,"crosses skid"
 131,367,2,120,21,
-132,367,3,240,0,end in denser area
-133,371,1,0,27,plot edge of flag boundary
-134,371,2,120,32,plot edge of flag boundary
-135,371,3,240,4,plot edge of flag boundary
+132,367,3,240,0,"end in denser area"
+133,371,1,0,27,"plot edge of flag boundary"
+134,371,2,120,32,"plot edge of flag boundary"
+135,371,3,240,4,"plot edge of flag boundary"
 136,386,1,0,43,
-137,386,2,120,8,crosses skid
+137,386,2,120,8,"crosses skid"
 138,386,3,240,5,
 139,369,1,0,16,"in skid, flat areas heavily skidded"
 140,369,2,120,27,"redwood sprouts at 5 m, crosses skid, flat areas heavily skidded"
-141,369,3,240,3,flat areas heavily skidded
-142,384,1,0,8,sword fern at 10 m
-143,384,2,120,17,redwood litter at 10 m
+141,369,3,240,3,"flat areas heavily skidded"
+142,384,1,0,8,"sword fern at 10 m"
+143,384,2,120,17,"redwood litter at 10 m"
 144,384,3,240,28,
-145,400,1,0,4,across skid with lots of debris
+145,400,1,0,4,"across skid with lots of debris"
 146,400,2,120,16,
 147,400,3,240,24,
 148,392,1,0,32,
@@ -152,12 +152,12 @@ transectid,collectid,transectnum,azimuth,slope,notes
 151,360,1,0,0,
 152,360,2,120,42,
 153,360,3,240,29,
-154,356,1,0,30,
+154,356,1,0,30,""
 155,356,2,120,10,"along skid edge, in skid at 10 m"
-156,356,3,240,7,all in skid
+156,356,3,240,7,"all in skid"
 157,393,1,0,48,
 158,393,2,120,28,
-159,393,3,240,29,near skid edge
+159,393,3,240,29,"near skid edge"
 160,451,1,0,13,
 161,451,2,120,20,
 162,451,3,240,19,
@@ -192,24 +192,24 @@ transectid,collectid,transectnum,azimuth,slope,notes
 191,27,2,120,23,
 192,27,3,240,36,
 193,28,1,0,5,
-194,28,2,105,22,dead herb sword fern
+194,28,2,105,22,"dead herb sword fern"
 195,28,3,240,49,
 196,29,1,343,13,"edge of skid at 5 m, in skid at 10 m"
-197,29,2,120,13,in skid at 5 m
+197,29,2,120,13,"in skid at 5 m"
 198,29,3,240,39,
 199,30,1,0,6,"in skid at 5m, in trees at 10m"
 200,30,2,120,7,
-201,30,3,240,33,whole transect in skid
-202,31,1,0,4,in skid
-203,31,2,120,41,all trees in plot are on/near this transect
+201,30,3,240,33,"whole transect in skid"
+202,31,1,0,4,"in skid"
+203,31,2,120,41,"all trees in plot are on/near this transect"
 204,31,3,240,29,
 205,32,1,0,3,
 206,32,2,120,43,
 207,32,3,240,32,
 208,33,1,0,2,
-209,33,2,120,24,sword fern
+209,33,2,120,24,"sword fern"
 210,33,3,234,43,
-211,34,1,0,42,in skid
+211,34,1,0,42,"in skid"
 212,34,2,120,30,
 213,34,3,240,1,
 214,35,1,0,30,
@@ -217,12 +217,12 @@ transectid,collectid,transectnum,azimuth,slope,notes
 216,35,3,240,5,
 217,36,1,0,8,"open, wide tree spacing"
 218,36,2,120,26,"ferns at 10m, open wide tree spacing"
-219,36,3,240,9,open wide tree spacing
+219,36,3,240,9,"open wide tree spacing"
 220,37,1,0,9,
 221,37,2,120,14,
-222,37,3,240,27,litter piled by stump at 10m
+222,37,3,240,27,"litter piled by stump at 10m"
 223,38,1,0,39,
-224,38,2,120,31,in skid
+224,38,2,120,31,"in skid"
 225,38,3,240,2,
 226,39,1,0,20,
 227,39,2,120,21,
@@ -240,7 +240,7 @@ transectid,collectid,transectnum,azimuth,slope,notes
 239,43,2,120,19,
 240,43,3,240,15,
 241,44,1,0,7,
-242,44,2,120,19,in skid
+242,44,2,120,19,"in skid"
 243,44,3,246,23,
 244,45,1,0,12,
 245,45,2,120,32,
@@ -268,20 +268,20 @@ transectid,collectid,transectnum,azimuth,slope,notes
 267,52,3,240,31,
 268,53,1,0,4,
 269,53,2,120,2,
-270,53,3,240,14,all slope in last meter
+270,53,3,240,14,"all slope in last meter"
 271,342,1,0,12,
 272,342,2,120,21,
 273,342,3,240,1,
 274,54,1,0,24,
-275,54,2,120,50,downed tanoak live crown at 10m
+275,54,2,120,50,"downed tanoak live crown at 10m"
 276,54,3,240,49,
 277,344,1,0,18,
-278,344,2,120,4,in skid
+278,344,2,120,4,"in skid"
 279,344,3,240,26,
 280,55,1,0,19,
-281,55,2,120,26,in skid at 10m
-282,55,3,240,13,in skid
-283,343,1,330,31,deflected to avoid cut bank
+281,55,2,120,26,"in skid at 10m"
+282,55,3,240,13,"in skid"
+283,343,1,330,31,"deflected to avoid cut bank"
 284,343,2,120,24,
 285,343,3,240,51,
 286,335,1,0,46,"transect runs on 120cm log, duff from ground, log pith not in"
@@ -289,8 +289,8 @@ transectid,collectid,transectnum,azimuth,slope,notes
 288,335,3,240,5,
 289,339,1,0,42,
 290,339,2,120,44,
-291,339,3,240,68,multiple large downed tanoak tops
-292,336,1,0,15,moss at 10m and 5m
+291,339,3,240,68,"multiple large downed tanoak tops"
+292,336,1,0,15,"moss at 10m and 5m"
 293,336,2,120,17,
 294,336,3,240,23,
 295,422,1,0,13,
@@ -320,43 +320,43 @@ transectid,collectid,transectnum,azimuth,slope,notes
 319,508,1,0,7,
 320,508,2,120,11,
 321,508,3,240,8,
-322,522,1,0,25,duff litter values don't agree with FBD
-323,522,2,120,35,duff litter values don't agree with FBD
-324,522,3,240,15,duff litter values don't agree with FBD
+322,522,1,0,25,"duff litter values don't agree with FBD"
+323,522,2,120,35,"duff litter values don't agree with FBD"
+324,522,3,240,15,"duff litter values don't agree with FBD"
 325,402,1,0,10,
 326,402,2,120,28,
 327,402,3,240,15,
 328,411,1,0,15,
 329,411,2,120,10,
-330,411,3,240,10,Hollow space under log at 10m
+330,411,3,240,10,"Hollow space under log at 10m"
 331,414,1,0,10,
 332,414,2,120,35,
 333,414,3,240,30,
 334,415,1,0,12,
 335,415,2,120,18,
-336,415,3,240,31,dead fuel perched on vegetation
+336,415,3,240,31,"dead fuel perched on vegetation"
 337,410,1,353,21,
 338,410,2,120,19,
 339,410,3,236,7,
 340,527,1,0,25,
 341,527,2,120,45,"runs through deep slash, ends below a log landing"
 342,527,3,240,8,
-343,502,1,0,12,plot center in middle of skid
-344,502,2,120,9,plot center in middle of skid
-345,502,3,240,16,plot center in middle of skid
-346,496,1,0,14,plot center in middle of skid
-347,496,2,120,5,plot center in middle of skid
-348,496,3,240,26,plot center in middle of skid
+343,502,1,0,12,"plot center in middle of skid"
+344,502,2,120,9,"plot center in middle of skid"
+345,502,3,240,16,"plot center in middle of skid"
+346,496,1,0,14,"plot center in middle of skid"
+347,496,2,120,5,"plot center in middle of skid"
+348,496,3,240,26,"plot center in middle of skid"
 349,500,1,0,25,
 350,500,2,120,6,
 351,500,3,240,27,
 352,503,1,2,25,
 353,503,2,120,12,
 354,503,3,240,22,
-355,490,1,0,12,in road at 10m
+355,490,1,0,12,"in road at 10m"
 356,490,2,120,15,
 357,490,3,240,17,
-358,492,1,0,8,in skid at 10m
+358,492,1,0,8,"in skid at 10m"
 359,492,2,120,8,
 360,492,3,240,7,
 361,493,1,0,4,
@@ -385,7 +385,7 @@ transectid,collectid,transectnum,azimuth,slope,notes
 384,60,3,240,3,
 385,61,1,0,2,
 386,61,2,120,0,
-387,61,3,240,2,salal at 5m
+387,61,3,240,2,"salal at 5m"
 388,62,1,0,1,
 389,62,2,120,2,
 390,62,3,240,1,
@@ -397,7 +397,7 @@ transectid,collectid,transectnum,azimuth,slope,notes
 396,64,3,240,34,
 397,65,1,0,7,"in skid at 10m, salal"
 398,65,2,120,0,salal
-399,65,3,240,,missing slope
+399,65,3,240,,"missing slope"
 400,66,1,0,16,
 401,66,2,120,5,
 403,66,3,240,4,
@@ -425,9 +425,9 @@ transectid,collectid,transectnum,azimuth,slope,notes
 425,434,1,355,15,
 426,434,2,120,33,
 427,434,3,240,9,
-428,533,1,0,6,in skid at 10m
+428,533,1,0,6,"in skid at 10m"
 429,533,2,120,4,
-430,533,3,240,7,crosses path at 3m
+430,533,3,240,7,"crosses path at 3m"
 431,71,1,0,25,
 432,71,2,120,29,
 433,71,3,240,51,
@@ -449,15 +449,15 @@ transectid,collectid,transectnum,azimuth,slope,notes
 449,76,1,0,3,
 450,76,2,120,2,
 451,76,3,240,21,
-452,320,1,0,11,in skid at 10m
+452,320,1,0,11,"in skid at 10m"
 453,320,2,114,3,
-454,320,3,240,21,in skid at 10m
+454,320,3,240,21,"in skid at 10m"
 455,354,1,0,6,
 456,354,2,120,1,
-457,354,3,240,3,crosses skid
+457,354,3,240,3,"crosses skid"
 458,77,1,0,2,
 459,77,2,120,3,
-460,77,3,240,2,in skid at 10m
+460,77,3,240,2,"in skid at 10m"
 461,78,1,0,18,
 462,78,2,110,2,
 463,78,3,240,13,
@@ -490,7 +490,7 @@ transectid,collectid,transectnum,azimuth,slope,notes
 490,87,3,240,7,
 491,88,1,0,2,
 492,88,2,120,13,
-493,88,3,240,3,shrubs are df sprouts
+493,88,3,240,3,"shrubs are df sprouts"
 494,89,1,0,25,
 495,89,2,131,23,
 496,89,3,240,24,
@@ -498,14 +498,14 @@ transectid,collectid,transectnum,azimuth,slope,notes
 498,90,2,120,12,
 499,90,3,240,31,
 500,91,1,0,2,
-501,91,2,120,30,slash foliage present
+501,91,2,120,30,"slash foliage present"
 502,91,3,240,22,
 503,92,1,0,13,
 504,92,2,120,4,
-505,92,3,240,3,broken rw top with foliage suspended in shrub
+505,92,3,240,3,"broken rw top with foliage suspended in shrub"
 506,93,1,0,21,
 507,93,2,120,26,
-508,93,3,240,25,in skid at 10m
+508,93,3,240,25,"in skid at 10m"
 509,94,1,0,6,
 510,94,2,120,7,
 511,94,3,240,,
@@ -530,18 +530,18 @@ transectid,collectid,transectnum,azimuth,slope,notes
 530,101,1,0,31,
 531,101,2,120,13,
 532,101,3,240,15,
-533,102,1,0,7,lots of downed saplings
+533,102,1,0,7,"lots of downed saplings"
 534,102,2,120,6,"transect crosses downed saplings, rw slash suspended in leaning dead saplings, lots of downed saplings"
-535,102,3,240,2,lots of downed saplings
+535,102,3,240,2,"lots of downed saplings"
 536,103,1,0,55,
-537,103,2,130,38,in skid at 10m
+537,103,2,130,38,"in skid at 10m"
 538,103,3,240,37,
 539,104,1,0,7,
 540,104,2,120,20,
 541,104,3,240,10,
 542,105,1,0,38,"large rotting log, not counted as duff depth"
 543,105,2,120,5,
-544,105,3,240,46,huckleberry at 5m
+544,105,3,240,46,"huckleberry at 5m"
 545,106,1,0,12,
 546,106,2,120,32,
 547,106,3,240,34,
