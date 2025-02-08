@@ -2,6 +2,9 @@ import os
 from dataentryapp.backend import backend
 import shutil
 
+# In the case that we have a bunch of precisely named datasheets, this function
+# will import them into the database, creating the necessary table entries
+# I don't remember why I needed this
 def parse_filename(fp):
     keys = ["stage", "type", "site", "treatment", "burn", "plotnums"]
     filename_parts = fp.stem.split("_")

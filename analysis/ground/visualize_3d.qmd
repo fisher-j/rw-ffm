@@ -11,4 +11,5 @@ topogrphy for fire simulation.
 #| warning: false
 #| cache: false
 #| code-fold: true
+#| column: page
 ```

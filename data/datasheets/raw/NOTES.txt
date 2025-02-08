@@ -1,0 +1,7 @@
+03/07/2024
+I'm skipping the following plots until we find out why there are duplicates.
+These are from the all_sheets_10102023.pdf file
+- Camp8 M-NB 2
+05/09/2024
+Swapped camp8 M and LS plots in database and re-named appropriate files. 
+Imported remaining datasheets.

@@ -2,6 +2,11 @@ project:
   type: book
   output-dir: ../docs
   execute-dir: project
+  # # I don't wan't to do this every time I render the site
+  pre-render: scripts/sqlite_to_csv.py 
+  post-render: 
+    - cp ../data/rw.db ../docs
+    - cp ../data/rwffm_csvs.zip ../docs
 
 book:
   title: "RW-FFM Fuel Analysis"
@@ -17,9 +22,6 @@ book:
     - references.qmd
 
 bibliography: references.bib
-post-render: 
-  - cp ../data/rw.db ../docs
-  - cp ../data/rw_csvs.zip /docs
 
 format:
   html:

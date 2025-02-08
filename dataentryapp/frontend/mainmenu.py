@@ -17,13 +17,15 @@ from dataentryapp.frontend import datasheetnamer
 
 backend.initialize_database()
 
+
 class DatasheetsFrame(ttk.Frame):
     def __init__(self, parent):
         super().__init__(parent)
 
         # define dataview
         columns = ("id", "filename", "date_modified", "status")
-        self.datasheets = ttk.Treeview(self, columns=columns, show="headings", height=30)
+        self.datasheets = ttk.Treeview(
+            self, columns=columns, show="headings", height=30)
 
         # define headings
         self.datasheets.heading('id', text="id")
@@ -43,7 +45,8 @@ class DatasheetsFrame(ttk.Frame):
         self.datasheets.grid(sticky=tk.NSEW)
 
         # add a scrollbar
-        scrollbar = ttk.Scrollbar(self, orient=tk.VERTICAL, command=self.datasheets.yview)
+        scrollbar = ttk.Scrollbar(
+            self, orient=tk.VERTICAL, command=self.datasheets.yview)
         self.datasheets.configure(yscroll=scrollbar.set)
         scrollbar.grid(row=0, column=1, sticky='ns')
 
@@ -54,19 +57,18 @@ class ButtonsFrame(ttk.Frame):
         # field options
         options = {'padx': 5, 'pady': 5}
 
-        self.import_button = tk.Button(self, text="Import", command=parent.open_import)
-        self.impute_button = tk.Button(self, 
-                                       text="Enter data",
-                                       command=parent.on_enter_data)
+        self.import_button = tk.Button(
+            self, text="Import", command=parent.open_import)
+        self.impute_button = tk.Button(
+            self, text="Enter data", command=parent.on_enter_data)
+        self.from_filename = tk.Button(
+            self, text="Import filenames", command=parent.import_from_filename)
 
-        self.from_filename = tk.Button(self, 
-                                       text="Import filenames",
-                                       command=parent.import_from_filename)
-
-        self.export = tk.Button(self, 
+        # I'm using a bash script for this now that runs when rendering the
+        # webpage
+        self.export = tk.Button(self,
                                 text="Export",
                                 command=parent.export)
-
 
         # self.rowconfigure(0, weight=1)
         # self.columnconfigure(0, weight=1)
@@ -129,13 +131,13 @@ class MainMenu(tk.Tk):
             self.dataEntryWindow = regendataentry.App(self, datasheetid)
         elif datasheettype == "fuel":
             self.dataEntryWindow = fueldataentry.App(self, datasheetid)
-        
+
         # disable main menu window
         self.dataEntryWindow.wait_visibility()
         self.dataEntryWindow.focus()
         self.dataEntryWindow.grab_set()
 
-        xpos = int( self.winfo_screenwidth() / 2 )
+        xpos = int(self.winfo_screenwidth() / 2)
         ypos = int(self.winfo_screenheight() / 2)
         self.dataEntryWindow.geometry(f"+{xpos}+75")
 
@@ -146,7 +148,7 @@ class MainMenu(tk.Tk):
         datasheetid = cur_row[0]
 
         # Only if there is an active selection
-        if(cur_row):
+        if (cur_row):
             # This should actually get datasheettype
             collection = backend.get_collection_from_datasheetid(cur_row[0])
             # get first row to identify datasheet type
@@ -172,7 +174,8 @@ class MainMenu(tk.Tk):
         importDir = filedialog.askdirectory(
             title='Open import directory containing named pdfs',
             initialdir='.')
-        if not importDir: return
+        if not importDir:
+            return
         importDir = Path(importDir)
         # self.withdraw()
         import_from_filename.import_from_filename(importDir)
@@ -180,7 +183,8 @@ class MainMenu(tk.Tk):
 
     def export(self):
         backend.export_tables()
-        messagebox.showinfo("Export complete", message="Tables exported to data\\csv")
+        messagebox.showinfo("Export complete",
+                            message="Tables exported to data\\csv")
 
     def report_callback_exception(self, *args):
         exc, val, tb = args
@@ -193,6 +197,7 @@ class MainMenu(tk.Tk):
                + '\nTerminating.')
         curwindow = self.dataEntryWindow if self.dataEntryWindow else None
         messagebox.showerror("Exception", err, parent=curwindow)
+
 
 if __name__ == "__main__":
     app = MainMenu()

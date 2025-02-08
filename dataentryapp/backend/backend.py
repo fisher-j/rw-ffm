@@ -5,6 +5,7 @@ from pathlib import Path
 from datetime import datetime, date
 import re
 import csv
+from shutil import make_archive
 
 def initialize_database():
     # assumes run from parent directory of dataentryapp
@@ -873,6 +874,8 @@ def get_cwd(collectid):
     cur.close()
     return res
 
+# Need to pivot metermarks to wide format for display to match the data entry
+# sheet
 def get_veg(collectid):
     cur = conn.cursor()
     cur.execute(
@@ -908,6 +911,8 @@ def get_veg(collectid):
     cur.close()
     return res
 
+# When metermark (station) data are in wide format, order matters, this is for
+# the case when meter mark 10 is first, followed by 5
 def get_veg_swap(collectid):
     cur = conn.cursor()
     cur.execute(
@@ -956,6 +961,7 @@ def get_transectid(collectid, transectnum):
     cur.close()
     return res[0] if res else res
 
+# These functions parallel those for veg data above
 def get_fwd(collectid):
     cur = conn.cursor()
     cur.execute(
@@ -1073,6 +1079,13 @@ def get_regen_heights(datasheetid, plotnum, spp, sizeclass):
 
 # TODO: Either this, or another function needs to return Notes as well
 # And then I need to figure out how to display regen heights.
+# We tallied all sapings in a species/sizeclass, but only recorded the height of
+# the first one encountered.
+# Here I account for two types of missing data for each species/sizeclass:
+# 1. When we have a count (tally) but no height data
+# 2. when we have a height, but no associated count
+# Otherwise, we have both a count, and at least one height and crown base height
+# observation
 def get_datasheet_regen_counts(datasheetid):
     """Get counts of regen in wide format from datasheetid"""
     cur = conn.cursor()
@@ -1276,8 +1289,6 @@ def get_plot_num_collection_id(datasheetid):
 
 # For a given datasheetid, get full description of each collection associated
 # with the sheet
-
-
 def get_collection_from_datasheetid(datasheetid):
     """Get identification varaiables for current datasheet.
 
@@ -1451,7 +1462,7 @@ def ensure_unique_filename(fp):
 
 def increment_filename(fp):
     # any number after an opening parentheses gets incremented.
-    m = re.search("(.*)\(([\d]+)", fp.stem)
+    m = re.search(r"(.*)\(([\d]+)", fp.stem)
     if m:
         num = str(int(m[2]) + 1)
         ns = m[1] + "(" + num + ")"
@@ -1486,11 +1497,13 @@ def flag_bad_values(collection, check_values):
             bad.append(t)
     return bad
 
-def export_tables():
-    dir = dataDir / "csv"
-    dir.mkdir(exist_ok=True)
+
+def _export(type):
+    dir = dataDir / "csv" / type
+    print(dir)
+    dir.mkdir(parents = True, exist_ok=True)
     cur = conn.cursor()
-    cur.execute("SELECT name FROM sqlite_master WHERE type='table'")
+    cur.execute("SELECT name FROM sqlite_master WHERE type=?", (type,))
     tables = cur.fetchall()
     for table in tables:
         table = table[0]
@@ -1502,3 +1515,14 @@ def export_tables():
             csv_writer.writerow(i[0] for i in cur.description)
             csv_writer.writerows(cur)
     cur.close()
+
+def export_tables():
+    """Export data to csv's and zip
+
+    Data is exported in two formats: the raw data tables, and views which are
+    more human readable, but don't encompass all information."""
+    zipfile = dataDir / "rwffm_csvs"
+    input = dataDir / "csv"
+    _export("view")
+    _export("table")
+    make_archive(str(zipfile), "zip", str(input))

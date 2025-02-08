@@ -3,9 +3,11 @@ library(dplyr)
 library(sf)
 library(stars)
 library(rayshader)
+source("./scripts/pan3d.r")
 
 # Allow printing to html document
-rgl::setupKnitr(autoprint = TRUE)
+# Does not seem to work with Quarto
+# rgl::setupKnitr(autoprint = TRUE)
 
 # I want to overlay my plots on a 3d surface representing the terrain for each
 # site
@@ -106,21 +108,22 @@ aerial_photo_3d <- function(fig) {
     )
   }
   render_compass(position = "S", altitude = min(dem_matrix, na.rm = TRUE), compass_radius = 30)
-  source("./scripts/pan3d.r")
-  pan3d(2)
   title3d(paste(fig, collapse = " "))
-  print(paste(fig, collapse = " "))
 }
 
 # This will render all units at the burn/no-burn level
-# rgl::mfrow3d(4, 3)
-# for(fig in list_figures(blocks)) {
-#   rgl::next3d()
-#   aerial_photo_3d(fig)
-# }
+rgl::mfrow3d(4, 3)
+for(fig in list_figures(blocks)) {
+  rgl::next3d()
+  aerial_photo_3d(fig)
+}
+
+rgl::rglwidget()
 
 
-aerial_photo_3d(list(site = "fair", burn = "nb"))
+# aerial_photo_3d(list(site = "fair", burn = "nb"))
+# rgl::rglwidget()
+# pan3d(2)
 
 
 # dem_matrix |>

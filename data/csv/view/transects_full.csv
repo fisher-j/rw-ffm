@@ -1,0 +1,592 @@
+stageid,site,treatment,burn,plotnum,transectnum,azimuth,slope,notes
+1,bob,ls,b,12,1,0,3,under huckleberry at 5m
+1,bob,ls,b,12,2,120,21,
+1,bob,ls,b,12,3,240,33,
+1,bob,ls,b,3,1,0,54,
+1,bob,ls,b,3,2,120,19,
+1,bob,ls,b,3,3,240,26,
+1,bob,ls,b,5,1,0,18,huckleberry at 10m pieces of broken rw top are on transect at 10m
+1,bob,ls,b,5,2,120,18,
+1,bob,ls,b,5,3,240,18,
+1,bob,ls,b,6,1,0,4,
+1,bob,ls,b,6,2,120,18,in skid
+1,bob,ls,b,6,3,240,17,5-10m in skid
+1,bob,ls,b,9,1,0,15,middle in skid
+1,bob,ls,b,9,2,120,4,"in skid, all iris"
+1,bob,ls,b,9,3,240,23,"end and middle in skid, end in iris"
+1,bob,ls,nb,1,1,0,17,end in skid
+1,bob,ls,nb,1,2,120,17,end in skid
+1,bob,ls,nb,1,3,240,10,
+1,bob,ls,nb,12,1,353,38,
+1,bob,ls,nb,12,2,120,19,through skid
+1,bob,ls,nb,12,3,240,26,edge of skid
+1,bob,ls,nb,3,1,0,24,
+1,bob,ls,nb,3,2,120,43,in skid
+1,bob,ls,nb,3,3,240,29,
+1,bob,ls,nb,6,1,0,36,
+1,bob,ls,nb,6,2,120,13,begining crosses skid
+1,bob,ls,nb,6,3,240,16,in skid
+1,bob,ls,nb,9,1,0,21,huckleberry at 10m
+1,bob,ls,nb,9,2,120,4,
+1,bob,ls,nb,9,3,240,18,
+1,bob,m,b,1,1,0,16,
+1,bob,m,b,1,2,120,12,
+1,bob,m,b,1,3,240,2,redwood foliage (branchlets) 2mm cutoff
+1,bob,m,b,11,1,0,13,
+1,bob,m,b,11,2,120,21,large redwood litter particles
+1,bob,m,b,11,3,240,8,
+1,bob,m,b,4,1,0,43,large old-growth tree well
+1,bob,m,b,4,2,120,2,along skid
+1,bob,m,b,4,3,240,3,in skid
+1,bob,m,b,6,1,0,37,lots of huckleberry in plot
+1,bob,m,b,6,2,120,2,lots of huckleberry in plot
+1,bob,m,b,6,3,248,31,lots of huckleberry in plot
+1,bob,m,b,7,1,0,42,plot center in draw
+1,bob,m,b,7,2,120,21,plot center in draw
+1,bob,m,b,7,3,240,18,plot center in draw
+1,bob,m,nb,1,1,0,25,in skid
+1,bob,m,nb,1,2,120,26,
+1,bob,m,nb,1,3,240,11,
+1,bob,m,nb,10,1,0,9,in skid
+1,bob,m,nb,10,2,120,19,partial skid
+1,bob,m,nb,10,3,240,24,through large downed tanoak with leaves
+1,bob,m,nb,11,1,0,51,
+1,bob,m,nb,11,2,120,3,
+1,bob,m,nb,11,3,240,43,in old growth stump
+1,bob,m,nb,3,1,0,38,
+1,bob,m,nb,3,2,120,3,
+1,bob,m,nb,3,3,260,27,
+1,bob,m,nb,7,1,0,21,
+1,bob,m,nb,7,2,146,14,
+1,bob,m,nb,7,3,240,1,
+1,bob,m,nb,8,1,0,5,
+1,bob,m,nb,8,2,120,21,large down ceanothus
+1,bob,m,nb,8,3,240,54,
+1,bob,m,nb,9,1,0,14,near skid at 10 m
+1,bob,m,nb,9,2,120,18,
+1,bob,m,nb,9,3,240,63,in skid at 10 m
+1,bob,np,b,1,1,0,10,
+1,bob,np,b,1,2,120,7,in skid
+1,bob,np,b,1,3,240,4,"crosses skid, skid edge at 10 m"
+1,bob,np,b,12,1,0,7,thick redwood needle cast
+1,bob,np,b,12,2,120,2,"seasonal seep, all sedge at 10 m"
+1,bob,np,b,12,3,240,1,
+1,bob,np,b,3,1,0,54,
+1,bob,np,b,3,2,120,12,
+1,bob,np,b,3,3,240,19,huckleberry at 5 m
+1,bob,np,b,6,1,0,4,
+1,bob,np,b,6,2,120,10,
+1,bob,np,b,6,3,240,8,redwood litter
+1,bob,np,b,9,1,0,9,
+1,bob,np,b,9,2,120,8,tanoak at 10 m
+1,bob,np,b,9,3,240,3,"open area, lots of fuel, does not seem to be skid or landing"
+1,bob,np,nb,1,1,0,13,
+1,bob,np,nb,1,2,120,8,
+1,bob,np,nb,1,3,240,19,
+1,bob,np,nb,11,1,0,11,
+1,bob,np,nb,11,2,120,4,crosses downed trees from another experiment
+1,bob,np,nb,11,3,240,16,
+1,bob,np,nb,12,1,0,47,through dead/down shrub
+1,bob,np,nb,12,2,115,29,
+1,bob,np,nb,12,3,240,42,
+1,bob,np,nb,2,1,0,4,
+1,bob,np,nb,2,2,120,11,in skid
+1,bob,np,nb,2,3,240,24,
+1,bob,np,nb,7,1,0,9,
+1,bob,np,nb,7,2,120,14,
+1,bob,np,nb,7,3,240,12,in skid
+1,camp8,ls,b,12,1,358,15,
+1,camp8,ls,b,12,2,120,7,
+1,camp8,ls,b,12,3,226,13,
+1,camp8,ls,b,13,1,0,54,
+1,camp8,ls,b,13,2,120,6,
+1,camp8,ls,b,13,3,240,38,
+1,camp8,ls,b,3,1,0,8,
+1,camp8,ls,b,3,2,120,32,
+1,camp8,ls,b,3,3,240,25,
+1,camp8,ls,b,5,1,0,10,
+1,camp8,ls,b,5,2,120,18,
+1,camp8,ls,b,5,3,240,23,
+1,dun,ls,b,7,1,322,37,
+1,dun,ls,b,7,2,120,30,
+1,dun,ls,b,7,3,240,54,
+1,camp8,ls,b,8,1,0,29,
+1,camp8,ls,b,8,2,120,53,
+1,camp8,ls,b,8,3,240,13,
+1,camp8,m,nb,1,1,0,4,
+1,camp8,m,nb,1,2,120,5,
+1,camp8,m,nb,1,3,235,7,
+1,camp8,m,nb,10,1,0,38,
+1,camp8,m,nb,10,2,120,8,in skid
+1,camp8,m,nb,10,3,240,25,
+1,camp8,m,nb,3,1,0,9,large redwood trunk at 10 m
+1,camp8,m,nb,3,2,120,12,
+1,camp8,m,nb,3,3,240,9,"crosses skid, still a lot of fuel"
+1,camp8,m,nb,4,1,0,10,started recording FBD
+1,camp8,m,nb,4,2,120,33,
+1,camp8,m,nb,4,3,240,31,
+1,camp8,m,nb,6,1,335,21,offset: tall stump
+1,camp8,m,nb,6,2,120,28,
+1,camp8,m,nb,6,3,240,4,
+1,camp8,m,b,11,1,0,33,crosses skid
+1,camp8,m,b,11,2,120,21,
+1,camp8,m,b,11,3,240,0,end in denser area
+1,camp8,m,b,13,1,0,27,plot edge of flag boundary
+1,camp8,m,b,13,2,120,32,plot edge of flag boundary
+1,camp8,m,b,13,3,240,4,plot edge of flag boundary
+1,camp8,m,b,17,1,0,43,
+1,camp8,m,b,17,2,120,8,crosses skid
+1,camp8,m,b,17,3,240,5,
+1,camp8,m,b,5,1,0,16,"in skid, flat areas heavily skidded"
+1,camp8,m,b,5,2,120,27,"redwood sprouts at 5 m, crosses skid, flat areas heavily skidded"
+1,camp8,m,b,5,3,240,3,flat areas heavily skidded
+1,camp8,m,b,6,1,0,8,sword fern at 10 m
+1,camp8,m,b,6,2,120,17,redwood litter at 10 m
+1,camp8,m,b,6,3,240,28,
+1,camp8,ls,nb,12,1,0,4,across skid with lots of debris
+1,camp8,ls,nb,12,2,120,16,
+1,camp8,ls,nb,12,3,240,24,
+1,camp8,ls,nb,2,1,0,32,
+1,camp8,ls,nb,2,2,120,35,
+1,camp8,ls,nb,2,3,240,16,
+1,camp8,ls,nb,4,1,0,0,
+1,camp8,ls,nb,4,2,120,42,
+1,camp8,ls,nb,4,3,240,29,
+1,camp8,ls,nb,6,1,0,30,
+1,camp8,ls,nb,6,2,120,10,"along skid edge, in skid at 10 m"
+1,camp8,ls,nb,6,3,240,7,all in skid
+1,camp8,ls,nb,7,1,0,48,
+1,camp8,ls,nb,7,2,120,28,
+1,camp8,ls,nb,7,3,240,29,near skid edge
+1,camp8,np,b,10,1,0,13,
+1,camp8,np,b,10,2,120,20,
+1,camp8,np,b,10,3,240,19,
+1,camp8,np,b,2,1,0,19,
+1,camp8,np,b,2,2,120,13,
+1,camp8,np,b,2,3,240,11,
+1,camp8,np,b,4,1,0,18,
+1,camp8,np,b,4,2,120,9,
+1,camp8,np,b,4,3,240,16,
+1,camp8,np,b,7,1,0,22,
+1,camp8,np,b,7,2,120,5,
+1,camp8,np,b,7,3,240,6,
+1,camp8,np,b,8,1,0,9,
+1,camp8,np,b,8,2,120,6,
+1,camp8,np,b,8,3,240,9,
+1,camp8,np,nb,10,1,0,10,
+1,camp8,np,nb,10,2,120,15,
+1,camp8,np,nb,10,3,240,13,
+1,camp8,np,nb,11,1,0,13,
+1,camp8,np,nb,11,2,120,2,
+1,camp8,np,nb,11,3,240,25,
+1,camp8,np,nb,2,1,358,35,
+1,camp8,np,nb,2,2,120,42,
+1,camp8,np,nb,2,3,240,13,
+1,camp8,np,nb,3,1,0,5,
+1,camp8,np,nb,3,2,120,11,
+1,camp8,np,nb,3,3,240,10,
+1,camp8,np,nb,8,1,0,28,
+1,camp8,np,nb,8,2,120,13,
+1,camp8,np,nb,8,3,240,8,
+1,crib,ls,b,1,1,3,7,
+1,crib,ls,b,1,2,120,23,
+1,crib,ls,b,1,3,240,36,
+1,crib,ls,b,11,1,0,5,
+1,crib,ls,b,11,2,105,22,dead herb sword fern
+1,crib,ls,b,11,3,240,49,
+1,crib,ls,b,14,1,343,13,"edge of skid at 5 m, in skid at 10 m"
+1,crib,ls,b,14,2,120,13,in skid at 5 m
+1,crib,ls,b,14,3,240,39,
+1,crib,ls,b,21,1,0,6,"in skid at 5m, in trees at 10m"
+1,crib,ls,b,21,2,120,7,
+1,crib,ls,b,21,3,240,33,whole transect in skid
+1,crib,ls,b,23,1,0,4,in skid
+1,crib,ls,b,23,2,120,41,all trees in plot are on/near this transect
+1,crib,ls,b,23,3,240,29,
+1,crib,ls,b,8,1,0,3,
+1,crib,ls,b,8,2,120,43,
+1,crib,ls,b,8,3,240,32,
+1,crib,ls,nb,11,1,0,2,
+1,crib,ls,nb,11,2,120,24,sword fern
+1,crib,ls,nb,11,3,234,43,
+1,crib,ls,nb,2,1,0,42,in skid
+1,crib,ls,nb,2,2,120,30,
+1,crib,ls,nb,2,3,240,1,
+1,crib,ls,nb,4,1,0,30,
+1,crib,ls,nb,4,2,120,29,
+1,crib,ls,nb,4,3,240,5,
+1,crib,ls,nb,8,1,0,8,"open, wide tree spacing"
+1,crib,ls,nb,8,2,120,26,"ferns at 10m, open wide tree spacing"
+1,crib,ls,nb,8,3,240,9,open wide tree spacing
+1,crib,ls,nb,9,1,0,9,
+1,crib,ls,nb,9,2,120,14,
+1,crib,ls,nb,9,3,240,27,litter piled by stump at 10m
+1,crib,m,b,10,1,0,39,
+1,crib,m,b,10,2,120,31,in skid
+1,crib,m,b,10,3,240,2,
+1,crib,m,b,12,1,0,20,
+1,crib,m,b,12,2,120,21,
+1,crib,m,b,12,3,240,17,
+1,crib,m,b,19,1,0,17,
+1,crib,m,b,19,2,120,62,
+1,crib,m,b,19,3,240,30,
+1,crib,m,b,2,1,0,36,
+1,crib,m,b,2,2,120,8,
+1,crib,m,b,2,3,240,20,
+1,crib,m,b,4,1,0,47,
+1,crib,m,b,4,2,120,4,
+1,crib,m,b,4,3,240,39,
+1,crib,m,nb,1,1,0,21,
+1,crib,m,nb,1,2,120,19,
+1,crib,m,nb,1,3,240,15,
+1,crib,m,nb,10,1,0,7,
+1,crib,m,nb,10,2,120,19,in skid
+1,crib,m,nb,10,3,246,23,
+1,crib,m,nb,3,1,0,12,
+1,crib,m,nb,3,2,120,32,
+1,crib,m,nb,3,3,240,22,
+1,crib,m,nb,5,1,0,36,
+1,crib,m,nb,5,2,120,12,
+1,crib,m,nb,5,3,244,27,
+1,crib,m,nb,6,1,0,16,
+1,crib,m,nb,6,2,120,2,
+1,crib,m,nb,6,3,240,4,
+1,crib,np,b,10,1,0,14,
+1,crib,np,b,10,2,120,18,
+1,crib,np,b,10,3,240,5,
+1,crib,np,b,12,1,0,7,
+1,crib,np,b,12,2,120,26,
+1,crib,np,b,12,3,240,36,
+1,crib,np,b,17,1,0,6,
+1,crib,np,b,17,2,137,24,
+1,crib,np,b,17,3,240,43,
+1,crib,np,b,2,1,0,30,
+1,crib,np,b,2,2,120,47,
+1,crib,np,b,2,3,240,42,
+1,crib,np,b,4,1,0,19,
+1,crib,np,b,4,2,120,38,
+1,crib,np,b,4,3,240,31,
+1,crib,np,nb,1,1,0,4,
+1,crib,np,nb,1,2,120,2,
+1,crib,np,nb,1,3,240,14,all slope in last meter
+1,crib,np,nb,12,1,0,12,
+1,crib,np,nb,12,2,120,21,
+1,crib,np,nb,12,3,240,1,
+1,crib,np,nb,6,1,0,24,
+1,crib,np,nb,6,2,120,50,downed tanoak live crown at 10m
+1,crib,np,nb,6,3,240,49,
+1,crib,np,nb,7,1,0,18,
+1,crib,np,nb,7,2,120,4,in skid
+1,crib,np,nb,7,3,240,26,
+1,crib,np,nb,9,1,0,19,
+1,crib,np,nb,9,2,120,26,in skid at 10m
+1,crib,np,nb,9,3,240,13,in skid
+1,dun,ls,b,10,1,330,31,deflected to avoid cut bank
+1,dun,ls,b,10,2,120,24,
+1,dun,ls,b,10,3,240,51,
+1,dun,ls,b,17,1,0,46,"transect runs on 120cm log, duff from ground, log pith not in"
+1,dun,ls,b,17,2,120,24,
+1,dun,ls,b,17,3,240,5,
+1,dun,ls,b,2,1,0,42,
+1,dun,ls,b,2,2,120,44,
+1,dun,ls,b,2,3,240,68,multiple large downed tanoak tops
+1,dun,ls,b,20,1,0,15,moss at 10m and 5m
+1,dun,ls,b,20,2,120,17,
+1,dun,ls,b,20,3,240,23,
+1,dun,ls,nb,1,1,0,13,
+1,dun,ls,nb,1,2,120,12,
+1,dun,ls,nb,1,3,240,7,
+1,dun,ls,nb,10,1,0,9,
+1,dun,ls,nb,10,2,120,14,
+1,dun,ls,nb,10,3,240,1,
+1,dun,ls,nb,3,1,0,18,
+1,dun,ls,nb,3,2,120,5,
+1,dun,ls,nb,3,3,240,10,
+1,dun,ls,nb,6,1,0,10,
+1,dun,ls,nb,6,2,120,5,
+1,dun,ls,nb,6,3,240,11,
+1,dun,ls,nb,8,1,0,32,
+1,dun,ls,nb,8,2,120,18,
+1,dun,ls,nb,8,3,240,7,
+1,dun,m,b,1,1,0,10,
+1,dun,m,b,1,2,120,15,
+1,dun,m,b,1,3,240,20,
+1,dun,m,b,10,1,0,3,
+1,dun,m,b,10,2,120,19,
+1,dun,m,b,10,3,240,7,
+1,dun,m,b,3,1,0,6,
+1,dun,m,b,3,2,120,5,
+1,dun,m,b,3,3,240,20,
+1,dun,m,b,6,1,0,7,
+1,dun,m,b,6,2,120,11,
+1,dun,m,b,6,3,240,8,
+1,dun,m,b,9,1,0,25,duff litter values don't agree with FBD
+1,dun,m,b,9,2,120,35,duff litter values don't agree with FBD
+1,dun,m,b,9,3,240,15,duff litter values don't agree with FBD
+1,dun,m,nb,1,1,0,10,
+1,dun,m,nb,1,2,120,28,
+1,dun,m,nb,1,3,240,15,
+1,dun,m,nb,10,1,0,15,
+1,dun,m,nb,10,2,120,10,
+1,dun,m,nb,10,3,240,10,Hollow space under log at 10m
+1,dun,m,nb,3,1,0,10,
+1,dun,m,nb,3,2,120,35,
+1,dun,m,nb,3,3,240,30,
+1,dun,m,nb,6,1,0,12,
+1,dun,m,nb,6,2,120,18,
+1,dun,m,nb,6,3,240,31,dead fuel perched on vegetation
+1,dun,m,nb,9,1,353,21,
+1,dun,m,nb,9,2,120,19,
+1,dun,m,nb,9,3,236,7,
+1,dun,np,b,1,1,0,25,
+1,dun,np,b,1,2,120,45,"runs through deep slash, ends below a log landing"
+1,dun,np,b,1,3,240,8,
+1,dun,np,b,11,1,0,12,plot center in middle of skid
+1,dun,np,b,11,2,120,9,plot center in middle of skid
+1,dun,np,b,11,3,240,16,plot center in middle of skid
+1,dun,np,b,4,1,0,14,plot center in middle of skid
+1,dun,np,b,4,2,120,5,plot center in middle of skid
+1,dun,np,b,4,3,240,26,plot center in middle of skid
+1,dun,np,b,5,1,0,25,
+1,dun,np,b,5,2,120,6,
+1,dun,np,b,5,3,240,27,
+1,dun,np,b,7,1,2,25,
+1,dun,np,b,7,2,120,12,
+1,dun,np,b,7,3,240,22,
+1,dun,np,nb,1,1,0,12,in road at 10m
+1,dun,np,nb,1,2,120,15,
+1,dun,np,nb,1,3,240,17,
+1,dun,np,nb,10,1,0,8,in skid at 10m
+1,dun,np,nb,10,2,120,8,
+1,dun,np,nb,10,3,240,7,
+1,dun,np,nb,2,1,0,4,
+1,dun,np,nb,2,2,120,13,
+1,dun,np,nb,2,3,240,8,
+1,dun,np,nb,4,1,0,32,
+1,dun,np,nb,4,2,120,23,
+1,dun,np,nb,4,3,240,1,
+1,dun,np,nb,8,1,0,7,
+1,dun,np,nb,8,2,124,18,
+1,dun,np,nb,8,3,240,25,
+1,fair,ls,b,1,1,0,11,
+1,fair,ls,b,1,2,120,39,
+1,fair,ls,b,1,3,240,21,"uneven slope, bank at 10m"
+1,fair,ls,b,10,1,0,7,
+1,fair,ls,b,10,2,120,13,
+1,fair,ls,b,10,3,240,31,
+1,fair,ls,b,2,1,0,4,
+1,fair,ls,b,2,2,120,17,
+1,fair,ls,b,2,3,240,18,
+1,fair,ls,b,9,1,0,12,
+1,fair,ls,b,9,2,120,21,
+1,fair,ls,b,9,3,240,4,
+1,fair,ls,b,8,1,0,16,
+1,fair,ls,b,8,2,120,20,
+1,fair,ls,b,8,3,240,3,
+1,fair,ls,nb,1,1,0,2,
+1,fair,ls,nb,1,2,120,0,
+1,fair,ls,nb,1,3,240,2,salal at 5m
+1,fair,ls,nb,11,1,0,1,
+1,fair,ls,nb,11,2,120,2,
+1,fair,ls,nb,11,3,240,1,
+1,fair,ls,nb,4,1,0,2,
+1,fair,ls,nb,4,2,120,2,
+1,fair,ls,nb,4,3,240,0,"downed trees dead tops at 2m, several similar on plot"
+1,fair,ls,nb,5,1,4,2,
+1,fair,ls,nb,5,2,120,14,
+1,fair,ls,nb,5,3,240,34,
+1,fair,ls,nb,7,1,0,7,"in skid at 10m, salal"
+1,fair,ls,nb,7,2,120,0,salal
+1,fair,ls,nb,7,3,240,,missing slope
+1,fair,m,b,10,1,0,16,
+1,fair,m,b,10,2,120,5,
+1,fair,m,b,10,3,240,4,
+1,fair,m,b,3,1,0,6,
+1,fair,m,b,3,2,120,5,
+1,fair,m,b,3,3,240,4,
+1,fair,m,b,4,1,0,10,
+1,fair,m,b,4,2,120,12,
+1,fair,m,b,4,3,240,12,
+1,fair,m,b,6,1,0,14,
+1,fair,m,b,6,2,120,2,
+1,fair,m,b,6,3,240,6,
+1,fair,m,b,7,1,0,9,
+1,fair,m,b,7,2,120,13,
+1,fair,m,b,7,3,240,21,
+1,fair,m,nb,1,1,20,6,
+1,fair,m,nb,1,2,120,4,
+1,fair,m,nb,1,3,240,7,
+1,fair,m,nb,11,1,0,8,
+1,fair,m,nb,11,2,121,3,
+1,fair,m,nb,11,3,240,4,
+1,fair,m,nb,13,1,0,9,
+1,fair,m,nb,13,2,120,2,
+1,fair,m,nb,13,3,240,2,
+1,fair,m,nb,3,1,355,15,
+1,fair,m,nb,3,2,120,33,
+1,fair,m,nb,3,3,240,9,
+1,fair,m,nb,7,1,0,6,in skid at 10m
+1,fair,m,nb,7,2,120,4,
+1,fair,m,nb,7,3,240,7,crosses path at 3m
+1,fair,np,b,2,1,0,25,
+1,fair,np,b,2,2,120,29,
+1,fair,np,b,2,3,240,51,
+1,fair,np,b,3,1,0,7,
+1,fair,np,b,3,2,120,3,
+1,fair,np,b,3,3,234,1,
+1,fair,np,b,5,1,0,44,
+1,fair,np,b,5,2,120,19,
+1,fair,np,b,5,3,240,59,
+1,fair,np,b,7,1,0,3,
+1,fair,np,b,7,2,120,4,
+1,fair,np,b,7,3,240,44,
+1,fair,np,b,9,1,0,19,
+1,fair,np,b,9,2,120,9,
+1,fair,np,b,9,3,240,16,
+1,fair,np,nb,1,1,0,4,
+1,fair,np,nb,1,2,129,5,
+1,fair,np,nb,1,3,240,7,
+1,fair,np,nb,10,1,0,3,
+1,fair,np,nb,10,2,120,2,
+1,fair,np,nb,10,3,240,21,
+1,fair,np,nb,3,1,0,11,in skid at 10m
+1,fair,np,nb,3,2,114,3,
+1,fair,np,nb,3,3,240,21,in skid at 10m
+1,fair,np,nb,5,1,0,6,
+1,fair,np,nb,5,2,120,1,
+1,fair,np,nb,5,3,240,3,crosses skid
+1,fair,np,nb,7,1,0,2,
+1,fair,np,nb,7,2,120,3,
+1,fair,np,nb,7,3,240,2,in skid at 10m
+1,hare,ls,b,10,1,0,18,
+1,hare,ls,b,10,2,110,2,
+1,hare,ls,b,10,3,240,13,
+1,hare,ls,b,12,1,0,5,
+1,hare,ls,b,12,2,120,67,
+1,hare,ls,b,12,3,240,35,
+1,hare,ls,b,2,1,0,4,
+1,hare,ls,b,2,2,120,9,
+1,hare,ls,b,2,3,240,1,
+1,hare,ls,b,5,1,0,36,
+1,hare,ls,b,5,2,129,31,
+1,hare,ls,b,5,3,240,,
+1,hare,ls,b,6,1,0,11,
+1,hare,ls,b,6,2,120,4,
+1,hare,ls,b,6,3,240,2,
+1,hare,ls,nb,10,1,0,23,
+1,hare,ls,nb,10,2,120,11,
+1,hare,ls,nb,10,3,240,37,
+1,hare,ls,nb,2,1,0,24,
+1,hare,ls,nb,2,2,120,3,
+1,hare,ls,nb,2,3,240,7,
+1,hare,ls,nb,4,1,0,28,
+1,hare,ls,nb,4,2,120,6,
+1,hare,ls,nb,4,3,240,32,
+1,hare,ls,nb,6,1,0,19,
+1,hare,ls,nb,6,2,120,25,
+1,hare,ls,nb,6,3,240,53,
+1,hare,ls,nb,9,1,0,29,
+1,hare,ls,nb,9,2,120,48,
+1,hare,ls,nb,9,3,240,7,
+1,hare,m,b,1,1,0,2,
+1,hare,m,b,1,2,120,13,
+1,hare,m,b,1,3,240,3,shrubs are df sprouts
+1,hare,m,b,4,1,0,25,
+1,hare,m,b,4,2,131,23,
+1,hare,m,b,4,3,240,24,
+1,hare,m,b,5,1,0,2,
+1,hare,m,b,5,2,120,12,
+1,hare,m,b,5,3,240,31,
+1,hare,m,b,8,1,0,2,
+1,hare,m,b,8,2,120,30,slash foliage present
+1,hare,m,b,8,3,240,22,
+1,hare,m,b,9,1,0,13,
+1,hare,m,b,9,2,120,4,
+1,hare,m,b,9,3,240,3,broken rw top with foliage suspended in shrub
+1,hare,m,nb,1,1,0,21,
+1,hare,m,nb,1,2,120,26,
+1,hare,m,nb,1,3,240,25,in skid at 10m
+1,hare,m,nb,10,1,0,6,
+1,hare,m,nb,10,2,120,7,
+1,hare,m,nb,10,3,240,,
+1,hare,m,nb,3,1,0,34,
+1,hare,m,nb,3,2,120,11,
+1,hare,m,nb,3,3,240,23,
+1,hare,m,nb,5,1,0,7,
+1,hare,m,nb,5,2,120,2,
+1,hare,m,nb,5,3,240,4,
+1,hare,m,nb,9,1,0,6,
+1,hare,m,nb,9,2,120,12,
+1,hare,m,nb,9,3,240,12,
+1,hare,np,b,1,1,0,33,
+1,hare,np,b,1,2,128,15,
+1,hare,np,b,1,3,240,9,
+1,hare,np,b,10,1,0,11,
+1,hare,np,b,10,2,120,7,
+1,hare,np,b,10,3,240,26,
+1,hare,np,b,3,1,0,21,
+1,hare,np,b,3,2,120,16,
+1,hare,np,b,3,3,240,17,
+1,hare,np,b,4,1,0,31,
+1,hare,np,b,4,2,120,13,
+1,hare,np,b,4,3,240,15,
+1,hare,np,b,8,1,0,7,lots of downed saplings
+1,hare,np,b,8,2,120,6,"transect crosses downed saplings, rw slash suspended in leaning dead saplings, lots of downed saplings"
+1,hare,np,b,8,3,240,2,lots of downed saplings
+1,hare,np,nb,1,1,0,55,
+1,hare,np,nb,1,2,130,38,in skid at 10m
+1,hare,np,nb,1,3,240,37,
+1,hare,np,nb,11,1,0,7,
+1,hare,np,nb,11,2,120,20,
+1,hare,np,nb,11,3,240,10,
+1,hare,np,nb,5,1,0,38,"large rotting log, not counted as duff depth"
+1,hare,np,nb,5,2,120,5,
+1,hare,np,nb,5,3,240,46,huckleberry at 5m
+1,hare,np,nb,6,1,0,12,
+1,hare,np,nb,6,2,120,32,
+1,hare,np,nb,6,3,240,34,
+1,hare,np,nb,8,1,0,42,
+1,hare,np,nb,8,2,120,2,
+1,hare,np,nb,8,3,240,23,
+1,bob,m,b,2,1,0,8,
+1,bob,m,b,2,2,120,15,
+1,bob,m,b,2,3,240,9,in road from 7 to 10 m
+1,bob,m,nb,2,1,0,25,
+1,bob,m,nb,2,2,120,5,
+1,bob,m,nb,2,3,240,45,
+1,bob,np,b,10,1,0,13,
+1,bob,np,b,10,2,120,2,
+1,bob,np,b,10,3,240,12,
+1,camp8,m,nb,2,1,4,6,
+1,camp8,m,nb,2,2,120,10,
+1,camp8,m,nb,2,3,240,5,
+1,camp8,np,b,6,1,0,14,
+1,camp8,np,b,6,2,120,11,
+1,camp8,np,b,6,3,240,12,
+1,dun,ls,b,11,1,0,46,
+1,dun,ls,b,11,2,130,42,
+1,dun,ls,b,11,3,240,25,
+1,fair,ls,b,6,1,0,25,
+1,fair,ls,b,6,2,120,5,
+1,fair,ls,b,6,3,240,8,
+1,fair,ls,b,7,1,0,32,
+1,fair,ls,b,7,2,105,1,
+1,fair,ls,b,7,3,240,17,
+1,fair,m,b,2,1,355,6,
+1,fair,m,b,2,2,120,16,
+1,fair,m,b,2,3,240,3,
+1,fair,m,nb,2,1,0,2,
+1,fair,m,nb,2,2,120,5,
+1,fair,m,nb,2,3,240,6,
+1,hare,ls,nb,3,1,0,23,
+1,hare,ls,nb,3,2,120,25,
+1,hare,ls,nb,3,3,240,18,
+1,hare,ls,nb,5,1,0,18,
+1,hare,ls,nb,5,2,120,4,
+1,hare,ls,nb,5,3,234,5,
+1,bob,ls,nb,5,1,0,8,
+1,bob,ls,nb,5,2,120,9,
+1,bob,ls,nb,5,3,240,9,"missing slope, used average of others"
+1,dun,ls,b,22,1,0,,missing slope
+1,dun,ls,b,22,3,240,,"missing slope, large OG redwood log, transect num not recorded,  guessed."
+1,dun,ls,b,22,2,120,,missing slope

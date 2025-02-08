@@ -30,3 +30,6 @@ data/csv/.Rhistory
 
 # Don't include GIS data
 data/gis
+
+# may include unnecessary dependencies
+analysis/scratch.r

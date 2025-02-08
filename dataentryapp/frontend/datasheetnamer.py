@@ -30,7 +30,7 @@ pages, but instead from the fitz.DisplayList of the page. Each display list
 will be stored in a list and looked up by page number. This way, zooming
 pixmaps and page re-visits will re-use a once-created display list.
 
- """
+"""
 
 import sys
 sys.path.append("dataentryapp/backend")

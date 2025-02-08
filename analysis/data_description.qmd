@@ -9,9 +9,9 @@ library(tidyverse)
 
 The following is generated from the field_descriptions table which is included
 in the database which can be [downloaded here](rw.db), or you can download a zip
-file with csvs [here](rw_csvs.zip).
+file with csvs [here](rwffm_csvs.zip).
 
-First, get table as a dataframe.
+first, get table as a dataframe.
 
 ```{r}
 con <- DBI::dbConnect(RSQLite::SQLite(), "../data/rw.db")
